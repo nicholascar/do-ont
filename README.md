@@ -1,4 +1,4 @@
-# AGR-O
+# Decision-O
 The Decision ontology
 
 ## Introduction
