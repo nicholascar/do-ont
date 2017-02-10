@@ -7,7 +7,7 @@ This Decision ontology is...
 
 ## Ontology document
 Turtle format: [decision.ttl](decision.ttl)  
-RDF XML format: [decision.rdf](decision.rdf)  
+RDF XML format: [decision.owl](decision.owl)  
 HTML format: *coming*
 
 
