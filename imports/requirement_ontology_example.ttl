@@ -1,0 +1,254 @@
+@prefix : <http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology_example.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix requirement_ontology: <http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+requirement_ontology:Example_requirement_1 a owl:Class ;
+    rdfs:label "Example requirement 1"@en,
+        "Wymaganie dotyczące opsiania zidentyfikowanych zagrożeń"@pl ;
+    requirement_ontology:has_description "Every hazard identified during a hazard assessment should be described."@en,
+        "Każde zagrożenie zidentyfikowane podczas analizy zagrożeń musi zostać opisane."@pl ;
+    rdfs:comment "Using named classes is preferred (as in this example). The entities get disinct treatment and will be much easier to track. They can also be easily rendered by an OWL visualisation tool (like OntoGraf)."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty requirement_ontology:is_requirement_for ;
+            owl:someValuesFrom :Hazard_identified_during_hazard_assessment ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Undescribed_hazard_identified_during_hazard_assessment ;
+            owl:onProperty requirement_ontology:is_violated_by ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Described_hazard_identified_during_hazard_assessment ;
+            owl:onProperty requirement_ontology:is_satisfied_by ],
+        requirement_ontology:Requirement .
+
+requirement_ontology:Hazard_assessment_identifying_only_described_hazards a owl:Class ;
+    rdfs:label "Hazard assessment identifying only described hazards"@en ;
+    rdfs:subClassOf requirement_ontology:Hazard_assessment_identifying_a_hazard ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( requirement_ontology:Hazard_assessment_identifying_a_hazard [ a owl:Class ;
+                        owl:complementOf [ a owl:Restriction ;
+                                owl:onProperty requirement_ontology:identifies ;
+                                owl:someValuesFrom [ a owl:Class ;
+                                        owl:intersectionOf ( requirement_ontology:Hazard [ a owl:Class ;
+                                                    owl:complementOf [ a owl:Restriction ;
+                                                            owl:onProperty requirement_ontology:is_described_by ;
+                                                            owl:someValuesFrom owl:Thing ] ] ) ] ] ] ) ] .
+
+requirement_ontology:Hazard_assessment_identifying_undescribed_hazards a owl:Class ;
+    rdfs:label "Hazard assessment identifying undescribed hazards"@en ;
+    rdfs:subClassOf requirement_ontology:Hazard_assessment_identifying_a_hazard ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( requirement_ontology:Hazard_assessment_identifying_a_hazard [ a owl:Restriction ;
+                        owl:onProperty requirement_ontology:identifies ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( requirement_ontology:Hazard [ a owl:Class ;
+                                            owl:complementOf [ a owl:Restriction ;
+                                                    owl:onProperty requirement_ontology:is_described_by ;
+                                                    owl:someValuesFrom owl:Thing ] ] ) ] ] ) ] .
+
+<http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology_example.owl> a owl:Ontology ;
+    rdfs:comment "Author: Piotr Nowara  (piotrnowara(at)gmail.com)"@en,
+        "If you don't know how to start describing your requirements or need assistance in using the Requirement Ontology please send an email to: piotrnowara(at)gmail.com"@en,
+        "Start browsing the examples with the subclasses of Requirement."@en ;
+    rdfs:seeAlso "Project webiste: http://code.google.com/p/requirement-ontology/"@en ;
+    owl:imports <http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl> ;
+    owl:versionInfo "20121122_1" .
+
+:Example_requirement_2 a owl:Class ;
+    rdfs:label "Example_requirement_2"@en ;
+    requirement_ontology:has_description "Every hazard identified during a hazard assessment should be described."@en ;
+    rdfs:comment "Using named classes is preferred (as in 'Example requirement 1'). The entities get disinct treatment and will be much easier to track. They can also be easily rendered by an OWL visualisation tool (like OntoGraf)."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty requirement_ontology:is_requirement_for ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( requirement_ontology:Hazard [ a owl:Restriction ;
+                                owl:onProperty requirement_ontology:is_identified_during ;
+                                owl:someValuesFrom requirement_ontology:Hazard_assessment ] ) ] ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( requirement_ontology:Hazard [ a owl:Restriction ;
+                                owl:onProperty requirement_ontology:is_described_by ;
+                                owl:someValuesFrom owl:Thing ] [ a owl:Restriction ;
+                                owl:onProperty requirement_ontology:is_identified_during ;
+                                owl:someValuesFrom requirement_ontology:Hazard_assessment ] ) ] ;
+            owl:onProperty requirement_ontology:is_satisfied_by ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( requirement_ontology:Hazard [ a owl:Class ;
+                                owl:complementOf [ a owl:Restriction ;
+                                        owl:onProperty requirement_ontology:is_described_by ;
+                                        owl:someValuesFrom owl:Thing ] ] [ a owl:Restriction ;
+                                owl:onProperty requirement_ontology:is_identified_during ;
+                                owl:someValuesFrom requirement_ontology:Hazard_assessment ] ) ] ;
+            owl:onProperty requirement_ontology:is_violated_by ],
+        requirement_ontology:Requirement .
+
+:Example_requirement_3 a owl:Class ;
+    rdfs:label "Example_requirement_3"@en ;
+    requirement_ontology:has_description "Minimum three hazards identified during a hazard assessment should be described."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty requirement_ontology:is_requirement_for ;
+            owl:someValuesFrom :Hazard_assessment_identifying_minimum_3_hazards ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Hazard_assessment_identifying_minimum_3_described_hazards ;
+            owl:onProperty requirement_ontology:is_satisfied_by ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Hazard_assessment_identifying_minimum_3_hazards_which_maximum_2_of_them_are_described ;
+            owl:onProperty requirement_ontology:is_violated_by ],
+        requirement_ontology:Requirement .
+
+:Example_requirement_3_alt a owl:Class ;
+    rdfs:label "Example_requirement_3_alt"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty requirement_ontology:is_requirement_for ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( :Set_of_hazards_indentified_during_hazard_assesment [ a owl:Restriction ;
+                                owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                                owl:onClass requirement_ontology:Hazard ;
+                                owl:onProperty :contains ] ) ] ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( :Set_of_hazards_indentified_during_hazard_assesment [ a owl:Restriction ;
+                                owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                                owl:onClass :Described_hazard ;
+                                owl:onProperty :contains ] ) ] ;
+            owl:onProperty requirement_ontology:is_satisfied_by ],
+        requirement_ontology:Requirement .
+
+:Undescribed_hazard a owl:Class ;
+    rdfs:label "Undescribed hazard"@en ;
+    rdfs:subClassOf requirement_ontology:Hazard ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( requirement_ontology:Hazard [ a owl:Class ;
+                        owl:complementOf [ a owl:Restriction ;
+                                owl:onProperty requirement_ontology:is_described_by ;
+                                owl:someValuesFrom owl:Thing ] ] ) ] .
+
+:number_of_elements a owl:DatatypeProperty ;
+    rdfs:label "number of elements"@en .
+
+requirement_ontology:describes a owl:ObjectProperty ;
+    rdfs:label "describes"@en .
+
+:Described_hazard_identified_during_hazard_assessment a owl:Class ;
+    rdfs:label "Described hazard identified during hazard assessment"@en,
+        "Opisane zagrożenie zidentyfikowane podczas analizy zagrożeń"@pl ;
+    rdfs:subClassOf requirement_ontology:Hazard ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( requirement_ontology:Hazard [ a owl:Restriction ;
+                        owl:onProperty requirement_ontology:is_described_by ;
+                        owl:someValuesFrom owl:Thing ] [ a owl:Restriction ;
+                        owl:onProperty requirement_ontology:is_identified_during ;
+                        owl:someValuesFrom requirement_ontology:Hazard_assessment ] ) ] .
+
+:Hazard_assessment_identifying_minimum_3_described_hazards a owl:Class ;
+    rdfs:label "Hazard assessment identifying minimum 3 described hazards"@en ;
+    rdfs:subClassOf :Hazard_assessment_identifying_minimum_3_hazards ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Hazard_assessment_identifying_minimum_3_hazards [ a owl:Restriction ;
+                        owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Described_hazard ;
+                        owl:onProperty requirement_ontology:identifies ] ) ] .
+
+:Hazard_assessment_identifying_minimum_3_hazards_which_maximum_2_of_them_are_described a owl:Class ;
+    rdfs:label "Hazard assessment identifying minimum 3 hazards which maximum 2 of them are described"@en ;
+    rdfs:subClassOf :Hazard_assessment_identifying_minimum_3_hazards ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Hazard_assessment_identifying_minimum_3_hazards [ a owl:Restriction ;
+                        owl:maxQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Described_hazard ;
+                        owl:onProperty requirement_ontology:identifies ] ) ] .
+
+:Hazard_identified_during_hazard_assessment a owl:Class ;
+    rdfs:label "Hazard identified during hazard assessment"@en,
+        "Zagrożenie zidentyfikowane podczas analizy zagrożeń"@pl ;
+    rdfs:subClassOf :Identified_hazard ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Identified_hazard [ a owl:Restriction ;
+                        owl:onProperty requirement_ontology:is_identified_during ;
+                        owl:someValuesFrom requirement_ontology:Hazard_assessment ] ) ] .
+
+:Set a owl:Class ;
+    rdfs:label "Set"@en,
+        "Zbiór"@pl .
+
+:Undescribed_hazard_identified_during_hazard_assessment a owl:Class ;
+    rdfs:label "Undescribed hazard identified during hazard assessment"@en,
+        "Nieopisane zagrożenie zidentyfikowane podczas analizy zagrożeń"@pl ;
+    rdfs:subClassOf requirement_ontology:Hazard ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( requirement_ontology:Hazard [ a owl:Class ;
+                        owl:complementOf [ a owl:Restriction ;
+                                owl:onProperty requirement_ontology:is_described_by ;
+                                owl:someValuesFrom owl:Thing ] ] [ a owl:Restriction ;
+                        owl:onProperty requirement_ontology:is_identified_during ;
+                        owl:someValuesFrom requirement_ontology:Hazard_assessment ] ) ] .
+
+:Identified_hazard a owl:Class ;
+    rdfs:label "Identified hazard"@en ;
+    rdfs:subClassOf requirement_ontology:Hazard ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( requirement_ontology:Hazard [ a owl:Restriction ;
+                        owl:onProperty requirement_ontology:is_identified_during ;
+                        owl:someValuesFrom owl:Thing ] ) ] .
+
+:Set_of_hazards_indentified_during_hazard_assesment a owl:Class ;
+    rdfs:label "Set of hazards indentified during hazard assesment"@en ;
+    rdfs:subClassOf :Set .
+
+:contains a owl:ObjectProperty ;
+    rdfs:label "contains"@en .
+
+requirement_ontology:is_violated_by a owl:ObjectProperty .
+
+:Described_hazard a owl:Class ;
+    rdfs:label "Described hazard"@en ;
+    rdfs:subClassOf requirement_ontology:Hazard ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( requirement_ontology:Hazard [ a owl:Restriction ;
+                        owl:onProperty requirement_ontology:is_described_by ;
+                        owl:someValuesFrom owl:Thing ] ) ] .
+
+requirement_ontology:Requirement a owl:Class .
+
+requirement_ontology:is_requirement_for a owl:ObjectProperty .
+
+requirement_ontology:is_satisfied_by a owl:ObjectProperty .
+
+:Hazard_assessment_identifying_minimum_3_hazards a owl:Class ;
+    rdfs:label "Hazard assessment identifying minimum 3 hazards"@en ;
+    rdfs:subClassOf requirement_ontology:Hazard_assessment_identifying_a_hazard ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( requirement_ontology:Hazard_assessment_identifying_a_hazard [ a owl:Restriction ;
+                        owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                        owl:onClass requirement_ontology:Hazard ;
+                        owl:onProperty requirement_ontology:identifies ] ) ] .
+
+requirement_ontology:Hazard_assessment_identifying_a_hazard a owl:Class ;
+    rdfs:label "Hazard assessment identifying a hazard"@en ;
+    rdfs:subClassOf requirement_ontology:Hazard_assessment ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( requirement_ontology:Hazard_assessment [ a owl:Restriction ;
+                        owl:onProperty requirement_ontology:identifies ;
+                        owl:someValuesFrom requirement_ontology:Hazard ] ) ] .
+
+requirement_ontology:identifies a owl:ObjectProperty ;
+    rdfs:label "identifies"@en .
+
+requirement_ontology:is_identified_during a owl:ObjectProperty ;
+    rdfs:label "is identified during"@en ;
+    owl:inverseOf requirement_ontology:identifies .
+
+requirement_ontology:Hazard_assessment a owl:Class ;
+    rdfs:label "Hazard assessment"@en .
+
+requirement_ontology:is_described_by a owl:ObjectProperty ;
+    rdfs:label "is described by"@en ;
+    owl:inverseOf requirement_ontology:describes .
+
+requirement_ontology:Hazard a owl:Class ;
+    rdfs:label "Hazard"@en ;
+    rdfs:subClassOf owl:Thing .
+

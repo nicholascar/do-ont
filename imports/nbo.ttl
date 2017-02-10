@@ -1,0 +1,1253 @@
+@prefix : <http://www.ndesignpatterns.org/ontologies/nbo.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.ndesignpatterns.org/ontologies/nbo.owl> a owl:Ontology ;
+    :toDo """2011-07-25
+1. Consider removing 'Criterion' class. A value can serve as a criterion. Criterion doesn't have to be a norm at all. It should be enough to have only 'has criterion' property.
+
+2. Drop OPs related to subjective implication of norms (realizables). Their status has been re-interpreted and the decision is to support only the objective meaning (the subjective seems somehow contoroversial an can be described by OPs - for example: 'is oblifed to satisfy').
+"""@en ;
+    rdfs:comment """2011-07-15
+'is context of' replaces 'is setting for'."""@en,
+        """2011-07-16
+1. Clean-up in the 'occurent' sections
+2. 'Control process' introduced
+3. 'Performing' deleted - it's not a control process. Perhaps it could be introduces as a context?
+4. 'Action' removed. Defining action would require some effort. Let's focused on the process-centric approach and see what can be done."""@en,
+        """2011-07-17
+'Control process' doesn't have to be a part of some process."""@en,
+        """2011-07-18
+1. 'is occurence of' replaces 'is context of'
+2. 'is affected by validity of' replaces 'is affected by normative entity'
+2. 'Opportunity' added."""@en,
+        """2011-07-19
+BIG CHANGES!
+1. 'Continuant' removed - 'Independent entity' & ''Dependent entity' instead.
+2. 'Occurent' is now a subclass of 'Independent entity'."""@en,
+        """2011-07-20
+1. IMPORTANT - ISB is now used with <owl:allValuesFrom>
+2. The possibility of many interpretation of a single value considered.
+
+See the comments for 'Value' with this date!"""@en,
+        """2011-07-22
+NEW BASIC ONTOLOGY - completely new version"""@en,
+        """2011-07-23
+'Process state' added. """@en,
+        """2011-07-24
+IMPORTANT
+1. 'is satisfied by' has NOT ONLY 'Situation' as its range
+2. Ranges & Domains added when sensible
+3. Oject property clean-up."""@en,
+        """2011-07-25
+1. 'Plan' and its subclasses & 'Idea' are now values. Associated OP are corrected, but their current status as a children of 'topObjectProperty' needs to be revised."""@en,
+        """2011-07-30
+Added decision ontology support (question, answer, decision). The assumptions were revised."""@en,
+        """2011-08-25
+1. norm instead of values
+2. plan, purpose, obligation are realizables """@en,
+        """2011-08-28
+RO new features:
+1) 'is set by'/'sets' property
+2) 'has time of setting' data property
+3) 'Norm aggregate' - sth that consists of some other norms and can be viewed itself as a norm. Examples: standard, codex.
+4) 'Value' is now a broad concept subsuming others like importance, reliability, warranty, benefit, etc.. Should 'Norm' be a kind of value? Pro: Value can be described with HVF & ISB with additional 'is value of', for example: Importance of an information (IVO) that can be used (ISB) by some Person (HVF)."""@en,
+        """2011-08-30
+Another BIG CHANGES
+1) Values reintroduced
+2) Requirement, Norm, Recc. as subclasses of Criterion
+3) Decision definition improved"""@en,
+        """2011-09-18
+Decision simplified:
+question modeling wiill not be needed!"""@en,
+        """2011-09-22
+1. Obligation, privilege & permission are no longer realizables. It simplifies the model and lets us avoid some misunderstandings & misconceptions (for example entity duplication). """@en,
+        """2011-09-23
+1. 'Notmative value' intorduced.
+2. Big cleanup.
+3. Information as a sign."""@en,
+        """2011-10-22
+Realizable may have a Situation as its manifestation:
+has_manifestation some Process or has_manifestation some Situation"""@en,
+        """1. obecna metoda wydaje się lepsza niż  punning. 
+2. używanie klas a nie instancji do modelowania NE pozwala uzyskać większą elastyczność (zob. 3), pomimo tego że patrząc tylko i wyłącznie z na modelowanie NE jako klas może wydać się pewnym przegięciem, skoro wiemy, że większość z tych pojęć ma zakres = 1.
+3. nie wiem, czy inversy do 'defines' i 'has validity for' mają jakiś sens na poziomie TBox. Np. jeśli wymaganie R1 ma ważność dla firmy wdrażającej SIS, to nie znaczy, że każda taka firma jest 'affected by'. To samo dotyczy 'defines' więc automatycznie dodawanie tych inversów jako warunków koniecznych w definicjach klas nie ma sensu. Te wartości miałyby sens na poziomie instancji, więc można je zostawić. Ta sytuacja potwiedza też słuszność modelowania na poziomie klas
+4. czym są 'użycia' NE? Np. dążenia do celu, korzystanie z przywileju, stosowaniem zaleceń itd. Czy to zwykłe 'działania' czy można czasem je przedstawić b. szczegółowo - akcja + coś czego jest realizacją (nastawienie czegoś/kogoś) 
+5. Nie wiem czy podział na 'Dependent Continuant' i 'Independent Continuant' ma jakis sens w naszym kontekście
+6. nie wiem czy nie należałoby utworzyć klasę 'Wartość' i podpiąć pod nią normę, cel, obowiązek itd."""@pl ;
+    owl:versionInfo "20111022_1" .
+
+:Age a owl:Class ;
+    rdfs:label "Age"@en ;
+    rdfs:subClassOf :Feature .
+
+:Assesment a owl:Class ;
+    rdfs:label "Assesment"@en ;
+    rdfs:comment "An action of identifying the measure or degree of a property of some object (for example the risk rate of a process). An estimation."@en ;
+    rdfs:subClassOf :Identifying .
+
+:Cancelling a owl:Class ;
+    rdfs:label "Cancelling"@en ;
+    rdfs:subClassOf :Control_process .
+
+:Capability a owl:Class ;
+    rdfs:label "Capability"@en ;
+    rdfs:comment "[description] The property of being suitable for or receptive to specified treatment."@en,
+        "[examples]  the capacity of a computer to be configured for use as a file server, the capacity of elastic to be stretched."@en ;
+    rdfs:subClassOf :Realizable .
+
+:Code a owl:Class ;
+    rdfs:label "Code"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :has_symbol ],
+        :Information .
+
+:Communicating a owl:Class ;
+    rdfs:label "Communicating"@en ;
+    rdfs:subClassOf :Process ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :is_communicating_of ;
+            owl:someValuesFrom owl:Thing ] .
+
+:Criterion_specification a owl:Class ;
+    rdfs:label "Criterion specification"@en ;
+    rdfs:comment "The specification should not be confused with the document describing it (the document contains the specification)."@en ;
+    rdfs:subClassOf :Normative_specification ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :Criterion ] .
+
+:Database_object a owl:Class ;
+    rdfs:label "Database object"@en ;
+    rdfs:subClassOf :Physical_object .
+
+:Describing a owl:Class ;
+    rdfs:label "Describing"@en ;
+    rdfs:subClassOf :Developing ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :is_developing_of ;
+            owl:someValuesFrom :Description ] .
+
+:Disposition a owl:Class ;
+    rdfs:label "Disposition"@en ;
+    rdfs:comment "[description] A general formula for dispositions is: X has the disposition D to (transform, initiate a process) R under conditions C. Not every occurance of C must inevitably lead to R."@en ;
+    rdfs:subClassOf :Realizable .
+
+:Document a owl:Class ;
+    rdfs:label "Document"@en ;
+    rdfs:subClassOf :Physical_object .
+
+:Event a owl:Class ;
+    rdfs:label "Event"@en ;
+    rdfs:subClassOf :Situation .
+
+:Function a owl:Class ;
+    rdfs:label "Function"@en,
+        "Funkcja"@pl ;
+    rdfs:subClassOf :Realizable .
+
+:Identifying_means a owl:Class ;
+    rdfs:label "Identifying means"@en ;
+    rdfs:subClassOf :Identifying ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :is_identifying_of ;
+            owl:someValuesFrom :Mean_for_achieving_sth ] .
+
+:Identifying_policy a owl:Class ;
+    rdfs:label "Identifying policy"@en ;
+    rdfs:subClassOf :Identifying ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :is_identifying_of ;
+            owl:someValuesFrom :Policy ] .
+
+:Identifying_strategy a owl:Class ;
+    rdfs:label "Identifying strategy"@en ;
+    rdfs:subClassOf :Identifying ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :is_identifying_of ;
+            owl:someValuesFrom :Strategy ] .
+
+:Initiating a owl:Class ;
+    rdfs:label "Initiating"@en ;
+    rdfs:subClassOf :Control_process .
+
+:Norm a owl:Class ;
+    rdfs:label "Norm"@en,
+        "Norma"@pl ;
+    rdfs:subClassOf :Normative_value .
+
+:Obligation a owl:Class ;
+    rdfs:label "Obligation"@en ;
+    rdfs:subClassOf :Requirement .
+
+:Organization a owl:Class ;
+    rdfs:label "Organization"@en ;
+    rdfs:subClassOf :Person .
+
+:Participation a owl:Class ;
+    rdfs:label "Participation"@en ;
+    rdfs:subClassOf :Situation .
+
+:Privilege a owl:Class ;
+    rdfs:label "Privilege"@en ;
+    rdfs:subClassOf :Permission .
+
+:Process_cancelled a owl:Class ;
+    rdfs:label "Process cancelled"@en ;
+    rdfs:subClassOf :State_of_a_process .
+
+:Process_completed a owl:Class ;
+    rdfs:label "Process completed"@en ;
+    rdfs:subClassOf :State_of_a_process .
+
+:Process_initated a owl:Class ;
+    rdfs:label "Process initated"@en ;
+    rdfs:subClassOf :State_of_a_process .
+
+:Process_resumed a owl:Class ;
+    rdfs:label "Process resumed"@en ;
+    rdfs:subClassOf :State_of_a_process .
+
+:Process_suspended a owl:Class ;
+    rdfs:label "Process suspended"@en ;
+    rdfs:subClassOf :State_of_a_process .
+
+:Question_for_confirming a owl:Class ;
+    rdfs:label "Question for confirming"@en ;
+    rdfs:comment """A question containing a whole proposition, that is an utterance that could be true or false. It is answerd by confirming or denying that proposition ('yes/no question')
+
+Examples: Are you a vegetarian? Is Norway a member of UE?"""@en ;
+    rdfs:subClassOf :Question ;
+    owl:disjointWith :Question_for_indicating ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onProperty :is_question_for_confirming ;
+                        owl:someValuesFrom owl:Thing ] [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Restriction ;
+                                owl:onProperty :indicates_boolean_value ;
+                                owl:someValuesFrom xsd:boolean ] ;
+                        owl:onProperty :has_answer ] ) ] .
+
+:Question_for_indicating_solution a owl:Class ;
+    rdfs:label "Question_for_indicating solution"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :is_consequence_of ;
+            owl:someValuesFrom :Problem ],
+        :Question_for_indicating .
+
+:Rate a owl:Class ;
+    rdfs:label "Rate"@en ;
+    rdfs:subClassOf :Feature .
+
+:Readiness a owl:Class ;
+    rdfs:label "Readiness"@en ;
+    rdfs:subClassOf :Attitude .
+
+:Recommendation_specification a owl:Class ;
+    rdfs:label "Recommendation specification"@en ;
+    rdfs:subClassOf :Normative_specification ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :Recommendation ] .
+
+:Requirement_specification a owl:Class ;
+    rdfs:label "Requirement specification"@en ;
+    rdfs:subClassOf :Normative_specification ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :Requirement ] .
+
+:Resuming a owl:Class ;
+    rdfs:label "Resuming"@en ;
+    rdfs:subClassOf :Control_process .
+
+:Risk a owl:Class ;
+    rdfs:label "Risk"@en ;
+    rdfs:comment "Combination of the frequency of occurrence of harm and the severity of that harm."@en ;
+    rdfs:subClassOf :Situation .
+
+:Satisfying_norm a owl:Class ;
+    rdfs:label "Satisfying norm"@en ;
+    rdfs:subClassOf :Situation ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :is_occurence_of ;
+            owl:someValuesFrom [ a owl:Restriction ;
+                    owl:onProperty :satisfies ;
+                    owl:someValuesFrom :Normative_value ] ] .
+
+:Standard a owl:Class ;
+    rdfs:label "Standard"@en ;
+    rdfs:comment "Something that consists of normative values (for example requirements and recommendations) and can be viewed itself as a normative value."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :has_constituent ;
+            owl:someValuesFrom :Normative_value ],
+        :Normative_value .
+
+:Stored_information a owl:Class ;
+    rdfs:label "Stored information"@en ;
+    rdfs:subClassOf :Information ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Information [ a owl:Restriction ;
+                        owl:onProperty :is_stored_in ;
+                        owl:someValuesFrom :Physical_object ] ) ] .
+
+:Suspending a owl:Class ;
+    rdfs:label "Suspending"@en ;
+    rdfs:subClassOf :Control_process .
+
+:applies a owl:ObjectProperty ;
+    rdfs:label "applies"@en,
+        "stosuje"@pl ;
+    rdfs:domain :Person ;
+    owl:inverseOf :is_applied_by .
+
+:female a :Gender,
+        owl:NamedIndividual ;
+    rdfs:label "female"@en .
+
+:hasDefinition a owl:AnnotationProperty ;
+    rdfs:label "has definition"@en,
+        "posiada definicję"@pl .
+
+:hasTextForm a owl:AnnotationProperty ;
+    rdfs:label "has text form"@en,
+        "posiada formę tekstową"@pl .
+
+:has_ability a owl:ObjectProperty ;
+    rdfs:label "has ability"@en ;
+    rdfs:range :Ability ;
+    rdfs:subPropertyOf :is_bearer_of ;
+    owl:inverseOf :is_ability_of .
+
+:has_context a owl:ObjectProperty ;
+    rdfs:label "has context"@en ;
+    rdfs:range :Context ;
+    rdfs:subPropertyOf :occurs_in ;
+    owl:inverseOf :is_context_of .
+
+:has_description a owl:AnnotationProperty ;
+    rdfs:label "has_description"@en .
+
+:has_disposition a owl:ObjectProperty ;
+    rdfs:label "has disposition"@en ;
+    rdfs:subPropertyOf :is_bearer_of ;
+    owl:inverseOf :is_disposition_of .
+
+:has_exception a owl:ObjectProperty ;
+    rdfs:label "has exception",
+        "ma wyjątek"@pl ;
+    rdfs:domain :Normative_value ;
+    rdfs:range :Situation .
+
+:has_function a owl:ObjectProperty ;
+    rdfs:label "has function"@en ;
+    rdfs:subPropertyOf :is_bearer_of ;
+    owl:inverseOf :is_function_of .
+
+:has_input a owl:ObjectProperty ;
+    rdfs:label "has input"@en ;
+    rdfs:domain :Process ;
+    rdfs:range owl:Thing ;
+    owl:inverseOf :is_input_of .
+
+:has_method a owl:ObjectProperty ;
+    rdfs:label "has method"@en ;
+    rdfs:range :Method ;
+    rdfs:subPropertyOf :has_plan ;
+    owl:inverseOf :is_method_of .
+
+:has_output a owl:ObjectProperty ;
+    rdfs:label "has output"@en ;
+    rdfs:domain :Process ;
+    rdfs:range owl:Thing ;
+    owl:inverseOf :is_output_of .
+
+:has_policy a owl:ObjectProperty ;
+    rdfs:label "has policy"@en ;
+    rdfs:range :Policy ;
+    rdfs:subPropertyOf :has_plan ;
+    owl:inverseOf :is_policy_of .
+
+:has_result a owl:ObjectProperty ;
+    rdfs:label "has result"@en ;
+    rdfs:domain :Process ;
+    rdfs:range :Situation ;
+    owl:inverseOf :is_result_of .
+
+:has_role a owl:ObjectProperty ;
+    rdfs:label "has role"@en ;
+    rdfs:subPropertyOf :is_bearer_of ;
+    owl:inverseOf :is_role_of .
+
+:has_solution a owl:ObjectProperty ;
+    rdfs:label "has solution"@en ;
+    rdfs:domain :Problem ;
+    owl:inverseOf :is_solution_for .
+
+:has_state a owl:ObjectProperty ;
+    rdfs:label "has state"@en ;
+    rdfs:range :State_of_a_process ;
+    rdfs:subPropertyOf :occurs_in ;
+    owl:inverseOf :is_state_of .
+
+:has_strategy a owl:ObjectProperty ;
+    rdfs:label "has strategy"@en ;
+    rdfs:range :Strategy ;
+    rdfs:subPropertyOf :has_plan ;
+    owl:inverseOf :is_strategy_of .
+
+:has_time_of_setting a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "has time of setting"@en ;
+    rdfs:range xsd:string ;
+    rdfs:seeAlso :is_set_by,
+        :sets .
+
+:initiates a owl:ObjectProperty ;
+    rdfs:label "initiates"@en ;
+    rdfs:range :Process .
+
+:involves_choosing a owl:ObjectProperty ;
+    rdfs:label "involves choosing"@en ;
+    rdfs:subPropertyOf :is_context_of .
+
+:is_adressed_to a owl:ObjectProperty ;
+    rdfs:label "is adressed to"@en .
+
+:is_attitude_of a owl:ObjectProperty ;
+    rdfs:label "is attitude of"@en ;
+    rdfs:subPropertyOf :has_bearer ;
+    owl:inverseOf :has_attitude .
+
+:is_capability_of a owl:ObjectProperty ;
+    rdfs:label "is capability of"@en ;
+    rdfs:subPropertyOf :has_bearer ;
+    owl:inverseOf :has_capability .
+
+:is_communicated_during a owl:ObjectProperty ;
+    rdfs:label "is communicated during"@en ;
+    rdfs:subPropertyOf :participates_in ;
+    owl:inverseOf :is_communicating_of .
+
+:is_communicating_between a owl:ObjectProperty ;
+    rdfs:label "is communicating between"@en ;
+    rdfs:subPropertyOf :has_participant .
+
+:is_communicating_within a owl:ObjectProperty ;
+    rdfs:label "is communicating within"@en ;
+    rdfs:subPropertyOf :has_participant .
+
+:is_considered_during a owl:ObjectProperty ;
+    rdfs:label "is considered during"@en ;
+    rdfs:range :Process ;
+    owl:inverseOf :is_consideration_of .
+
+:is_constituent_of a owl:ObjectProperty ;
+    rdfs:label "is constituent of"@en ;
+    owl:inverseOf :has_constituent .
+
+:is_developed_during a owl:ObjectProperty ;
+    rdfs:label "is developed during"@en ;
+    rdfs:subPropertyOf :participates_in ;
+    owl:inverseOf :is_developing_of .
+
+:is_idea_of a owl:ObjectProperty ;
+    rdfs:label "is idea of"@en ;
+    rdfs:domain :Idea ;
+    rdfs:subPropertyOf :has_bearer ;
+    owl:inverseOf :has_idea .
+
+:is_identified_during a owl:ObjectProperty ;
+    rdfs:label "is identified during"@en ;
+    rdfs:subPropertyOf :participates_in ;
+    owl:inverseOf :is_identifying_of .
+
+:is_implied_by a owl:ObjectProperty ;
+    rdfs:label "is implied by"@en ;
+    owl:inverseOf :implies .
+
+:is_included_in a owl:ObjectProperty ;
+    rdfs:label "is included in"@en ;
+    rdfs:subPropertyOf :occurs_in ;
+    owl:inverseOf :includes .
+
+:is_obliged_to_satisfy a owl:ObjectProperty ;
+    rdfs:comment "is obliged to satisfy"@en ;
+    rdfs:range :Requirement ;
+    rdfs:subPropertyOf :is_affected_by_validity_of ;
+    owl:inverseOf :is_requirement_for .
+
+:is_part_of a owl:ObjectProperty ;
+    rdfs:label "is part of"@en ;
+    owl:inverseOf :has_part .
+
+:is_performed_on a owl:ObjectProperty ;
+    rdfs:label "is performed on"@en ;
+    rdfs:comment "Is carried out on sth."@en ;
+    rdfs:subPropertyOf :has_participant .
+
+:is_purpose_for a owl:ObjectProperty ;
+    rdfs:label "is purpose for"@en ;
+    owl:inverseOf :has_purpose .
+
+:is_recommendation_for a owl:ObjectProperty ;
+    rdfs:label "is recommendation for"@en,
+        "jest zaleceniem dla"@pl ;
+    rdfs:domain :Recommendation ;
+    rdfs:subPropertyOf :is_permission_for ;
+    owl:inverseOf :is_recommended_to_satisfy .
+
+:is_related_to a owl:AnnotationProperty ;
+    rdfs:label "is related to"@en .
+
+:is_satisfied_by a owl:ObjectProperty ;
+    rdfs:label "is satisfied by"@en,
+        "jest spełniona przez"@pl ;
+    rdfs:domain :Value ;
+    rdfs:range owl:Thing ;
+    owl:inverseOf :satisfies .
+
+:is_supposed_to_be_identical_with a owl:ObjectProperty ;
+    rdfs:label "is supposed to be identical with"@en .
+
+:male a :Gender,
+        owl:NamedIndividual ;
+    rdfs:label "male"@en .
+
+:performs a owl:ObjectProperty ;
+    rdfs:label "performs"@en ;
+    rdfs:subPropertyOf :participates_in ;
+    owl:inverseOf :is_performed_by .
+
+:satisfies_criterion a owl:ObjectProperty ;
+    rdfs:label "satisfies criterion"@en,
+        "spełnia kryterium"@pl ;
+    rdfs:range :Criterion ;
+    rdfs:subPropertyOf :satisfies .
+
+:satisfies_recommendation a owl:ObjectProperty ;
+    rdfs:label "satisfies recommendation"@en ;
+    rdfs:comment "spełnia zalecenie"@pl ;
+    rdfs:range :Recommendation ;
+    rdfs:subPropertyOf :satisfies .
+
+:satisfies_requirement a owl:ObjectProperty ;
+    rdfs:label "satisfies requirement"@en,
+        "spełnia wymaganie"@pl ;
+    rdfs:range :Requirement ;
+    rdfs:subPropertyOf :satisfies .
+
+:toDo a owl:AnnotationProperty ;
+    rdfs:label "to do"@en .
+
+rdfs:comment a owl:AnnotationProperty .
+
+rdfs:label a owl:AnnotationProperty .
+
+owl:deprecated a owl:AnnotationProperty .
+
+:Ability a owl:Class ;
+    rdfs:label "Ability"@en,
+        "Zdolność"@pl ;
+    rdfs:comment "[description] A natural or acquired quality (for example: skill or talent), which enables its bearer to perform some specific action."@en ;
+    rdfs:subClassOf :Realizable .
+
+:Decision a owl:Class ;
+    rdfs:label "Decision"@en ;
+    rdfs:comment "Recognizing something as the right/appropriate/best possible solution to a question/problem. It can be a consequence of an objective evaluation of clearly defined criteria but also an intuition, emotion or other subjective factor."@en ;
+    rdfs:subClassOf :Situation ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onProperty :indicates_chosen_option ;
+                        owl:someValuesFrom owl:Thing ] [ a owl:Restriction ;
+                        owl:onProperty :is_result_of ;
+                        owl:someValuesFrom :Decision_making ] ) ] .
+
+:Developing a owl:Class ;
+    rdfs:label "Developing"@en ;
+    rdfs:comment "Make something new, such as a product or a mental or artistic creation."@en ;
+    rdfs:subClassOf :Process ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :is_developing_of ;
+            owl:someValuesFrom owl:Thing ] .
+
+:Hazard a owl:Class ;
+    rdfs:label "Hazard"@en ;
+    rdfs:comment "Potential source of harm. "@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :is_hazardous_for ;
+            owl:someValuesFrom owl:Thing ],
+        :Situation .
+
+:Mean_for_achieving_sth a owl:Class ;
+    rdfs:label "Mean for achieving sth"@en ;
+    rdfs:comment "????"@en ;
+    rdfs:subClassOf :Role .
+
+:Option a owl:Class ;
+    rdfs:label "Option"@en,
+        "Opcja"@pl ;
+    rdfs:comment "Option has usually some related criteria which correspond to requirements, recommendations etc."@en ;
+    rdfs:seeAlso :Decision_making,
+        :has_criterion ;
+    rdfs:subClassOf :Situation .
+
+:Pursue a owl:Class ;
+    rdfs:label "Pursue"@en,
+        "Dążenie"@pl ;
+    rdfs:subClassOf :Attitude ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :is_pursue_for ;
+            owl:someValuesFrom :Purpose ] .
+
+:Role a owl:Class ;
+    rdfs:label "Role"@en ;
+    rdfs:comment "Rola"@pl ;
+    rdfs:subClassOf :Realizable .
+
+:Sign a owl:Class ;
+    rdfs:label "Sign"@en ;
+    rdfs:subClassOf :Physical_object .
+
+:has_attitude a owl:ObjectProperty ;
+    rdfs:label "has attitude"@en ;
+    rdfs:subPropertyOf :is_bearer_of .
+
+:has_capability a owl:ObjectProperty ;
+    rdfs:label "has capability"@en ;
+    rdfs:subPropertyOf :is_bearer_of .
+
+:has_consequence a owl:ObjectProperty ;
+    rdfs:label "has consequence"@en ;
+    rdfs:domain :Situation ;
+    rdfs:range :Situation .
+
+:has_criterion a owl:ObjectProperty ;
+    rdfs:label "has criterion"@en ;
+    rdfs:range :Criterion ;
+    rdfs:subPropertyOf :is_affected_by_validity_of ;
+    owl:inverseOf :is_criterion_for .
+
+:has_idea a owl:ObjectProperty ;
+    rdfs:label "has idea"@en ;
+    rdfs:range :Idea ;
+    rdfs:subPropertyOf :is_bearer_of .
+
+:has_part a owl:ObjectProperty ;
+    rdfs:label "has part"@en .
+
+:has_purpose a owl:ObjectProperty ;
+    rdfs:label "has purpose"@en .
+
+:has_symbol a owl:DatatypeProperty ;
+    rdfs:label "has symbol"@en,
+        "posiada symbol"@pl ;
+    rdfs:range xsd:string ;
+    owl:deprecated "Symbol class should be used."@en .
+
+:implies a owl:ObjectProperty ;
+    rdfs:label "implies"@en .
+
+:includes a owl:ObjectProperty ;
+    rdfs:label "includes"@en ;
+    rdfs:subPropertyOf :is_occurence_of .
+
+:is_ability_of a owl:ObjectProperty ;
+    rdfs:label "is ability of"@en ;
+    rdfs:subPropertyOf :has_bearer .
+
+:is_applied_by a owl:ObjectProperty ;
+    rdfs:label "is applied by"@en,
+        "jest stosowany przez"@pl .
+
+:is_consequence_of a owl:ObjectProperty ;
+    rdfs:label "is consequence of"@en ;
+    rdfs:domain :Situation ;
+    rdfs:range :Situation ;
+    owl:inverseOf :has_consequence .
+
+:is_criterion_for a owl:ObjectProperty ;
+    rdfs:label "is criterion for"@en,
+        "jest kryterium dla"@pl ;
+    rdfs:domain :Criterion ;
+    rdfs:subPropertyOf :has_validity_for .
+
+:is_described_by a owl:ObjectProperty ;
+    rdfs:label "is described by"@en ;
+    rdfs:subPropertyOf :is_referred_by .
+
+:is_disposition_of a owl:ObjectProperty ;
+    rdfs:label "is disposition of"@en ;
+    rdfs:subPropertyOf :has_bearer .
+
+:is_function_of a owl:ObjectProperty ;
+    rdfs:label "is function of"@en ;
+    rdfs:subPropertyOf :has_bearer .
+
+:is_hazardous_for a owl:ObjectProperty ;
+    rdfs:label "is hazardous for"@en,
+        "jest niebezpieczne dla"@pl ;
+    rdfs:domain :Hazard ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( :Person :Physical_object :Process ) ] .
+
+:is_indicated_by a owl:ObjectProperty ;
+    rdfs:label "is indicated by"@en .
+
+:is_initiated_by a owl:ObjectProperty ;
+    rdfs:label "is initiated by"@en ;
+    rdfs:domain :Process .
+
+:is_input_of a owl:ObjectProperty ;
+    rdfs:label "is input of"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :Process .
+
+:is_method_of a owl:ObjectProperty ;
+    rdfs:label "is method of"@en ;
+    rdfs:domain :Method ;
+    rdfs:subPropertyOf :is_plan_of .
+
+:is_opportunity_for a owl:ObjectProperty ;
+    rdfs:label "is opportunity for"@en,
+        "jest okazją do"@pl ;
+    rdfs:domain :Opportunity ;
+    rdfs:range :Purpose .
+
+:is_opportunity_of a owl:ObjectProperty ;
+    rdfs:label "is_opportunity_of"@en,
+        "jest okazją dla"@pl ;
+    rdfs:domain :Opportunity ;
+    rdfs:range :Person .
+
+:is_output_of a owl:ObjectProperty ;
+    rdfs:label "is output of"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :Process .
+
+:is_performed_by a owl:ObjectProperty ;
+    rdfs:label "is performed by"@en ;
+    rdfs:subPropertyOf :has_participant .
+
+:is_permission_for a owl:ObjectProperty ;
+    rdfs:label "is permission for"@en,
+        "jest pozwaleniem dla"@pl ;
+    rdfs:domain :Permission ;
+    rdfs:subPropertyOf :has_validity_for ;
+    owl:inverseOf :is_allowed_to_satisfy .
+
+:is_policy_of a owl:ObjectProperty ;
+    rdfs:label "is policy of"@en ;
+    rdfs:domain :Policy ;
+    rdfs:subPropertyOf :is_plan_of .
+
+:is_pursue_for a owl:ObjectProperty ;
+    rdfs:label "is pursue for"@en,
+        "jest dążeniem do"@pl ;
+    rdfs:domain :Pursue ;
+    rdfs:range :Purpose .
+
+:is_question_for_confirming a owl:ObjectProperty ;
+    rdfs:label "is question for confirming"@en ;
+    rdfs:domain :Question ;
+    rdfs:subPropertyOf :is_question_for .
+
+:is_question_for_indicating a owl:ObjectProperty ;
+    rdfs:label "is question for indicating"@en ;
+    rdfs:domain :Question ;
+    rdfs:subPropertyOf :is_question_for .
+
+:is_realization_of a owl:ObjectProperty ;
+    rdfs:label "is realization of"@en ;
+    rdfs:range :Realizable .
+
+:is_recommended_to_satisfy a owl:ObjectProperty ;
+    rdfs:label "is recommended to satisfy"@en ;
+    rdfs:range :Recommendation ;
+    rdfs:subPropertyOf :is_allowed_to_satisfy .
+
+:is_represented_by a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "is represented by"@en ;
+    rdfs:domain :Information .
+
+:is_requirement_for a owl:ObjectProperty ;
+    rdfs:label "is requirement for"@en,
+        "jest wymaganiem dla"@pl ;
+    rdfs:domain :Requirement ;
+    rdfs:subPropertyOf :has_validity_for .
+
+:is_role_of a owl:ObjectProperty ;
+    rdfs:label "is role of"@en ;
+    rdfs:subPropertyOf :has_bearer .
+
+:is_solution_for a owl:ObjectProperty ;
+    rdfs:label "is solution for"@en ;
+    rdfs:range :Problem .
+
+:is_stored_in a owl:ObjectProperty ;
+    rdfs:label "is stored in"@en ;
+    rdfs:domain :Physical_object ;
+    rdfs:range :Physical_object ;
+    owl:inverseOf :stores .
+
+:is_strategy_of a owl:ObjectProperty ;
+    rdfs:label "is strategy of"@en ;
+    rdfs:domain :Strategy ;
+    rdfs:subPropertyOf :is_plan_of .
+
+:is_violated_by a owl:ObjectProperty ;
+    rdfs:label "is violated by"@en ;
+    rdfs:range owl:Thing ;
+    owl:inverseOf :violates .
+
+:sets a owl:ObjectProperty ;
+    rdfs:label "sets"@en ;
+    rdfs:comment """Examples:
+An institution sets a norm. A norm sets an obligation. Someone sets a plan."""@en,
+        "ustanawia"@pl ;
+    owl:inverseOf :is_set_by .
+
+:stores a owl:ObjectProperty ;
+    rdfs:label "stores"@en ;
+    rdfs:domain :Physical_object ;
+    rdfs:range :Physical_object .
+
+:violates a owl:ObjectProperty ;
+    rdfs:label "violates"@en .
+
+:Answer a owl:Class ;
+    rdfs:label "Answer"@en ;
+    rdfs:comment "Indication of something requested in a question."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:unionOf ( [ a owl:Restriction ;
+                        owl:onProperty :indicates ;
+                        owl:someValuesFrom owl:Thing ] [ a owl:Restriction ;
+                        owl:onProperty :indicates_boolean_value ;
+                        owl:someValuesFrom xsd:boolean ] ) ],
+        [ a owl:Restriction ;
+            owl:onProperty :is_answer_for ;
+            owl:someValuesFrom :Question ],
+        :Situation .
+
+:Attitude a owl:Class ;
+    rdfs:label "Attitude"@en,
+        "Postawa"@pl ;
+    rdfs:subClassOf :Realizable .
+
+:Context a owl:Class ;
+    rdfs:label "Context"@en ;
+    rdfs:subClassOf :Situation ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :is_context_of ;
+            owl:someValuesFrom owl:Thing ] .
+
+:Decision_making a owl:Class ;
+    rdfs:label "Decision making"@en ;
+    rdfs:comment """2011-09-18
+A complex process that starts with a problem and may result in indication of a solution for the initial problem. It is important to note that a decision-making is something substantially different than decision, which is an output of the process of deciding. Usually it can be represented by the following pattern:
+1. Decision-making starts with a problem.
+2. The problem is sometimes stated in form of a question
+3. The decider gathers and analyzes some information
+4. The decider evaluates possible options.
+5. One of the options may get recognized as the right/appropriate/best possible solution for the initial question/problem or the decider may choose to restrain from choice. What justifies this act could be an objective evaluation of clearly defined criteria but also an intuition, emotion or other subjective factor.
+
+In most cases stages 2-4 consist of many (concurrent or sequential) actions, events, processes related to information gathering, processing, verifying etc. In some cases a decision-making can be viewed as a complex process involving many “sub-decisions” preceding the recognition of the initial problem solution. In our current work we have focused on the basic elements of the above pattern (the question, gathering information, considering options, choosing solution). It should be considered to what extent this ontology should support the modeling of correlated issues such as: information verification and retrieval etc."""@en,
+        """2011-10-13
+A complex process that starts with a question and may result in indication of a solution for the underlying problem. It is important to note that a decision-making is something substantially different than decision, which is an output of the process of deciding. Usually it can be represented by the following pattern:
+1. Decision-making starts with a question which is an utterance of some problem
+2. The decider gathers and analyzes some information
+3. The decider evaluates possible options (under some criteria).
+4. One of the options may get recognized as the right/appropriate/best possible solution for the initial question/problem or the decider may choose to restrain from choice. What justifies this act could be an objective evaluation of clearly defined criteria but also an intuition, emotion or other subjective factor.
+
+In most cases stages 2-3 consist of many (concurrent or sequential) actions, events, processes related to information gathering, processing, verifying etc. In some cases a decision-making can be viewed as a complex process involving many “sub-decisions” preceding the recognition of the initial problem solution. In our current work we have focused on the basic elements of the above pattern (the question, gathering information, considering options, choosing solution). It should be considered to what extent this ontology should support the modeling of correlated issues such as: information verification and retrieval etc."""@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :is_consideration_of ;
+            owl:someValuesFrom :Option ],
+        [ a owl:Restriction ;
+            owl:onProperty :is_initiated_by ;
+            owl:someValuesFrom :Question_for_indicating ],
+        :Process .
+
+:Gender a owl:Class ;
+    rdfs:label "Gender"@en ;
+    rdfs:subClassOf :Feature .
+
+:Idea a owl:Class ;
+    rdfs:label "Idea"@en,
+        "Pomysł"@pl ;
+    rdfs:subClassOf :Realizable .
+
+:Method a owl:Class ;
+    rdfs:label "Method"@en,
+        "Metoda"@pl ;
+    rdfs:comment "A systematic way of doing something; implies an orderly logical arrangement (usually in steps)"@en ;
+    rdfs:subClassOf :Plan .
+
+:Opportunity a owl:Class ;
+    rdfs:label "Opportunity"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :is_opportunity_of ;
+            owl:someValuesFrom :Person ],
+        [ a owl:Restriction ;
+            owl:onProperty :is_opportunity_for ;
+            owl:someValuesFrom :Purpose ],
+        :Situation .
+
+:has_answer a owl:ObjectProperty ;
+    rdfs:label "has answer"@en ;
+    rdfs:domain :Question ;
+    rdfs:range :Answer ;
+    owl:inverseOf :is_answer_for .
+
+:has_constituent a owl:ObjectProperty ;
+    rdfs:label "has constituent"@en .
+
+:has_realization a owl:ObjectProperty ;
+    rdfs:label "has realization"@en ;
+    rdfs:domain :Realizable ;
+    owl:inverseOf :is_realization_of .
+
+:indicates a owl:ObjectProperty ;
+    rdfs:label "indicates"@en ;
+    owl:inverseOf :is_indicated_by .
+
+:indicates_boolean_value a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "indicates boolean value"@en ;
+    rdfs:range xsd:boolean .
+
+:indicates_chosen_option a owl:ObjectProperty ;
+    rdfs:label "indicates chosen option"@en ;
+    rdfs:domain :Decision ;
+    rdfs:subPropertyOf :indicates .
+
+:is_allowed_to_satisfy a owl:ObjectProperty ;
+    rdfs:label "is allowed to satisfy"@en ;
+    rdfs:range :Permission ;
+    rdfs:subPropertyOf :is_affected_by_validity_of .
+
+:is_answer_for a owl:ObjectProperty ;
+    rdfs:label "is answer for"@en ;
+    rdfs:domain :Answer ;
+    rdfs:range :Question .
+
+:is_communicating_of a owl:ObjectProperty ;
+    rdfs:label "is communicating of"@en ;
+    rdfs:subPropertyOf :has_participant .
+
+:is_consideration_of a owl:ObjectProperty ;
+    rdfs:label "is consideration of"@en ;
+    rdfs:domain :Process .
+
+:is_referred_by a owl:ObjectProperty ;
+    rdfs:label "is referred by"@en ;
+    rdfs:range :Information .
+
+:is_result_of a owl:ObjectProperty ;
+    rdfs:label "is result of"@en ;
+    rdfs:domain :Situation ;
+    rdfs:range :Process .
+
+:is_set_by a owl:ObjectProperty ;
+    rdfs:label "is set by"@en ;
+    rdfs:comment "ustanowiony przez"@pl .
+
+:is_state_of a owl:ObjectProperty ;
+    rdfs:label "is state of"@en ;
+    rdfs:subPropertyOf :is_occurence_of .
+
+:refers_to a owl:ObjectProperty ;
+    rdfs:label "refers to"@en ;
+    rdfs:domain :Information ;
+    owl:inverseOf :is_referred_by .
+
+:Description a owl:Class ;
+    rdfs:label "Description"@en ;
+    rdfs:subClassOf :Information ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom owl:Thing ] .
+
+:Normative_specification a owl:Class ;
+    rdfs:label "Normative specification"@en ;
+    rdfs:comment "Specification of a requirement, set of criteria etc. It may be a specification of an entire industry standard describing a set of requirements or a part of it (for example a clause defining a single norm)."@en ;
+    rdfs:subClassOf :Description ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :describes ;
+            owl:someValuesFrom :Normative_value ] .
+
+:Policy a owl:Class ;
+    rdfs:label "Policy"@en,
+        "Polityka"@pl ;
+    rdfs:comment "A plan of action adopted by an individual or social group."@en,
+        "Np. polityka bezpieczeństwa."@pl ;
+    rdfs:subClassOf :Plan .
+
+:Problem a owl:Class ;
+    rdfs:label "Problem"@en ;
+    rdfs:subClassOf :Situation .
+
+:Question_for_indicating a owl:Class ;
+    rdfs:label "Question for indicating"@en ;
+    rdfs:comment """A question demanding indication of some concept, thing or its property in order to be anwsered.
+
+Examples: What's your date of birth? What is the name of the Director of the W3C?"""@en ;
+    rdfs:subClassOf :Question ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onProperty :is_question_for_indicating ;
+                        owl:someValuesFrom owl:Thing ] [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Restriction ;
+                                owl:onProperty :indicates_chosen_option ;
+                                owl:someValuesFrom owl:Thing ] ;
+                        owl:onProperty :has_answer ] ) ] .
+
+:Strategy a owl:Class ;
+    rdfs:label "Strategy"@en,
+        "Strategia"@pl ;
+    rdfs:subClassOf :Plan .
+
+:has_plan a owl:ObjectProperty ;
+    rdfs:label "has plan"@en ;
+    rdfs:range :Plan ;
+    rdfs:subPropertyOf :is_bearer_of ;
+    owl:inverseOf :is_plan_of .
+
+:is_affected_by_validity_of a owl:ObjectProperty ;
+    rdfs:label "is affected by validity of"@en ;
+    rdfs:range :Value ;
+    owl:inverseOf :has_validity_for .
+
+:is_context_of a owl:ObjectProperty ;
+    rdfs:label "is context of"@en ;
+    rdfs:domain :Context ;
+    rdfs:subPropertyOf :is_occurence_of .
+
+:is_developing_of a owl:ObjectProperty ;
+    rdfs:label "is developing of"@en ;
+    rdfs:subPropertyOf :has_participant .
+
+:is_question_for a owl:ObjectProperty ;
+    rdfs:label "is question for"@en ;
+    rdfs:domain :Question .
+
+:Control_process a owl:Class ;
+    rdfs:label "Control process"@en ;
+    rdfs:subClassOf :Process .
+
+:Criterion a owl:Class ;
+    rdfs:label "Criterion"@en ;
+    rdfs:subClassOf :Normative_value .
+
+:Feature a owl:Class ;
+    rdfs:label "Feature"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :has_bearer ;
+            owl:someValuesFrom owl:Thing ],
+        owl:Thing .
+
+:Identifying a owl:Class ;
+    rdfs:label "Identifying"@en ;
+    rdfs:comment "The act of designating or identifying something."@en ;
+    rdfs:subClassOf :Process ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :is_identifying_of ;
+            owl:someValuesFrom owl:Thing ] .
+
+:Permission a owl:Class ;
+    rdfs:label "Permission"@en ;
+    rdfs:comment "It can never be violated but can be satisfied or not."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :is_violated_by ],
+        :Normative_value .
+
+:Purpose a owl:Class ;
+    rdfs:label "Purpose"@en ;
+    rdfs:subClassOf :Realizable .
+
+:Recommendation a owl:Class ;
+    rdfs:label "Recommendation"@en ;
+    rdfs:comment "It can never be violated but can be satisfied or not"@en ;
+    rdfs:subClassOf :Permission .
+
+:is_plan_of a owl:ObjectProperty ;
+    rdfs:label "is plan of"@en ;
+    rdfs:domain :Plan ;
+    rdfs:subPropertyOf :has_bearer .
+
+:occurs_in a owl:ObjectProperty ;
+    rdfs:label "occurs in"@en,
+        "występuje w"@pl ;
+    rdfs:range :Situation .
+
+:Plan a owl:Class ;
+    rdfs:label "Plan"@en,
+        "Plan"@pl ;
+    rdfs:subClassOf :Realizable .
+
+:Requirement a owl:Class ;
+    rdfs:label "Requirement"@en ;
+    :toDo "How obligation is different from a requirement?"@en ;
+    rdfs:comment "A norm implying an obligation that is violated when not satisfied."@en,
+        "Obligation setter"@en ;
+    rdfs:subClassOf :Normative_value .
+
+:describes a owl:ObjectProperty ;
+    rdfs:label "describes"@en ;
+    rdfs:domain :Description ;
+    rdfs:subPropertyOf :refers_to ;
+    owl:inverseOf :is_described_by .
+
+:has_validity_for a owl:ObjectProperty ;
+    rdfs:label "has validity for"@en,
+        "obowiązuje dla"@pl ;
+    :toDo "Consider removing the subproperties."@en ;
+    rdfs:comment "applies to"@en ;
+    rdfs:domain :Value .
+
+:is_identifying_of a owl:ObjectProperty ;
+    rdfs:label "is identifying of"@en ;
+    rdfs:subPropertyOf :has_participant .
+
+:is_occurence_of a owl:ObjectProperty ;
+    rdfs:label "is_occurence_of"@en,
+        "jest wystąpieniem"@pl ;
+    owl:inverseOf :occurs_in .
+
+:participates_in a owl:ObjectProperty ;
+    rdfs:label "participates in"@en .
+
+:satisfies a owl:ObjectProperty ;
+    rdfs:label "satisfies"@en,
+        "spełnia"@pl ;
+    :toDo "Consider removing the subproperties."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :Value .
+
+:State_of_a_process a owl:Class ;
+    rdfs:label "State of a process"@en ;
+    rdfs:subClassOf :Situation ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :is_state_of ;
+            owl:someValuesFrom :Process ] .
+
+:Value a owl:Class ;
+    rdfs:label "Value"@en,
+        "Wartość"@pl ;
+    rdfs:comment """Consider following issue:
+
+It seems there may be more than one way to model a value, because the validity scope may be interpreted differently by the participants having different roles in the context. For example a requirement like “Every associated supplier should have a quality management system” can be interpreted as to be valid for the supplier or for the organization that “has” associated supplier. 
+
+Maybe we should allow having multiple axioms for describing the norm in an equivalent way?
+
+Or maybe it is the problem of incomplete information about the EXACT context of given value? """@en,
+        "Discarded alternative: using punning (defines some Concept) and ('has validity for' some Thing) where Concept is meta-class for puns."@en,
+        "Examples: self-interest, reliability, warranty, benefit, norm, requirement, criterion, recommendation..."@en,
+        "Value is everything that has validity for something and what determines how it would be satisfied."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :has_validity_for ;
+            owl:someValuesFrom owl:Thing ] .
+
+:Information a owl:Class ;
+    rdfs:label "Information"@en ;
+    rdfs:comment "A sign expressing its meaning in a way that can be communicated to others (for example: a written sentence). An information should not be confused with the subjective representation (interpretation) of this sign (for example:a thought) or with the concept or meaning itself. A single concept (or a sentence) can be expressed by various signs that can have multiple representations."@en ;
+    rdfs:seeAlso :is_represented_by ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :refers_to ;
+            owl:someValuesFrom owl:Thing ],
+        :Sign .
+
+:Person a owl:Class ;
+    rdfs:label "Person"@en ;
+    rdfs:subClassOf owl:Thing .
+
+:has_participant a owl:ObjectProperty ;
+    rdfs:label "has participant"@en ;
+    rdfs:domain :Process ;
+    owl:inverseOf :participates_in .
+
+:Question a owl:Class ;
+    rdfs:label "Question"@en ;
+    rdfs:comment "A situation in which a person indicates a will for acquiring knowledge about something."@en ;
+    rdfs:subClassOf :Situation ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :is_question_for ;
+            owl:someValuesFrom owl:Thing ] .
+
+:is_bearer_of a owl:ObjectProperty ;
+    rdfs:label "is bearer of"@en ;
+    owl:inverseOf :has_bearer .
+
+:Normative_value a owl:Class ;
+    rdfs:label "Normative value"@en ;
+    rdfs:comment """EXPLANATION:
+Some could possibly argue, that it's not neccessary to implicitly describe the 'every' aspect, it could be easier to assume that every use of ISB clause without specifying the exact cardinality indicates that everything which the given norm is vaild for has to satisfy it. On the other hand:
+1. 
+H. a. isIdentifiedDuring some HA
+DescribedHazard
+
+Problem z cardinality
+Problem z Every
+
+2. 
+HA a. identifies some Hazard(H)
+HA a. not(identifies some (H and not(isDescirbedBy some Description)
+
+This works much better :) enables cardinality (minimum 3 described hazard are required at the final stage of project, maximum 10 hazards are to be examine by given unit)"""@en,
+        """Examples:
+1. 'It is recemmended that every associated supplier should have a quality management system'.
+
+2. 'The outcome of the backup process should be verified by minimum two IT specialists'.
+
+3. 'Every hazard identified during hazard assesment process has to be described'"""@en,
+        "Value that can serve as a norm, standard, codex, requirement, criterion etc."@en ;
+    rdfs:subClassOf :Value .
+
+:Physical_object a owl:Class ;
+    rdfs:label "Physical object"@en ;
+    rdfs:subClassOf owl:Thing .
+
+:has_bearer a owl:ObjectProperty ;
+    rdfs:label "has bearer"@en .
+
+:Realizable a owl:Class ;
+    rdfs:label "Realizable"@en ;
+    rdfs:comment "[description] Something that can be actualized."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :has_bearer ;
+            owl:someValuesFrom owl:Thing ],
+        owl:Thing ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( [ a owl:Restriction ;
+                        owl:onProperty :has_realization ;
+                        owl:someValuesFrom :Process ] [ a owl:Restriction ;
+                        owl:onProperty :has_realization ;
+                        owl:someValuesFrom :Situation ] ) ] .
+
+:Process a owl:Class ;
+    rdfs:label "Process"@en,
+        "Proces"@pl ;
+    rdfs:subClassOf owl:Thing .
+
+:Situation a owl:Class ;
+    rdfs:label "Situation"@en,
+        "Sytuacja"@pl ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :is_occurence_of ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Person :Physical_object :Process ) ] ],
+        owl:Thing .
+
+owl:Thing a owl:Class .
+
+[] :is_represented_by "" .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :Feature :Person :Physical_object :Process :Realizable :Situation :Value ) .
+

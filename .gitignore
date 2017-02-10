@@ -1,0 +1,6 @@
+# TopBraid
+.project
+.metadata/
+
+# PyCharm
+.idea/

@@ -1,0 +1,188 @@
+@prefix : <http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix requirement_ontology: <http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology ;
+    rdfs:comment "Author: Piotr Nowara  (piotrnowara(at)gmail.com)"@en,
+        "If you don't know how to start describing your requirements or need assistance in using the Requirement Ontology please send an email to: piotrnowara(at)gmail.com"@en ;
+    rdfs:seeAlso "Project webiste: http://code.google.com/p/requirement-ontology/"@en ;
+    owl:versionInfo "2012_11_23_1"@en,
+        """CHANGELOG
+
+2012_11_22_1: has validity for -> is valid for
+
+2012_11_23_1: pl labels"""@en .
+
+requirement_ontology:Norm a owl:Class ;
+    rdfs:label "Norm"@en,
+        "Norma"@pl ;
+    rdfs:subClassOf requirement_ontology:Normative_value .
+
+requirement_ontology:Obligation a owl:Class ;
+    rdfs:label "Obligation"@en,
+        "Zobowiązanie"@pl ;
+    rdfs:subClassOf requirement_ontology:Normative_value .
+
+requirement_ontology:Privilege a owl:Class ;
+    rdfs:label "Privilege"@en,
+        "Przywilej"@pl ;
+    rdfs:subClassOf requirement_ontology:Permission .
+
+requirement_ontology:Standard a owl:Class ;
+    rdfs:label "Standard"@en,
+        "Standard"@pl ;
+    rdfs:comment "A set of normative values (for example requirements and recommendations) that can be viewed as a normative value itself."@en ;
+    rdfs:subClassOf requirement_ontology:Normative_value .
+
+requirement_ontology:has_criterion a owl:ObjectProperty ;
+    rdfs:label "has criterion"@en,
+        "ma kryterium"@pl ;
+    rdfs:range requirement_ontology:Criterion ;
+    rdfs:subPropertyOf requirement_ontology:is_affected_by_validity_of ;
+    owl:inverseOf requirement_ontology:is_criterion_for .
+
+requirement_ontology:has_description a owl:AnnotationProperty ;
+    rdfs:label "description"@en,
+        "opis"@pl .
+
+requirement_ontology:has_exception a owl:ObjectProperty ;
+    rdfs:label "has exception"@en,
+        "ma wyjątek"@pl ;
+    rdfs:domain requirement_ontology:Value .
+
+requirement_ontology:is_permission_for a owl:ObjectProperty ;
+    rdfs:label "is permission for"@en,
+        "jest pozwaleniem dla"@pl ;
+    rdfs:domain requirement_ontology:Permission ;
+    rdfs:subPropertyOf requirement_ontology:is_valid_for .
+
+requirement_ontology:is_recommendation_for a owl:ObjectProperty ;
+    rdfs:label "is recommendation for"@en,
+        "jest zaleceniem dla"@pl ;
+    rdfs:domain requirement_ontology:Recommendation ;
+    rdfs:subPropertyOf requirement_ontology:is_valid_for .
+
+requirement_ontology:is_requirement_for a owl:ObjectProperty ;
+    rdfs:label "is requirement for"@en,
+        "jest wymaganiem dla"@pl ;
+    rdfs:domain requirement_ontology:Requirement ;
+    rdfs:subPropertyOf requirement_ontology:is_valid_for .
+
+requirement_ontology:is_satisfied_by a owl:ObjectProperty ;
+    rdfs:label "is satisfied by"@en,
+        "jest spełnione przez"@pl ;
+    rdfs:domain requirement_ontology:Value ;
+    rdfs:range owl:Thing ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    owl:inverseOf requirement_ontology:satisfies .
+
+requirement_ontology:is_violated_by a owl:ObjectProperty ;
+    rdfs:label "is violated by"@en,
+        "jest naruszone przez"@pl ;
+    rdfs:domain requirement_ontology:Value ;
+    rdfs:range owl:Thing ;
+    owl:inverseOf requirement_ontology:violates .
+
+requirement_ontology:satisfies_criterion a owl:ObjectProperty ;
+    rdfs:label "satisfies criterion"@en,
+        "spełnia kryterium"@pl ;
+    rdfs:range requirement_ontology:Criterion ;
+    rdfs:subPropertyOf requirement_ontology:satisfies .
+
+requirement_ontology:satisfies_recommendation a owl:ObjectProperty ;
+    rdfs:label "satisfies recommendation"@en,
+        "spełnia zalecenie"@pl ;
+    rdfs:range requirement_ontology:Recommendation ;
+    rdfs:subPropertyOf requirement_ontology:satisfies .
+
+requirement_ontology:satisfies_requirement a owl:ObjectProperty ;
+    rdfs:label "satisfies requirement"@en,
+        "spełnia wymaganie"@pl ;
+    rdfs:range requirement_ontology:Requirement ;
+    rdfs:subPropertyOf requirement_ontology:satisfies .
+
+requirement_ontology:toDo a owl:AnnotationProperty .
+
+requirement_ontology:is_affected_by_validity_of a owl:ObjectProperty ;
+    rdfs:label "is affected by validity of"@en ;
+    rdfs:range requirement_ontology:Value ;
+    owl:inverseOf requirement_ontology:is_valid_for .
+
+requirement_ontology:is_criterion_for a owl:ObjectProperty ;
+    rdfs:label "is criterion for"@en,
+        "jest kryterium dla"@pl ;
+    rdfs:domain requirement_ontology:Criterion ;
+    rdfs:subPropertyOf requirement_ontology:is_valid_for .
+
+requirement_ontology:violates a owl:ObjectProperty ;
+    rdfs:label "violates"@en,
+        "narusza"@pl ;
+    rdfs:domain owl:Thing ;
+    rdfs:range requirement_ontology:Value .
+
+requirement_ontology:Permission a owl:Class ;
+    rdfs:label "Permission"@en,
+        "Pozwolenie"@pl ;
+    rdfs:subClassOf requirement_ontology:Normative_value .
+
+requirement_ontology:Recommendation a owl:Class ;
+    rdfs:label "Recommendation"@en,
+        "Zalecenie"@pl ;
+    rdfs:subClassOf requirement_ontology:Normative_value .
+
+requirement_ontology:Requirement a owl:Class ;
+    rdfs:label "Requirement"@en,
+        "Wymaganie"@pl ;
+    rdfs:subClassOf requirement_ontology:Normative_value .
+
+requirement_ontology:Criterion a owl:Class ;
+    rdfs:label "Criterion"@en,
+        "Kryterium"@pl ;
+    rdfs:subClassOf requirement_ontology:Normative_value .
+
+requirement_ontology:satisfies a owl:ObjectProperty ;
+    rdfs:label "satisfies"@en,
+        "spełnia"@pl ;
+    rdfs:domain owl:Thing ;
+    rdfs:range requirement_ontology:Value ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+requirement_ontology:is_valid_for a owl:ObjectProperty ;
+    rdfs:label "is valid for"@en,
+        "obowiązuje dla"@pl ;
+    rdfs:comment "A value is always valid for some specific thing. This relation should point to an entity which is expected to satisfy a given value. Sometimes a temporal or spatial context needs to be provided, e.g. Non-EU students, 2011 graduates etc. Exceptions describing special conditions affecting the validity of a value can be described using the 'has exception' relation."@en ;
+    rdfs:domain requirement_ontology:Value .
+
+requirement_ontology:Normative_value a owl:Class ;
+    rdfs:label "Normative value"@en,
+        "Wartość normatywna"@pl ;
+    rdfs:comment """Examples:
+1. 'It is recemmended that every associated supplier should have a quality management system'.
+
+2. 'The outcome of the backup process should be verified by minimum two IT specialists'.
+
+3. 'Every hazard identified during hazard assesment process has to be described'"""@en,
+        "Value that can serve as a norm, standard, codex, requirement, criterion etc."@en ;
+    rdfs:subClassOf requirement_ontology:Value .
+
+requirement_ontology:Value a owl:Class ;
+    rdfs:label "Value"@en,
+        "Wartość"@pl ;
+    rdfs:comment """Consider following issue:
+
+It seems there may be more than one way to model a value, because the validity scope may be interpreted differently by the participants having different roles in the context. For example a requirement like âEvery associated supplier should have a quality management systemâ can be interpreted as to be valid for the supplier or for the organization that âhasâ associated supplier. 
+
+Maybe we should allow having multiple axioms for describing the norm in an equivalent way?
+
+Or maybe it is the problem of incomplete information about the EXACT context of given value? """@en,
+        "Discarded alternative: using punning (defines some Concept) and ('has validity for' some Thing) where Concept is meta-class for puns."@en,
+        "Examples: self-interest, reliability, warranty, benefit, norm, requirement, criterion, recommendation..."@en,
+        "Value is everything that has validity for something and what determines how it would be satisfied."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty requirement_ontology:is_valid_for ;
+            owl:someValuesFrom owl:Thing ] .
+
