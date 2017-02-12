@@ -142,18 +142,8 @@ capability to be used as basis for community-based extensions.
 
 
 ## Examples
-This [OWL file](examples/decision_example_03.ttl) contains a simple example: a decision-making case of choosing the 
-appropriate therapy for a patient.used to illustrate the data-driven scenario mentioned above. It covers the following 
-scenario: 
-
-STAGE 1.  
-A patient is diagnosed with a bacterial throat infection. The doctor needs to decide what treatment would be most 
-appropriate. In order to prescribe the right drug he/she has to know whether or not the patient has an allergy for the 
-drugs being considered for prescription and some parameters to evaluate correct dosing rules. 
-
-STAGE 2.  
-Patient P1 returns with some symptoms of allergic reaction, which suggests that P1 has allergy for Penicillin. The 
-doctor decides to prescribe the other antibiotic.
+* [Bacterial throat infection](examples/bacterial-throat-infection.md)
+    * illustrates the data-driven usage scenario
 
 ## References
 *Coming...*
