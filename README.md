@@ -99,8 +99,32 @@ capability to be used as basis for community-based extensions.
 3. develop detailed documentation.
 
 
-## Examples
+## How-to
+#### How do I describe a decision making event?
+* Add a subclass of **Decision_making** class.
+* Consider adding the question representing the problem initiating the given decision-making process. Use **is_initiated_by** property to indicate a subclass (or member) of the **Question** class.
+* Add options by using **is_consideration_of** property to indicate a subclass (or member) of **Option** class. See below for a details on describing options and their associated criteria.
+* Add additional questions that have to be answered during the decision-making process. Use **initiates** property to indicate a subclass (or member) of the **Question** class.
+* Add the outcome of the given decision-making process (this step can be omitted when describing decision-making patterns on TBox level). Use **has_result** property to indicate decisions that may result from considered options of a given decision-making process or to indicate a member of a **Decision** class in the case of describing a concrete process.
 
+#### How do I describe an Option?
+* Describe what exactly does a given option represent. Use **involves_choosing** property to indicate appropriate class or individual.
+* Add options criteria. Use **has_criterion** property to indicate appropriate requirement, recommendation or other subclass or member of **Normative_value** class.
+
+#### How do I describe option criteria?
+* Describe what given criterion applies to. Use **has_validity_for** property to indicate appropriate class or individual.
+* Describe how a criterion can be satisfied (or not satisfied). Use **is_satisfied_by** and/or **is_violated_by** to indicate appropriate class or individual.
+
+#### How do I describe a norm (requirement, recommendation, etc.) related to a decision making event?
+* Indicate what kind of decision-making does a given norm apply to. Use **has_validity_for** to indicate appropriate subclass or member of **Decision_making** class. 
+* Describe how a given decision-making type should be conducted (create a decision-making pattern). Use **is_satisfied_by** and/or **is_violated_by** to indicate appropriate subclass or member of **Decision_making** class.
+
+#### How do I desribe a decision?
+* Add option which represents the chosen solution. Use **indicates** property to specify a subclass or member of **Option** class 
+* Indicate decision making process which a given decision is result of. Use **is_result_of** property to indicate appropriate subclass or member of **Decision_making** class.
+
+
+## Examples
 This [OWL file](examples/decision_example_03.ttl) contains a simple example: a decision-making case of choosing the 
 appropriate therapy for a patient.used to illustrate the data-driven scenario mentioned above. It covers the following 
 scenario: 
