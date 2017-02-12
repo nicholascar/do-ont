@@ -11,7 +11,24 @@ Turtle format: [decision.ttl](decision.ttl)
 RDF XML format: [decision.owl](decision.owl)  
 HTML format: *coming*
 
-#### What it can be used for?
+## Use
+### What it can be used for?
+Some of the questions that can be answered using DO:
+* What problem/question initiated the decision-making process? 
+* What options are being considered? 
+* What criteria are being used for respective options? 
+* What requirements, recommendation or other possible norms are associated with proposed criteria? 
+* What is involved in choosing the respective options? 
+* What is the result of a decision-making process? 
+* What is affected by a given norm/requirement? 
+* What satisfies a criterion? 
+* What does not satisfy a criterion? 
+* What kind of exceptions are defined? 
+* What options should be/must not be considered? 
+* What are the recommended criteria? 
+* What are the required criteria?
+
+### Usage scenarios
 In general, there are two main use scenarios for DO:
 * archiving current or historical decision-making processes and their outputs (data-driven use)
 * outlining decision-making scenarios (patterns, templates) in order to provide guidelines for the decision-makers 
@@ -119,7 +136,7 @@ capability to be used as basis for community-based extensions.
 * Indicate what kind of decision-making does a given norm apply to. Use **has_validity_for** to indicate appropriate subclass or member of **Decision_making** class. 
 * Describe how a given decision-making type should be conducted (create a decision-making pattern). Use **is_satisfied_by** and/or **is_violated_by** to indicate appropriate subclass or member of **Decision_making** class.
 
-#### How do I desribe a decision?
+#### How do I describe a decision?
 * Add option which represents the chosen solution. Use **indicates** property to specify a subclass or member of **Option** class 
 * Indicate decision making process which a given decision is result of. Use **is_result_of** property to indicate appropriate subclass or member of **Decision_making** class.
 
