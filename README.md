@@ -21,6 +21,10 @@ HTML format: *coming*
 YouTube video: https://www.youtube.com/watch?v=dbpQodni7F4
 
 
+## License
+This ontology and all other content in this repository are licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) (also [LICENSE](LICENSE)).
+
+
 ## Authors and Contact
 **Piotr Nowara**   
 Primary Author  
