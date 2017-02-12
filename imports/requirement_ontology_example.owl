@@ -6,7 +6,7 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY requirement_ontology "http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#" >
+    <!ENTITY requirement_ontology "http://promsns.org/def/ro#" >
 ]>
 
 
@@ -16,14 +16,14 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:requirement_ontology="http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#">
+     xmlns:requirement_ontology="http://promsns.org/def/ro#">
     <owl:Ontology rdf:about="http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology_example.owl">
         <owl:versionInfo>20121122_1</owl:versionInfo>
         <rdfs:comment xml:lang="en">Author: Piotr Nowara  (piotrnowara(at)gmail.com)</rdfs:comment>
         <rdfs:comment xml:lang="en">If you don&apos;t know how to start describing your requirements or need assistance in using the Requirement Ontology please send an email to: piotrnowara(at)gmail.com</rdfs:comment>
         <rdfs:seeAlso xml:lang="en">Project webiste: http://code.google.com/p/requirement-ontology/</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">Start browsing the examples with the subclasses of Requirement.</rdfs:comment>
-        <owl:imports rdf:resource="http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl"/>
+        <owl:imports rdf:resource="http://promsns.org/def/ro"/>
     </owl:Ontology>
     
 
@@ -61,7 +61,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#describes -->
+    <!-- http://promsns.org/def/ro#describes -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;describes">
         <rdfs:label xml:lang="en">describes</rdfs:label>
@@ -69,7 +69,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#identifies -->
+    <!-- http://promsns.org/def/ro#identifies -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;identifies">
         <rdfs:label xml:lang="en">identifies</rdfs:label>
@@ -77,7 +77,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#is_described_by -->
+    <!-- http://promsns.org/def/ro#is_described_by -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;is_described_by">
         <rdfs:label xml:lang="en">is described by</rdfs:label>
@@ -86,7 +86,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#is_identified_during -->
+    <!-- http://promsns.org/def/ro#is_identified_during -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;is_identified_during">
         <rdfs:label xml:lang="en">is identified during</rdfs:label>
@@ -95,19 +95,19 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#is_requirement_for -->
+    <!-- http://promsns.org/def/ro#is_requirement_for -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;is_requirement_for"/>
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#is_satisfied_by -->
+    <!-- http://promsns.org/def/ro#is_satisfied_by -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;is_satisfied_by"/>
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#is_violated_by -->
+    <!-- http://promsns.org/def/ro#is_violated_by -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;is_violated_by"/>
     
@@ -151,7 +151,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Example_requirement_1 -->
+    <!-- http://promsns.org/def/ro#Example_requirement_1 -->
 
     <owl:Class rdf:about="&requirement_ontology;Example_requirement_1">
         <rdfs:label xml:lang="en">Example requirement 1</rdfs:label>
@@ -182,7 +182,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Hazard -->
+    <!-- http://promsns.org/def/ro#Hazard -->
 
     <owl:Class rdf:about="&requirement_ontology;Hazard">
         <rdfs:label xml:lang="en">Hazard</rdfs:label>
@@ -191,7 +191,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Hazard_assessment -->
+    <!-- http://promsns.org/def/ro#Hazard_assessment -->
 
     <owl:Class rdf:about="&requirement_ontology;Hazard_assessment">
         <rdfs:label xml:lang="en">Hazard assessment</rdfs:label>
@@ -199,7 +199,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Hazard_assessment_identifying_a_hazard -->
+    <!-- http://promsns.org/def/ro#Hazard_assessment_identifying_a_hazard -->
 
     <owl:Class rdf:about="&requirement_ontology;Hazard_assessment_identifying_a_hazard">
         <rdfs:label xml:lang="en">Hazard assessment identifying a hazard</rdfs:label>
@@ -219,7 +219,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Hazard_assessment_identifying_only_described_hazards -->
+    <!-- http://promsns.org/def/ro#Hazard_assessment_identifying_only_described_hazards -->
 
     <owl:Class rdf:about="&requirement_ontology;Hazard_assessment_identifying_only_described_hazards">
         <rdfs:label xml:lang="en">Hazard assessment identifying only described hazards</rdfs:label>
@@ -257,7 +257,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Hazard_assessment_identifying_undescribed_hazards -->
+    <!-- http://promsns.org/def/ro#Hazard_assessment_identifying_undescribed_hazards -->
 
     <owl:Class rdf:about="&requirement_ontology;Hazard_assessment_identifying_undescribed_hazards">
         <rdfs:label xml:lang="en">Hazard assessment identifying undescribed hazards</rdfs:label>
@@ -291,7 +291,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Requirement -->
+    <!-- http://promsns.org/def/ro#Requirement -->
 
     <owl:Class rdf:about="&requirement_ontology;Requirement"/>
     

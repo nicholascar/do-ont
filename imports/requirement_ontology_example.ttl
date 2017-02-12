@@ -2,7 +2,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix requirement_ontology: <http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#> .
+@prefix requirement_ontology: <http://promsns.org/def/ro#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -53,7 +53,7 @@ requirement_ontology:Hazard_assessment_identifying_undescribed_hazards a owl:Cla
         "If you don't know how to start describing your requirements or need assistance in using the Requirement Ontology please send an email to: piotrnowara(at)gmail.com"@en,
         "Start browsing the examples with the subclasses of Requirement."@en ;
     rdfs:seeAlso "Project webiste: http://code.google.com/p/requirement-ontology/"@en ;
-    owl:imports <http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl> ;
+    owl:imports <http://promsns.org/def/ro> ;
     owl:versionInfo "20121122_1" .
 
 :Example_requirement_2 a owl:Class ;

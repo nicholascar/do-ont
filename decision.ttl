@@ -1,12 +1,12 @@
-@prefix : <http://decision-ontology.googlecode.com/svn/trunk/decision.owl#> .
+@prefix : <http://promsns.org/def/do#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://decision-ontology.googlecode.com/svn/trunk/decision.owl> .
+@base <http://promsns.org/def/do> .
 
-<http://decision-ontology.googlecode.com/svn/trunk/decision.owl> rdf:type owl:Ontology ;
+<http://promsns.org/def/do> rdf:type owl:Ontology ;
                                                                   owl:imports <https://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl> ;
                                                                   rdfs:seeAlso "Decision Ontology website: http://code.google.com/p/decision-ontology/"@en ;
                                                                   rdfs:comment """SUMMARY:
@@ -35,7 +35,7 @@ If you need help in using the Decision Ontology or the imported Requirement Onto
 #    Object Properties
 #################################################################
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_answer
+###  http://promsns.org/def/do#has_answer
 :has_answer rdf:type owl:ObjectProperty ;
             owl:inverseOf :is_answer_for ;
             rdfs:domain :Question ;
@@ -43,7 +43,7 @@ If you need help in using the Decision Ontology or the imported Requirement Onto
             rdfs:label "has answer"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_consequence
+###  http://promsns.org/def/do#has_consequence
 :has_consequence rdf:type owl:ObjectProperty ;
                  owl:inverseOf :is_consequence_of ;
                  rdfs:domain :Situation ;
@@ -51,7 +51,7 @@ If you need help in using the Decision Ontology or the imported Requirement Onto
                  rdfs:label "has consequence"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_context
+###  http://promsns.org/def/do#has_context
 :has_context rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :occurs_in ;
              owl:inverseOf :is_context_of ;
@@ -59,145 +59,145 @@ If you need help in using the Decision Ontology or the imported Requirement Onto
              rdfs:label "has context"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_criterion
+###  http://promsns.org/def/do#has_criterion
 :has_criterion rdf:type owl:ObjectProperty ;
-               rdfs:range <http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Normative_value> ;
+               rdfs:range <http://promsns.org/def/ro#Normative_value> ;
                rdfs:label "has criterion"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_result
+###  http://promsns.org/def/do#has_result
 :has_result rdf:type owl:ObjectProperty ;
             owl:inverseOf :is_result_of ;
             rdfs:label "has result"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_solution
+###  http://promsns.org/def/do#has_solution
 :has_solution rdf:type owl:ObjectProperty ;
               owl:inverseOf :is_solution_for ;
               rdfs:domain :Problem ;
               rdfs:label "has solution"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#includes
+###  http://promsns.org/def/do#includes
 :includes rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf :is_occurence_of ;
           owl:inverseOf :is_included_in ;
           rdfs:label "includes"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#indicates
+###  http://promsns.org/def/do#indicates
 :indicates rdf:type owl:ObjectProperty ;
            owl:inverseOf :is_indicated_by ;
            rdfs:label "indicates"@en ,
                       "wskazuje"@pl .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#initiates
+###  http://promsns.org/def/do#initiates
 :initiates rdf:type owl:ObjectProperty ;
            owl:inverseOf :is_initiated_by ;
            rdfs:range :Process ;
            rdfs:label "initiates"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#involves_choosing
+###  http://promsns.org/def/do#involves_choosing
 :involves_choosing rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :is_occurence_of ;
                    rdfs:label "involves choosing"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_adressed_to
+###  http://promsns.org/def/do#is_adressed_to
 :is_adressed_to rdf:type owl:ObjectProperty ;
                 rdfs:label "is adressed to"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_answer_for
+###  http://promsns.org/def/do#is_answer_for
 :is_answer_for rdf:type owl:ObjectProperty ;
                rdfs:domain :Answer ;
                rdfs:range :Question ;
                rdfs:label "is answer for"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_consequence_of
+###  http://promsns.org/def/do#is_consequence_of
 :is_consequence_of rdf:type owl:ObjectProperty ;
                    rdfs:domain :Situation ;
                    rdfs:range :Situation ;
                    rdfs:label "is consequence of"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_consideration_of
+###  http://promsns.org/def/do#is_consideration_of
 :is_consideration_of rdf:type owl:ObjectProperty ;
                      owl:inverseOf :is_considered_during ;
                      rdfs:domain :Process ;
                      rdfs:label "is consideration of"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_considered_during
+###  http://promsns.org/def/do#is_considered_during
 :is_considered_during rdf:type owl:ObjectProperty ;
                       rdfs:range :Process ;
                       rdfs:label "is considered during"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_context_of
+###  http://promsns.org/def/do#is_context_of
 :is_context_of rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf :is_occurence_of .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_included_in
+###  http://promsns.org/def/do#is_included_in
 :is_included_in rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf :occurs_in ;
                 rdfs:label "is included in"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_indicated_by
+###  http://promsns.org/def/do#is_indicated_by
 :is_indicated_by rdf:type owl:ObjectProperty ;
                  rdfs:label "is indicated by"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_initiated_by
+###  http://promsns.org/def/do#is_initiated_by
 :is_initiated_by rdf:type owl:ObjectProperty ;
                  rdfs:domain :Process ;
                  rdfs:label "is initiated by"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_occurence_of
+###  http://promsns.org/def/do#is_occurence_of
 :is_occurence_of rdf:type owl:ObjectProperty .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for
+###  http://promsns.org/def/do#is_question_for
 :is_question_for rdf:type owl:ObjectProperty ;
                  rdfs:domain :Question ;
                  rdfs:label "is question for"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for_confirming
+###  http://promsns.org/def/do#is_question_for_confirming
 :is_question_for_confirming rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf :is_question_for ;
                             rdfs:domain :Question ;
                             rdfs:label "is question for confirming"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for_indicating
+###  http://promsns.org/def/do#is_question_for_indicating
 :is_question_for_indicating rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf :is_question_for ;
                             rdfs:domain :Question ;
                             rdfs:label "is question for indicating"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_result_of
+###  http://promsns.org/def/do#is_result_of
 :is_result_of rdf:type owl:ObjectProperty .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_solution_for
+###  http://promsns.org/def/do#is_solution_for
 :is_solution_for rdf:type owl:ObjectProperty ;
                  rdfs:range :Problem ;
                  rdfs:label "is solution for"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#occurs_in
+###  http://promsns.org/def/do#occurs_in
 :occurs_in rdf:type owl:ObjectProperty .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#supposedly_same_as
+###  http://promsns.org/def/do#supposedly_same_as
 :supposedly_same_as rdf:type owl:ObjectProperty ,
                              owl:SymmetricProperty ;
                     rdfs:comment "Renamed from 'is supposed to be identical with'."@en ,
@@ -209,7 +209,7 @@ If you need help in using the Decision Ontology or the imported Requirement Onto
 #    Data properties
 #################################################################
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#indicates_boolean_value
+###  http://promsns.org/def/do#indicates_boolean_value
 :indicates_boolean_value rdf:type owl:DatatypeProperty .
 
 
@@ -217,7 +217,7 @@ If you need help in using the Decision Ontology or the imported Requirement Onto
 #    Classes
 #################################################################
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Answer
+###  http://promsns.org/def/do#Answer
 :Answer rdf:type owl:Class ;
         rdfs:subClassOf :Situation ,
                         [ rdf:type owl:Class ;
@@ -239,13 +239,13 @@ If you need help in using the Decision Ontology or the imported Requirement Onto
         rdfs:label "Answer"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Context
+###  http://promsns.org/def/do#Context
 :Context rdf:type owl:Class ;
          rdfs:subClassOf :Situation ;
          rdfs:label "Context"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Decision
+###  http://promsns.org/def/do#Decision
 :Decision rdf:type owl:Class ;
           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                                        owl:onProperty :indicates ;
@@ -263,7 +263,7 @@ If you need help in using the Decision Ontology or the imported Requirement Onto
           rdfs:label "Decision"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Decision_making
+###  http://promsns.org/def/do#Decision_making
 :Decision_making rdf:type owl:Class ;
                  rdfs:subClassOf :Process ,
                                  [ rdf:type owl:Restriction ;
@@ -286,11 +286,11 @@ In most cases stages 2-3 consist of many (concurrent or sequential) actions, eve
                  rdfs:seeAlso :Decision .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Option
+###  http://promsns.org/def/do#Option
 :Option rdf:type owl:Class ;
         owl:equivalentClass [ rdf:type owl:Restriction ;
                               owl:onProperty :has_criterion ;
-                              owl:someValuesFrom <http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Normative_value>
+                              owl:someValuesFrom <http://promsns.org/def/ro#Normative_value>
                             ] ;
         rdfs:subClassOf :Situation ;
         rdfs:comment """Option has always related criteria which correspond to requirements, recommendations,obligations etc. Those criteria might be implied from some documents, agreements, formal regulations etc. but also from subjective preferences or feelings. For example choosing a car may have a criterion related to subjective color or brand preferneces.
@@ -301,18 +301,18 @@ TODO: A set of entities for representing the criteria \"source\" may be a valuab
         rdfs:seeAlso :Decision_making .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Problem
+###  http://promsns.org/def/do#Problem
 :Problem rdf:type owl:Class ;
          rdfs:subClassOf :Situation ;
          rdfs:label "Problem"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Process
+###  http://promsns.org/def/do#Process
 :Process rdf:type owl:Class ;
          rdfs:label "Process"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question
+###  http://promsns.org/def/do#Question
 :Question rdf:type owl:Class ;
           owl:equivalentClass [ rdf:type owl:Restriction ;
                                 owl:onProperty :is_question_for ;
@@ -323,7 +323,7 @@ TODO: A set of entities for representing the criteria \"source\" may be a valuab
           rdfs:label "Question"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question_for_confirming
+###  http://promsns.org/def/do#Question_for_confirming
 :Question_for_confirming rdf:type owl:Class ;
                          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                                                       owl:onProperty :is_question_for_confirming ;
@@ -346,7 +346,7 @@ Examples: Are you a vegetarian? Is Norway a member of UE?"""@en ;
                          rdfs:label "Question for confirming"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question_for_indicating
+###  http://promsns.org/def/do#Question_for_indicating
 :Question_for_indicating rdf:type owl:Class ;
                          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                                                       owl:onProperty :is_question_for_indicating ;
@@ -369,7 +369,7 @@ Examples: What's your date of birth? What is the name of the Director of the W3C
                          rdfs:label "Question for indicating"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question_for_indicating_solution
+###  http://promsns.org/def/do#Question_for_indicating_solution
 :Question_for_indicating_solution rdf:type owl:Class ;
                                   rdfs:subClassOf :Question_for_indicating ,
                                                   [ rdf:type owl:Restriction ;
@@ -379,13 +379,13 @@ Examples: What's your date of birth? What is the name of the Director of the W3C
                                   rdfs:label "Question for indicating solution"@en .
 
 
-###  http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation
+###  http://promsns.org/def/do#Situation
 :Situation rdf:type owl:Class ;
            rdfs:label "Situation"@en .
 
 
-###  http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Normative_value
-<http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Normative_value> rdf:type owl:Class .
+###  http://promsns.org/def/ro#Normative_value
+<http://promsns.org/def/ro#Normative_value> rdf:type owl:Class .
 
 
 ###  Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi

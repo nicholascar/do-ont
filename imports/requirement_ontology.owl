@@ -6,18 +6,18 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY requirement_ontology "http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#" >
+    <!ENTITY requirement_ontology "http://promsns.org/def/ro#" >
 ]>
 
 
-<rdf:RDF xmlns="http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl"
-     xml:base="http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl"
+<rdf:RDF xmlns="http://promsns.org/def/ro"
+     xml:base="http://promsns.org/def/ro"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:requirement_ontology="http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#">
-    <owl:Ontology rdf:about="http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl">
+     xmlns:requirement_ontology="http://promsns.org/def/ro#">
+    <owl:Ontology rdf:about="http://promsns.org/def/ro">
         <owl:versionInfo xml:lang="en">2012_11_23_1</owl:versionInfo>
         <rdfs:comment xml:lang="en">Author: Piotr Nowara  (piotrnowara(at)gmail.com)</rdfs:comment>
         <owl:versionInfo xml:lang="en">CHANGELOG
@@ -69,7 +69,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#has_criterion -->
+    <!-- http://promsns.org/def/ro#has_criterion -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;has_criterion">
         <rdfs:label xml:lang="en">has criterion</rdfs:label>
@@ -81,7 +81,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#has_exception -->
+    <!-- http://promsns.org/def/ro#has_exception -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;has_exception">
         <rdfs:label xml:lang="en">has exception</rdfs:label>
@@ -91,7 +91,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#is_affected_by_validity_of -->
+    <!-- http://promsns.org/def/ro#is_affected_by_validity_of -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;is_affected_by_validity_of">
         <rdfs:label xml:lang="en">is affected by validity of</rdfs:label>
@@ -101,7 +101,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#is_criterion_for -->
+    <!-- http://promsns.org/def/ro#is_criterion_for -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;is_criterion_for">
         <rdfs:label xml:lang="en">is criterion for</rdfs:label>
@@ -112,7 +112,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#is_permission_for -->
+    <!-- http://promsns.org/def/ro#is_permission_for -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;is_permission_for">
         <rdfs:label xml:lang="en">is permission for</rdfs:label>
@@ -123,7 +123,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#is_recommendation_for -->
+    <!-- http://promsns.org/def/ro#is_recommendation_for -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;is_recommendation_for">
         <rdfs:label xml:lang="en">is recommendation for</rdfs:label>
@@ -134,7 +134,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#is_requirement_for -->
+    <!-- http://promsns.org/def/ro#is_requirement_for -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;is_requirement_for">
         <rdfs:label xml:lang="en">is requirement for</rdfs:label>
@@ -145,7 +145,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#is_satisfied_by -->
+    <!-- http://promsns.org/def/ro#is_satisfied_by -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;is_satisfied_by">
         <rdfs:label xml:lang="en">is satisfied by</rdfs:label>
@@ -158,7 +158,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#is_valid_for -->
+    <!-- http://promsns.org/def/ro#is_valid_for -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;is_valid_for">
         <rdfs:label xml:lang="en">is valid for</rdfs:label>
@@ -169,7 +169,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#is_violated_by -->
+    <!-- http://promsns.org/def/ro#is_violated_by -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;is_violated_by">
         <rdfs:label xml:lang="en">is violated by</rdfs:label>
@@ -181,7 +181,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#satisfies -->
+    <!-- http://promsns.org/def/ro#satisfies -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;satisfies">
         <rdfs:label xml:lang="en">satisfies</rdfs:label>
@@ -193,7 +193,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#satisfies_criterion -->
+    <!-- http://promsns.org/def/ro#satisfies_criterion -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;satisfies_criterion">
         <rdfs:label xml:lang="en">satisfies criterion</rdfs:label>
@@ -204,7 +204,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#satisfies_recommendation -->
+    <!-- http://promsns.org/def/ro#satisfies_recommendation -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;satisfies_recommendation">
         <rdfs:label xml:lang="en">satisfies recommendation</rdfs:label>
@@ -215,7 +215,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#satisfies_requirement -->
+    <!-- http://promsns.org/def/ro#satisfies_requirement -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;satisfies_requirement">
         <rdfs:label xml:lang="en">satisfies requirement</rdfs:label>
@@ -226,7 +226,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#violates -->
+    <!-- http://promsns.org/def/ro#violates -->
 
     <owl:ObjectProperty rdf:about="&requirement_ontology;violates">
         <rdfs:label xml:lang="en">violates</rdfs:label>
@@ -248,7 +248,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Criterion -->
+    <!-- http://promsns.org/def/ro#Criterion -->
 
     <owl:Class rdf:about="&requirement_ontology;Criterion">
         <rdfs:label xml:lang="en">Criterion</rdfs:label>
@@ -258,7 +258,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Norm -->
+    <!-- http://promsns.org/def/ro#Norm -->
 
     <owl:Class rdf:about="&requirement_ontology;Norm">
         <rdfs:label xml:lang="en">Norm</rdfs:label>
@@ -268,7 +268,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Normative_value -->
+    <!-- http://promsns.org/def/ro#Normative_value -->
 
     <owl:Class rdf:about="&requirement_ontology;Normative_value">
         <rdfs:label xml:lang="en">Normative value</rdfs:label>
@@ -285,7 +285,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Obligation -->
+    <!-- http://promsns.org/def/ro#Obligation -->
 
     <owl:Class rdf:about="&requirement_ontology;Obligation">
         <rdfs:label xml:lang="en">Obligation</rdfs:label>
@@ -295,7 +295,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Permission -->
+    <!-- http://promsns.org/def/ro#Permission -->
 
     <owl:Class rdf:about="&requirement_ontology;Permission">
         <rdfs:label xml:lang="en">Permission</rdfs:label>
@@ -305,7 +305,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Privilege -->
+    <!-- http://promsns.org/def/ro#Privilege -->
 
     <owl:Class rdf:about="&requirement_ontology;Privilege">
         <rdfs:label xml:lang="en">Privilege</rdfs:label>
@@ -315,7 +315,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Recommendation -->
+    <!-- http://promsns.org/def/ro#Recommendation -->
 
     <owl:Class rdf:about="&requirement_ontology;Recommendation">
         <rdfs:label xml:lang="en">Recommendation</rdfs:label>
@@ -325,7 +325,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Requirement -->
+    <!-- http://promsns.org/def/ro#Requirement -->
 
     <owl:Class rdf:about="&requirement_ontology;Requirement">
         <rdfs:label xml:lang="en">Requirement</rdfs:label>
@@ -335,7 +335,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Standard -->
+    <!-- http://promsns.org/def/ro#Standard -->
 
     <owl:Class rdf:about="&requirement_ontology;Standard">
         <rdfs:label xml:lang="en">Standard</rdfs:label>
@@ -346,7 +346,7 @@
     
 
 
-    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Value -->
+    <!-- http://promsns.org/def/ro#Value -->
 
     <owl:Class rdf:about="&requirement_ontology;Value">
         <rdfs:label xml:lang="en">Value</rdfs:label>
