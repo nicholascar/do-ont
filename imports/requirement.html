@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link href="http://eelst.cs.unibo.it/apps/LODE/owl.css" rel="stylesheet" type="text/css" />
+		<link href="http://eelst.cs.unibo.it/apps/LODE/Primer.css" rel="stylesheet" type="text/css" />
+		<link href="http://eelst.cs.unibo.it/apps/LODE/rec.css" rel="stylesheet" type="text/css" />
+		<link href="http://eelst.cs.unibo.it/apps/LODE/extra.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="http://eelst.cs.unibo.it/apps/LODE/favicon.ico" />
+		<script src="/static/js/jquery.js"></script>
+        <script src="/static/js/jquery.scrollTo.js"></script>
+        <script src="/static/js/marked.min.js"></script>
+        <script>
+			$(document).ready(
+			    function () {
+			    	jQuery(".markdown").each(function(el){
+			jQuery(this).after(marked(jQuery(this).text())).remove()});
+			        var list = $('a[name="http://www.essepuntato.it/tmp/1486881287-ontology"]');
+			        if (list.size() != 0) {
+			        	var element = list.first();
+			        	$.scrollTo(element);
+			        }
+			    });
+		</script>
+	</head>
+	<body>
+		<div class="head">
+			<dl>
+				<dt>IRI:</dt>
+				<dd>http://promsns.org/def/ro</dd>
+			</dl>
+			<dl>
+				<dt>Current version:</dt>
+				<dd>2012_11_23_1</dd>
+			</dl>
+			<dl>
+				<dt>Other visualisation:</dt>
+				<dd><a href="http://promsns.org/def/ro.ttl">Ontology source</a></dd>
+			</dl>
+		</div>
+		<hr />
+		<h2>Abstract</h2>
+		<span class="markdown">Author: Piotr Nowara  (piotrnowara(at)gmail.com)</span>
+		<div id="toc">
+			<h2>Table of Content</h2>
+			<ol>
+				<li><a href="#classes">Classes</a></li>
+				<li><a href="#objectproperties">Object Properties</a></li>
+				<li><a href="#annotationproperties">Annotation Properties</a></li>
+				<li><a href="#namespacedeclarations">Namespace Declarations</a></li>
+			</ol>
+		</div>
+		<div id="classes">
+			<h2>Classes</h2>
+			<ul class="hlist">
+				<li><a href="#d4e282" title="http://promsns.org/def/ro#Criterion">Criterion</a></li>
+				<li><a href="#d4e295" title="http://promsns.org/def/ro#Norm">Norm</a></li>
+				<li><a href="#d4e309" title="http://promsns.org/def/ro#Normative_value">Normative value</a></li>
+				<li><a href="#d4e328" title="http://promsns.org/def/ro#Obligation">Obligation</a></li>
+				<li><a href="#d4e341" title="http://promsns.org/def/ro#Permission">Permission</a></li>
+				<li><a href="#d4e355" title="http://promsns.org/def/ro#Privilege">Privilege</a></li>
+				<li><a href="#d4e368" title="http://promsns.org/def/ro#Recommendation">Recommendation</a></li>
+				<li><a href="#d4e381" title="http://promsns.org/def/ro#Requirement">Requirement</a></li>
+				<li><a href="#d4e395" title="http://promsns.org/def/ro#Standard">Standard</a></li>
+				<li><a href="#d4e411" title="http://promsns.org/def/ro#Value">Value</a></li>
+			</ul>
+			<div id="d4e282" class="entity">
+				<a name="http://promsns.org/def/ro#Criterion"></a>
+				<h3>Criterion<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#Criterion</p>
+				<dl class="description">
+					<dt>has super-classes</dt>
+					<dd><a href="#d4e309" title="http://promsns.org/def/ro#Normative_value">Normative value</a><sup title="class" class="type-c">c</sup></dd>
+					<dt>is in domain of</dt>
+					<dd><a href="#d4e86" title="http://promsns.org/def/ro#is_criterion_for">is criterion for</a><sup title="object property" class="type-op">op</sup></dd>
+					<dt>is in range of</dt>
+					<dd><a href="#d4e43" title="http://promsns.org/def/ro#has_criterion">has criterion</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e219" title="http://promsns.org/def/ro#satisfies_criterion">satisfies criterion</a><sup title="object property" class="type-op">op</sup></dd>
+				</dl>
+			</div>
+			<div id="d4e295" class="entity">
+				<a name="http://promsns.org/def/ro#Norm"></a>
+				<h3>Norm<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#Norm</p>
+				<dl class="description">
+					<dt>has super-classes</dt>
+					<dd><a href="#d4e309" title="http://promsns.org/def/ro#Normative_value">Normative value</a><sup title="class" class="type-c">c</sup></dd>
+				</dl>
+			</div>
+			<div id="d4e309" class="entity">
+				<a name="http://promsns.org/def/ro#Normative_value"></a>
+				<h3>Normative value<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#Normative_value</p>
+				<div class="comment"><span class="markdown">Examples:
+					1. 'It is recemmended that every associated supplier should have a quality management system'.
+					2. 'The outcome of the backup process should be verified by minimum two IT specialists'.
+					3. 'Every hazard identified during hazard assesment process has to be described'</span>
+				</div>
+				<dl class="description">
+					<dt>has super-classes</dt>
+					<dd><a href="#d4e411" title="http://promsns.org/def/ro#Value">Value</a><sup title="class" class="type-c">c</sup></dd>
+					<dt>has sub-classes</dt>
+					<dd><a href="#d4e282" title="http://promsns.org/def/ro#Criterion">Criterion</a><sup title="class" class="type-c">c</sup>, <a href="#d4e295" title="http://promsns.org/def/ro#Norm">Norm</a><sup title="class" class="type-c">c</sup>, <a href="#d4e328" title="http://promsns.org/def/ro#Obligation">Obligation</a><sup title="class" class="type-c">c</sup>, <a href="#d4e341" title="http://promsns.org/def/ro#Permission">Permission</a><sup title="class" class="type-c">c</sup>, <a href="#d4e368" title="http://promsns.org/def/ro#Recommendation">Recommendation</a><sup title="class" class="type-c">c</sup>, <a href="#d4e381" title="http://promsns.org/def/ro#Requirement">Requirement</a><sup title="class" class="type-c">c</sup>, <a href="#d4e395" title="http://promsns.org/def/ro#Standard">Standard</a><sup title="class" class="type-c">c</sup></dd>
+				</dl>
+			</div>
+			<div id="d4e328" class="entity">
+				<a name="http://promsns.org/def/ro#Obligation"></a>
+				<h3>Obligation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#Obligation</p>
+				<dl class="description">
+					<dt>has super-classes</dt>
+					<dd><a href="#d4e309" title="http://promsns.org/def/ro#Normative_value">Normative value</a><sup title="class" class="type-c">c</sup></dd>
+				</dl>
+			</div>
+			<div id="d4e341" class="entity">
+				<a name="http://promsns.org/def/ro#Permission"></a>
+				<h3>Permission<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#Permission</p>
+				<dl class="description">
+					<dt>has super-classes</dt>
+					<dd><a href="#d4e309" title="http://promsns.org/def/ro#Normative_value">Normative value</a><sup title="class" class="type-c">c</sup></dd>
+					<dt>has sub-classes</dt>
+					<dd><a href="#d4e355" title="http://promsns.org/def/ro#Privilege">Privilege</a><sup title="class" class="type-c">c</sup></dd>
+					<dt>is in domain of</dt>
+					<dd><a href="#d4e101" title="http://promsns.org/def/ro#is_permission_for">is permission for</a><sup title="object property" class="type-op">op</sup></dd>
+				</dl>
+			</div>
+			<div id="d4e355" class="entity">
+				<a name="http://promsns.org/def/ro#Privilege"></a>
+				<h3>Privilege<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#Privilege</p>
+				<dl class="description">
+					<dt>has super-classes</dt>
+					<dd><a href="#d4e341" title="http://promsns.org/def/ro#Permission">Permission</a><sup title="class" class="type-c">c</sup></dd>
+				</dl>
+			</div>
+			<div id="d4e368" class="entity">
+				<a name="http://promsns.org/def/ro#Recommendation"></a>
+				<h3>Recommendation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#Recommendation</p>
+				<dl class="description">
+					<dt>has super-classes</dt>
+					<dd><a href="#d4e309" title="http://promsns.org/def/ro#Normative_value">Normative value</a><sup title="class" class="type-c">c</sup></dd>
+					<dt>is in domain of</dt>
+					<dd><a href="#d4e117" title="http://promsns.org/def/ro#is_recommendation_for">is recommendation for</a><sup title="object property" class="type-op">op</sup></dd>
+					<dt>is in range of</dt>
+					<dd><a href="#d4e234" title="http://promsns.org/def/ro#satisfies_recommendation">satisfies recommendation</a><sup title="object property" class="type-op">op</sup></dd>
+				</dl>
+			</div>
+			<div id="d4e381" class="entity">
+				<a name="http://promsns.org/def/ro#Requirement"></a>
+				<h3>Requirement<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#Requirement</p>
+				<dl class="description">
+					<dt>has super-classes</dt>
+					<dd><a href="#d4e309" title="http://promsns.org/def/ro#Normative_value">Normative value</a><sup title="class" class="type-c">c</sup></dd>
+					<dt>is in domain of</dt>
+					<dd><a href="#d4e132" title="http://promsns.org/def/ro#is_requirement_for">is requirement for</a><sup title="object property" class="type-op">op</sup></dd>
+					<dt>is in range of</dt>
+					<dd><a href="#d4e249" title="http://promsns.org/def/ro#satisfies_requirement">satisfies requirement</a><sup title="object property" class="type-op">op</sup></dd>
+				</dl>
+			</div>
+			<div id="d4e395" class="entity">
+				<a name="http://promsns.org/def/ro#Standard"></a>
+				<h3>Standard<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#Standard</p>
+				<div class="comment"><span class="markdown">A set of normative values (for example requirements and recommendations) that can be viewed as a normative value itself.</span></div>
+				<dl class="description">
+					<dt>has super-classes</dt>
+					<dd><a href="#d4e309" title="http://promsns.org/def/ro#Normative_value">Normative value</a><sup title="class" class="type-c">c</sup></dd>
+				</dl>
+			</div>
+			<div id="d4e411" class="entity">
+				<a name="http://promsns.org/def/ro#Value"></a>
+				<h3>Value<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#Value</p>
+				<div class="comment"><span class="markdown">Consider following issue:
+					It seems there may be more than one way to model a value, because the validity scope may be interpreted differently by the participants having different roles in the context. For example a requirement like â&#x80;&#x9c;Every associated supplier should have a quality management systemâ&#x80;&#x9d; can be interpreted as to be valid for the supplier or for the organization that â&#x80;&#x9c;hasâ&#x80;&#x9d; associated supplier.
+					Maybe we should allow having multiple axioms for describing the norm in an equivalent way?
+					Or maybe it is the problem of incomplete information about the EXACT context of given value? </span>
+				</div>
+				<dl class="description">
+					<dt>has super-classes</dt>
+					<dd><a href="#d4e168" title="http://promsns.org/def/ro#is_valid_for">is valid for</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup></dd>
+					<dt>has sub-classes</dt>
+					<dd><a href="#d4e309" title="http://promsns.org/def/ro#Normative_value">Normative value</a><sup title="class" class="type-c">c</sup></dd>
+					<dt>is in domain of</dt>
+					<dd><a href="#d4e60" title="http://promsns.org/def/ro#has_exception">has exception</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e147" title="http://promsns.org/def/ro#is_satisfied_by">is satisfied by</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e168" title="http://promsns.org/def/ro#is_valid_for">is valid for</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e184" title="http://promsns.org/def/ro#is_violated_by">is violated by</a><sup title="object property" class="type-op">op</sup></dd>
+					<dt>is in range of</dt>
+					<dd><a href="#d4e74" title="http://promsns.org/def/ro#is_affected_by_validity_of">is affected by validity of</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e201" title="http://promsns.org/def/ro#satisfies">satisfies</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e265" title="http://promsns.org/def/ro#violates">violates</a><sup title="object property" class="type-op">op</sup></dd>
+				</dl>
+			</div>
+		</div>
+		<div id="objectproperties">
+			<h2>Object Properties</h2>
+			<ul class="hlist">
+				<li><a href="#d4e43" title="http://promsns.org/def/ro#has_criterion">has criterion</a></li>
+				<li><a href="#d4e60" title="http://promsns.org/def/ro#has_exception">has exception</a></li>
+				<li><a href="#d4e74" title="http://promsns.org/def/ro#is_affected_by_validity_of">is affected by validity of</a></li>
+				<li><a href="#d4e86" title="http://promsns.org/def/ro#is_criterion_for">is criterion for</a></li>
+				<li><a href="#d4e101" title="http://promsns.org/def/ro#is_permission_for">is permission for</a></li>
+				<li><a href="#d4e117" title="http://promsns.org/def/ro#is_recommendation_for">is recommendation for</a></li>
+				<li><a href="#d4e132" title="http://promsns.org/def/ro#is_requirement_for">is requirement for</a></li>
+				<li><a href="#d4e147" title="http://promsns.org/def/ro#is_satisfied_by">is satisfied by</a></li>
+				<li><a href="#d4e168" title="http://promsns.org/def/ro#is_valid_for">is valid for</a></li>
+				<li><a href="#d4e184" title="http://promsns.org/def/ro#is_violated_by">is violated by</a></li>
+				<li><a href="#d4e201" title="http://promsns.org/def/ro#satisfies">satisfies</a></li>
+				<li><a href="#d4e219" title="http://promsns.org/def/ro#satisfies_criterion">satisfies criterion</a></li>
+				<li><a href="#d4e234" title="http://promsns.org/def/ro#satisfies_recommendation">satisfies recommendation</a></li>
+				<li><a href="#d4e249" title="http://promsns.org/def/ro#satisfies_requirement">satisfies requirement</a></li>
+				<li><a href="#d4e265" title="http://promsns.org/def/ro#violates">violates</a></li>
+			</ul>
+			<div id="d4e43" class="entity">
+				<a name="http://promsns.org/def/ro#has_criterion"></a>
+				<h3>has criterion<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#has_criterion</p>
+				<div class="description">
+					<dl>
+						<dt>has super-properties</dt>
+						<dd><a href="#d4e74" title="http://promsns.org/def/ro#is_affected_by_validity_of">is affected by validity of</a><sup title="object property" class="type-op">op</sup></dd>
+						<dt>has range</dt>
+						<dd><a href="#d4e282" title="http://promsns.org/def/ro#Criterion">Criterion</a><sup title="class" class="type-c">c</sup></dd>
+						<dt>is inverse of</dt>
+						<dd><a href="#d4e86" title="http://promsns.org/def/ro#is_criterion_for">is criterion for</a><sup title="object property" class="type-op">op</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e60" class="entity">
+				<a name="http://promsns.org/def/ro#has_exception"></a>
+				<h3>has exception<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#has_exception</p>
+				<div class="description">
+					<dl>
+						<dt>has domain</dt>
+						<dd><a href="#d4e411" title="http://promsns.org/def/ro#Value">Value</a><sup title="class" class="type-c">c</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e74" class="entity">
+				<a name="http://promsns.org/def/ro#is_affected_by_validity_of"></a>
+				<h3>is affected by validity of<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#is_affected_by_validity_of</p>
+				<div class="description">
+					<dl>
+						<dt>has sub-properties</dt>
+						<dd><a href="#d4e43" title="http://promsns.org/def/ro#has_criterion">has criterion</a><sup title="object property" class="type-op">op</sup></dd>
+						<dt>has range</dt>
+						<dd><a href="#d4e411" title="http://promsns.org/def/ro#Value">Value</a><sup title="class" class="type-c">c</sup></dd>
+						<dt>is inverse of</dt>
+						<dd><a href="#d4e168" title="http://promsns.org/def/ro#is_valid_for">is valid for</a><sup title="object property" class="type-op">op</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e86" class="entity">
+				<a name="http://promsns.org/def/ro#is_criterion_for"></a>
+				<h3>is criterion for<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#is_criterion_for</p>
+				<div class="description">
+					<dl>
+						<dt>has super-properties</dt>
+						<dd><a href="#d4e168" title="http://promsns.org/def/ro#is_valid_for">is valid for</a><sup title="object property" class="type-op">op</sup></dd>
+						<dt>has domain</dt>
+						<dd><a href="#d4e282" title="http://promsns.org/def/ro#Criterion">Criterion</a><sup title="class" class="type-c">c</sup></dd>
+						<dt>is inverse of</dt>
+						<dd><a href="#d4e43" title="http://promsns.org/def/ro#has_criterion">has criterion</a><sup title="object property" class="type-op">op</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e101" class="entity">
+				<a name="http://promsns.org/def/ro#is_permission_for"></a>
+				<h3>is permission for<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#is_permission_for</p>
+				<div class="description">
+					<dl>
+						<dt>has super-properties</dt>
+						<dd><a href="#d4e168" title="http://promsns.org/def/ro#is_valid_for">is valid for</a><sup title="object property" class="type-op">op</sup></dd>
+						<dt>has domain</dt>
+						<dd><a href="#d4e341" title="http://promsns.org/def/ro#Permission">Permission</a><sup title="class" class="type-c">c</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e117" class="entity">
+				<a name="http://promsns.org/def/ro#is_recommendation_for"></a>
+				<h3>is recommendation for<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#is_recommendation_for</p>
+				<div class="description">
+					<dl>
+						<dt>has super-properties</dt>
+						<dd><a href="#d4e168" title="http://promsns.org/def/ro#is_valid_for">is valid for</a><sup title="object property" class="type-op">op</sup></dd>
+						<dt>has domain</dt>
+						<dd><a href="#d4e368" title="http://promsns.org/def/ro#Recommendation">Recommendation</a><sup title="class" class="type-c">c</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e132" class="entity">
+				<a name="http://promsns.org/def/ro#is_requirement_for"></a>
+				<h3>is requirement for<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#is_requirement_for</p>
+				<div class="description">
+					<dl>
+						<dt>has super-properties</dt>
+						<dd><a href="#d4e168" title="http://promsns.org/def/ro#is_valid_for">is valid for</a><sup title="object property" class="type-op">op</sup></dd>
+						<dt>has domain</dt>
+						<dd><a href="#d4e381" title="http://promsns.org/def/ro#Requirement">Requirement</a><sup title="class" class="type-c">c</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e147" class="entity">
+				<a name="http://promsns.org/def/ro#is_satisfied_by"></a>
+				<h3>is satisfied by<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#is_satisfied_by</p>
+				<div class="description">
+					<dl>
+						<dt>has super-properties</dt>
+						<dd><span class="dotted" title="http://www.w3.org/2002/07/owl#topObjectProperty">top object property</span></dd>
+						<dt>has domain</dt>
+						<dd><a href="#d4e411" title="http://promsns.org/def/ro#Value">Value</a><sup title="class" class="type-c">c</sup></dd>
+						<dt>has range</dt>
+						<dd><span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup></dd>
+						<dt>is inverse of</dt>
+						<dd><a href="#d4e201" title="http://promsns.org/def/ro#satisfies">satisfies</a><sup title="object property" class="type-op">op</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e168" class="entity">
+				<a name="http://promsns.org/def/ro#is_valid_for"></a>
+				<h3>is valid for<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#is_valid_for</p>
+				<div class="comment"><span class="markdown">A value is always valid for some specific thing. This relation should point to an entity which is expected to satisfy a given value. Sometimes a temporal or spatial context needs to be provided, e.g. Non-EU students, 2011 graduates etc. Exceptions describing special conditions affecting the validity of a value can be described using the 'has exception' relation.</span></div>
+				<div class="description">
+					<dl>
+						<dt>has sub-properties</dt>
+						<dd><a href="#d4e86" title="http://promsns.org/def/ro#is_criterion_for">is criterion for</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e101" title="http://promsns.org/def/ro#is_permission_for">is permission for</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e117" title="http://promsns.org/def/ro#is_recommendation_for">is recommendation for</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e132" title="http://promsns.org/def/ro#is_requirement_for">is requirement for</a><sup title="object property" class="type-op">op</sup></dd>
+						<dt>has domain</dt>
+						<dd><a href="#d4e411" title="http://promsns.org/def/ro#Value">Value</a><sup title="class" class="type-c">c</sup></dd>
+						<dt>is inverse of</dt>
+						<dd><a href="#d4e74" title="http://promsns.org/def/ro#is_affected_by_validity_of">is affected by validity of</a><sup title="object property" class="type-op">op</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e184" class="entity">
+				<a name="http://promsns.org/def/ro#is_violated_by"></a>
+				<h3>is violated by<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#is_violated_by</p>
+				<div class="description">
+					<dl>
+						<dt>has domain</dt>
+						<dd><a href="#d4e411" title="http://promsns.org/def/ro#Value">Value</a><sup title="class" class="type-c">c</sup></dd>
+						<dt>has range</dt>
+						<dd><span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup></dd>
+						<dt>is inverse of</dt>
+						<dd><a href="#d4e265" title="http://promsns.org/def/ro#violates">violates</a><sup title="object property" class="type-op">op</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e201" class="entity">
+				<a name="http://promsns.org/def/ro#satisfies"></a>
+				<h3>satisfies<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#satisfies</p>
+				<div class="description">
+					<dl>
+						<dt>has super-properties</dt>
+						<dd><span class="dotted" title="http://www.w3.org/2002/07/owl#topObjectProperty">top object property</span></dd>
+						<dt>has sub-properties</dt>
+						<dd><a href="#d4e219" title="http://promsns.org/def/ro#satisfies_criterion">satisfies criterion</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e234" title="http://promsns.org/def/ro#satisfies_recommendation">satisfies recommendation</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e249" title="http://promsns.org/def/ro#satisfies_requirement">satisfies requirement</a><sup title="object property" class="type-op">op</sup></dd>
+						<dt>has domain</dt>
+						<dd><span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup></dd>
+						<dt>has range</dt>
+						<dd><a href="#d4e411" title="http://promsns.org/def/ro#Value">Value</a><sup title="class" class="type-c">c</sup></dd>
+						<dt>is inverse of</dt>
+						<dd><a href="#d4e147" title="http://promsns.org/def/ro#is_satisfied_by">is satisfied by</a><sup title="object property" class="type-op">op</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e219" class="entity">
+				<a name="http://promsns.org/def/ro#satisfies_criterion"></a>
+				<h3>satisfies criterion<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#satisfies_criterion</p>
+				<div class="description">
+					<dl>
+						<dt>has super-properties</dt>
+						<dd><a href="#d4e201" title="http://promsns.org/def/ro#satisfies">satisfies</a><sup title="object property" class="type-op">op</sup></dd>
+						<dt>has range</dt>
+						<dd><a href="#d4e282" title="http://promsns.org/def/ro#Criterion">Criterion</a><sup title="class" class="type-c">c</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e234" class="entity">
+				<a name="http://promsns.org/def/ro#satisfies_recommendation"></a>
+				<h3>satisfies recommendation<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#satisfies_recommendation</p>
+				<div class="description">
+					<dl>
+						<dt>has super-properties</dt>
+						<dd><a href="#d4e201" title="http://promsns.org/def/ro#satisfies">satisfies</a><sup title="object property" class="type-op">op</sup></dd>
+						<dt>has range</dt>
+						<dd><a href="#d4e368" title="http://promsns.org/def/ro#Recommendation">Recommendation</a><sup title="class" class="type-c">c</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e249" class="entity">
+				<a name="http://promsns.org/def/ro#satisfies_requirement"></a>
+				<h3>satisfies requirement<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#satisfies_requirement</p>
+				<div class="description">
+					<dl>
+						<dt>has super-properties</dt>
+						<dd><a href="#d4e201" title="http://promsns.org/def/ro#satisfies">satisfies</a><sup title="object property" class="type-op">op</sup></dd>
+						<dt>has range</dt>
+						<dd><a href="#d4e381" title="http://promsns.org/def/ro#Requirement">Requirement</a><sup title="class" class="type-c">c</sup></dd>
+					</dl>
+				</div>
+			</div>
+			<div id="d4e265" class="entity">
+				<a name="http://promsns.org/def/ro#violates"></a>
+				<h3>violates<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#violates</p>
+				<div class="description">
+					<dl>
+						<dt>has domain</dt>
+						<dd><span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup></dd>
+						<dt>has range</dt>
+						<dd><a href="#d4e411" title="http://promsns.org/def/ro#Value">Value</a><sup title="class" class="type-c">c</sup></dd>
+						<dt>is inverse of</dt>
+						<dd><a href="#d4e184" title="http://promsns.org/def/ro#is_violated_by">is violated by</a><sup title="object property" class="type-op">op</sup></dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<div id="annotationproperties">
+			<h2>Annotation Properties</h2>
+			<ul class="hlist">
+				<li><a href="#d4e25" title="http://promsns.org/def/ro#has_description">description</a></li>
+				<li><a href="#d4e37" title="http://promsns.org/def/ro#toDo"><span>to do</span></a></li>
+			</ul>
+			<div id="d4e25" class="entity">
+				<a name="http://promsns.org/def/ro#has_description"></a>
+				<h3>description<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#has_description</p>
+			</div>
+			<div id="d4e37" class="entity">
+				<a name="http://promsns.org/def/ro#toDo"></a>
+				<h3>to do<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a></span></h3>
+				<p><strong>IRI:</strong> http://promsns.org/def/ro#toDo</p>
+			</div>
+		</div>
+		<div id="namespacedeclarations">
+			<h2>Namespace Declarations <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+			<dl>
+				<dt><em>default namespace</em></dt>
+				<dd>http://promsns.org/def/ro#</dd>
+				<dt>def</dt>
+				<dd>http://promsns.org/def/</dd>
+				<dt>owl</dt>
+				<dd>http://www.w3.org/2002/07/owl#</dd>
+				<dt>rdf</dt>
+				<dd>http://www.w3.org/1999/02/22-rdf-syntax-ns#</dd>
+				<dt>rdfs</dt>
+				<dd>http://www.w3.org/2000/01/rdf-schema#</dd>
+				<dt>ro</dt>
+				<dd>http://promsns.org/def/ro#</dd>
+				<dt>xsd</dt>
+				<dd>http://www.w3.org/2001/XMLSchema#</dd>
+			</dl>
+		</div>
+		<p class="endnote">This HTML document was obtained by processing the OWL ontology source code through <a href="http://www.essepuntato.it/lode">LODE</a>, <em>Live OWL Documentation Environment</em>, developed by <a href="http://www.essepuntato.it">Silvio Peroni</a>.</p>
+	</body>
+</html>
