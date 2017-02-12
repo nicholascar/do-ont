@@ -1,28 +1,14 @@
 <?xml version="1.0"?>
-
-
-<!DOCTYPE rdf:RDF [
-    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY decision "http://decision-ontology.googlecode.com/svn/trunk/decision.owl#" >
-]>
-
-
 <rdf:RDF xmlns="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#"
      xml:base="http://decision-ontology.googlecode.com/svn/trunk/decision.owl"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:decision="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#">
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl">
-        <owl:versionInfo rdf:datatype="&xsd;string">2012_04_18_1</owl:versionInfo>
-        <rdfs:seeAlso xml:lang="en">An example: http://code.google.com/p/decision-ontology/wiki/DecisionOntologyExample</rdfs:seeAlso>
-        <rdfs:comment xml:lang="en">Author: Piotr Nowara  (piotrnowara(at)gmail.com)</rdfs:comment>
+        <owl:imports rdf:resource="https://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl"/>
         <rdfs:seeAlso xml:lang="en">Decision Ontology website: http://code.google.com/p/decision-ontology/</rdfs:seeAlso>
-        <rdfs:seeAlso xml:lang="en">Requirement Ontology website: https://requirement-ontology.googlecode.com/ </rdfs:seeAlso>
         <rdfs:comment xml:lang="en">SUMMARY:
 1. Decision-making is initiated by some underlying problem that can be represented in form of a question.
 
@@ -31,37 +17,24 @@
 3. Option is a considered situation of choosing some specific solution.
 
 4. Options can have associated criteria that is requirements, recommendation (or other normative entities) that should be applied to them.</rdfs:comment>
+        <rdfs:seeAlso xml:lang="en">Requirement Ontology website: https://requirement-ontology.googlecode.com/ </rdfs:seeAlso>
         <rdfs:comment xml:lang="en">This is the decision ontology (v.2). Let me know if you would like to participate in developing, testing or supporting this project.
 
 If you need help in using the Decision Ontology or the imported Requirement Ontology please send an email to: piotrnowara(at)gmail.com</rdfs:comment>
-        <owl:imports rdf:resource="https://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2017-02-11 Piotr Nowara
+1) #has_criterion object property added (it was only present in the example file, probably ommited/removed earlier by mistake)
+
+2) Equivalent axiom for #Option
+
+3) Some minor annotations corrections.</rdfs:comment>
+        <rdfs:seeAlso xml:lang="en">An example: http://code.google.com/p/decision-ontology/wiki/DecisionOntologyExample</rdfs:seeAlso>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2017_02_11_1</owl:versionInfo>
+        <rdfs:comment xml:lang="en">Author: Piotr Nowara  (piotrnowara(at)gmail.com)</rdfs:comment>
     </owl:Ontology>
-    
 
 
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
 
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Datatypes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- 
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Object Properties
@@ -69,250 +42,258 @@ If you need help in using the Decision Ontology or the imported Requirement Onto
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_answer -->
 
-    <owl:ObjectProperty rdf:about="&decision;has_answer">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_answer">
+        <owl:inverseOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_answer_for"/>
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question"/>
+        <rdfs:range rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Answer"/>
         <rdfs:label xml:lang="en">has answer</rdfs:label>
-        <rdfs:range rdf:resource="&decision;Answer"/>
-        <rdfs:domain rdf:resource="&decision;Question"/>
-        <owl:inverseOf rdf:resource="&decision;is_answer_for"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_consequence -->
 
-    <owl:ObjectProperty rdf:about="&decision;has_consequence">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_consequence">
+        <owl:inverseOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_consequence_of"/>
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation"/>
+        <rdfs:range rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation"/>
         <rdfs:label xml:lang="en">has consequence</rdfs:label>
-        <rdfs:domain rdf:resource="&decision;Situation"/>
-        <rdfs:range rdf:resource="&decision;Situation"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_context -->
 
-    <owl:ObjectProperty rdf:about="&decision;has_context">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_context">
+        <rdfs:subPropertyOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#occurs_in"/>
+        <owl:inverseOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_context_of"/>
+        <rdfs:range rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Context"/>
         <rdfs:label xml:lang="en">has context</rdfs:label>
-        <rdfs:range rdf:resource="&decision;Context"/>
-        <owl:inverseOf rdf:resource="&decision;is_context_of"/>
-        <rdfs:subPropertyOf rdf:resource="&decision;occurs_in"/>
     </owl:ObjectProperty>
-    
+
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_criterion -->
+
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_criterion">
+        <rdfs:range rdf:resource="http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Normative_value"/>
+        <rdfs:label xml:lang="en">has criterion</rdfs:label>
+    </owl:ObjectProperty>
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_result -->
 
-    <owl:ObjectProperty rdf:about="&decision;has_result">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_result">
+        <owl:inverseOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_result_of"/>
         <rdfs:label xml:lang="en">has result</rdfs:label>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_solution -->
 
-    <owl:ObjectProperty rdf:about="&decision;has_solution">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_solution">
+        <owl:inverseOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_solution_for"/>
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Problem"/>
         <rdfs:label xml:lang="en">has solution</rdfs:label>
-        <rdfs:domain rdf:resource="&decision;Problem"/>
-        <owl:inverseOf rdf:resource="&decision;is_solution_for"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#includes -->
 
-    <owl:ObjectProperty rdf:about="&decision;includes">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#includes">
+        <rdfs:subPropertyOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_occurence_of"/>
+        <owl:inverseOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_included_in"/>
         <rdfs:label xml:lang="en">includes</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="&decision;is_occurence_of"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#indicates -->
 
-    <owl:ObjectProperty rdf:about="&decision;indicates">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#indicates">
+        <owl:inverseOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_indicated_by"/>
         <rdfs:label xml:lang="en">indicates</rdfs:label>
         <rdfs:label xml:lang="pl">wskazuje</rdfs:label>
-        <owl:inverseOf rdf:resource="&decision;is_indicated_by"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#initiates -->
 
-    <owl:ObjectProperty rdf:about="&decision;initiates">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#initiates">
+        <owl:inverseOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_initiated_by"/>
+        <rdfs:range rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Process"/>
         <rdfs:label xml:lang="en">initiates</rdfs:label>
-        <rdfs:range rdf:resource="&decision;Process"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#involves_choosing -->
 
-    <owl:ObjectProperty rdf:about="&decision;involves_choosing">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#involves_choosing">
+        <rdfs:subPropertyOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_occurence_of"/>
         <rdfs:label xml:lang="en">involves choosing</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="&decision;is_occurence_of"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_adressed_to -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_adressed_to">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_adressed_to">
         <rdfs:label xml:lang="en">is adressed to</rdfs:label>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_answer_for -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_answer_for">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_answer_for">
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Answer"/>
+        <rdfs:range rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question"/>
         <rdfs:label xml:lang="en">is answer for</rdfs:label>
-        <rdfs:domain rdf:resource="&decision;Answer"/>
-        <rdfs:range rdf:resource="&decision;Question"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_consequence_of -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_consequence_of">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_consequence_of">
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation"/>
+        <rdfs:range rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation"/>
         <rdfs:label xml:lang="en">is consequence of</rdfs:label>
-        <rdfs:domain rdf:resource="&decision;Situation"/>
-        <rdfs:range rdf:resource="&decision;Situation"/>
-        <owl:inverseOf rdf:resource="&decision;has_consequence"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_consideration_of -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_consideration_of">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_consideration_of">
+        <owl:inverseOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_considered_during"/>
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Process"/>
         <rdfs:label xml:lang="en">is consideration of</rdfs:label>
-        <rdfs:domain rdf:resource="&decision;Process"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_considered_during -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_considered_during">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_considered_during">
+        <rdfs:range rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Process"/>
         <rdfs:label xml:lang="en">is considered during</rdfs:label>
-        <rdfs:range rdf:resource="&decision;Process"/>
-        <owl:inverseOf rdf:resource="&decision;is_consideration_of"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_context_of -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_context_of">
-        <rdfs:subPropertyOf rdf:resource="&decision;is_occurence_of"/>
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_context_of">
+        <rdfs:subPropertyOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_occurence_of"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_included_in -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_included_in">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_included_in">
+        <rdfs:subPropertyOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#occurs_in"/>
         <rdfs:label xml:lang="en">is included in</rdfs:label>
-        <owl:inverseOf rdf:resource="&decision;includes"/>
-        <rdfs:subPropertyOf rdf:resource="&decision;occurs_in"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_indicated_by -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_indicated_by">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_indicated_by">
         <rdfs:label xml:lang="en">is indicated by</rdfs:label>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_initiated_by -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_initiated_by">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_initiated_by">
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Process"/>
         <rdfs:label xml:lang="en">is initiated by</rdfs:label>
-        <rdfs:domain rdf:resource="&decision;Process"/>
-        <owl:inverseOf rdf:resource="&decision;initiates"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_occurence_of -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_occurence_of"/>
-    
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_occurence_of"/>
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_question_for">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for">
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question"/>
         <rdfs:label xml:lang="en">is question for</rdfs:label>
-        <rdfs:domain rdf:resource="&decision;Question"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for_confirming -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_question_for_confirming">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for_confirming">
+        <rdfs:subPropertyOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for"/>
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question"/>
         <rdfs:label xml:lang="en">is question for confirming</rdfs:label>
-        <rdfs:domain rdf:resource="&decision;Question"/>
-        <rdfs:subPropertyOf rdf:resource="&decision;is_question_for"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for_indicating -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_question_for_indicating">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for_indicating">
+        <rdfs:subPropertyOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for"/>
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question"/>
         <rdfs:label xml:lang="en">is question for indicating</rdfs:label>
-        <rdfs:domain rdf:resource="&decision;Question"/>
-        <rdfs:subPropertyOf rdf:resource="&decision;is_question_for"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_result_of -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_result_of">
-        <owl:inverseOf rdf:resource="&decision;has_result"/>
-    </owl:ObjectProperty>
-    
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_result_of"/>
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_solution_for -->
 
-    <owl:ObjectProperty rdf:about="&decision;is_solution_for">
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_solution_for">
+        <rdfs:range rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Problem"/>
         <rdfs:label xml:lang="en">is solution for</rdfs:label>
-        <rdfs:range rdf:resource="&decision;Problem"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#occurs_in -->
 
-    <owl:ObjectProperty rdf:about="&decision;occurs_in"/>
-    
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#occurs_in"/>
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#supposedly_same_as -->
 
-    <owl:ObjectProperty rdf:about="&decision;supposedly_same_as">
-        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
-        <rdfs:label xml:lang="en">supposedly same as</rdfs:label>
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#supposedly_same_as">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:comment xml:lang="en">Renamed from &apos;is supposed to be identical with&apos;.</rdfs:comment>
         <rdfs:comment xml:lang="en">Using to indicate supposedly same individuals (like in the context of a question where someone suppose some individual has certain properties or when introducing some unverified statements).</rdfs:comment>
+        <rdfs:label xml:lang="en">supposedly same as</rdfs:label>
     </owl:ObjectProperty>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Data properties
@@ -320,16 +301,16 @@ If you need help in using the Decision Ontology or the imported Requirement Onto
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#indicates_boolean_value -->
 
-    <owl:DatatypeProperty rdf:about="&decision;indicates_boolean_value"/>
-    
+    <owl:DatatypeProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#indicates_boolean_value"/>
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Classes
@@ -337,87 +318,86 @@ If you need help in using the Decision Ontology or the imported Requirement Onto
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Answer -->
 
-    <owl:Class rdf:about="&decision;Answer">
-        <rdfs:label xml:lang="en">Answer</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&decision;Situation"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&decision;is_answer_for"/>
-                <owl:someValuesFrom rdf:resource="&decision;Question"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Answer">
+        <rdfs:subClassOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&decision;indicates"/>
-                        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                        <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#indicates"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&decision;indicates_boolean_value"/>
-                        <owl:someValuesFrom rdf:resource="&xsd;boolean"/>
+                        <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#indicates_boolean_value"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
                     </owl:Restriction>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_answer_for"/>
+                <owl:someValuesFrom rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Indication of something requested in a question.</rdfs:comment>
+        <rdfs:label xml:lang="en">Answer</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Context -->
 
-    <owl:Class rdf:about="&decision;Context">
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Context">
+        <rdfs:subClassOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation"/>
         <rdfs:label xml:lang="en">Context</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&decision;Situation"/>
     </owl:Class>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Decision -->
 
-    <owl:Class rdf:about="&decision;Decision">
-        <rdfs:label xml:lang="en">Decision</rdfs:label>
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Decision">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&decision;indicates"/>
-                        <owl:someValuesFrom rdf:resource="&decision;Option"/>
+                        <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#indicates"/>
+                        <owl:someValuesFrom rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Option"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&decision;is_result_of"/>
-                        <owl:someValuesFrom rdf:resource="&decision;Decision_making"/>
+                        <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_result_of"/>
+                        <owl:someValuesFrom rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Decision_making"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&decision;Situation"/>
+        <rdfs:subClassOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation"/>
         <rdfs:comment xml:lang="en">Recognizing something as the right/appropriate/best possible solution to a question/problem. It can be a consequence of an objective evaluation of clearly defined criteria but also an intuition, emotion or other subjective factor.</rdfs:comment>
+        <rdfs:label xml:lang="en">Decision</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Decision_making -->
 
-    <owl:Class rdf:about="&decision;Decision_making">
-        <rdfs:label xml:lang="en">Decision making</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&decision;Process"/>
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Decision_making">
+        <rdfs:subClassOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Process"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&decision;is_initiated_by"/>
-                <owl:someValuesFrom rdf:resource="&decision;Question_for_indicating"/>
+                <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_consideration_of"/>
+                <owl:someValuesFrom rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Option"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&decision;is_consideration_of"/>
-                <owl:someValuesFrom rdf:resource="&decision;Option"/>
+                <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_initiated_by"/>
+                <owl:someValuesFrom rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question_for_indicating"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">2011-10-13
@@ -428,136 +408,156 @@ A complex process that starts with a question and may result in indication of a 
 4. One of the options may get recognized as the right/appropriate/best possible solution for the initial question/problem or the decider may choose to restrain from choice. What justifies this act could be an objective evaluation of clearly defined criteria but also an intuition, emotion or other subjective factor.
 
 In most cases stages 2-3 consist of many (concurrent or sequential) actions, events, processes related to information gathering, processing, verifying etc. In some cases a decision-making can be viewed as a complex process involving many sub-decisions preceding the recognition of the initial problem solution. In our current work we have focused on the basic elements of the above pattern (the question, gathering information, considering options, choosing solution). It should be considered to what extent this ontology should support the modeling of correlated issues such as: information verification and retrieval etc.</rdfs:comment>
+        <rdfs:label xml:lang="en">Decision making</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Decision"/>
     </owl:Class>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Option -->
 
-    <owl:Class rdf:about="&decision;Option">
-        <rdfs:label xml:lang="en">Option</rdfs:label>
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Option">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_criterion"/>
+                <owl:someValuesFrom rdf:resource="http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Normative_value"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation"/>
+        <rdfs:comment xml:lang="en">Option has always related criteria which correspond to requirements, recommendations,obligations etc. Those criteria might be implied from some documents, agreements, formal regulations etc. but also from subjective preferences or feelings. For example choosing a car may have a criterion related to subjective color or brand preferneces.
+
+TODO: A set of entities for representing the criteria &quot;source&quot; may be a valuable addition to Decision-O, but it will require modeling a new set of concepts related to subjective phenomena like attitudes, preferences, emotions, intutions etc.</rdfs:comment>
         <rdfs:label xml:lang="pl">Opcja</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&decision;Situation"/>
-        <rdfs:comment xml:lang="en">Option has usually some related criteria which correspond to requirements, recommendations etc.</rdfs:comment>
-        <rdfs:seeAlso rdf:resource="&decision;Decision_making"/>
-        <rdfs:seeAlso rdf:resource="&decision;has_criterion"/>
+        <rdfs:label xml:lang="en">Option</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Decision_making"/>
     </owl:Class>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Problem -->
 
-    <owl:Class rdf:about="&decision;Problem">
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Problem">
+        <rdfs:subClassOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation"/>
         <rdfs:label xml:lang="en">Problem</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&decision;Situation"/>
     </owl:Class>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Process -->
 
-    <owl:Class rdf:about="&decision;Process">
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Process">
         <rdfs:label xml:lang="en">Process</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question -->
 
-    <owl:Class rdf:about="&decision;Question">
-        <rdfs:label xml:lang="en">Question</rdfs:label>
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&decision;is_question_for"/>
-                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&decision;Situation"/>
+        <rdfs:subClassOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation"/>
         <rdfs:comment xml:lang="en">A situation in which a person indicates a will for acquiring knowledge about something.</rdfs:comment>
+        <rdfs:label xml:lang="en">Question</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question_for_confirming -->
 
-    <owl:Class rdf:about="&decision;Question_for_confirming">
-        <rdfs:label xml:lang="en">Question for confirming</rdfs:label>
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question_for_confirming">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&decision;is_question_for_confirming"/>
-                        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                        <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for_confirming"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&decision;has_answer"/>
+                        <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_answer"/>
                         <owl:allValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="&decision;indicates_boolean_value"/>
-                                <owl:someValuesFrom rdf:resource="&xsd;boolean"/>
+                                <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#indicates_boolean_value"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
                             </owl:Restriction>
                         </owl:allValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&decision;Question"/>
+        <rdfs:subClassOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question"/>
         <rdfs:comment xml:lang="en">A question containing a whole proposition, that is an utterance that could be true or false. It is answerd by confirming or denying that proposition (&apos;yes/no question&apos;)
 
 Examples: Are you a vegetarian? Is Norway a member of UE?</rdfs:comment>
+        <rdfs:label xml:lang="en">Question for confirming</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question_for_indicating -->
 
-    <owl:Class rdf:about="&decision;Question_for_indicating">
-        <rdfs:label xml:lang="en">Question for indicating</rdfs:label>
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question_for_indicating">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&decision;is_question_for_indicating"/>
-                        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                        <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for_indicating"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&decision;has_answer"/>
+                        <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_answer"/>
                         <owl:allValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="&decision;indicates"/>
-                                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                                <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#indicates"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
                             </owl:Restriction>
                         </owl:allValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&decision;Question"/>
+        <rdfs:subClassOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question"/>
         <rdfs:comment xml:lang="en">A question demanding indication of some concept, thing or its property in order to be anwsered.
 
 Examples: What&apos;s your date of birth? What is the name of the Director of the W3C?</rdfs:comment>
+        <rdfs:label xml:lang="en">Question for indicating</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question_for_indicating_solution -->
 
-    <owl:Class rdf:about="&decision;Question_for_indicating_solution">
-        <rdfs:label xml:lang="en">Question for indicating solution</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&decision;Question_for_indicating"/>
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question_for_indicating_solution">
+        <rdfs:subClassOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question_for_indicating"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&decision;is_consequence_of"/>
-                <owl:someValuesFrom rdf:resource="&decision;Problem"/>
+                <owl:onProperty rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_consequence_of"/>
+                <owl:someValuesFrom rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Problem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Question for indicating solution</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation -->
 
-    <owl:Class rdf:about="&decision;Situation">
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation">
         <rdfs:label xml:lang="en">Situation</rdfs:label>
     </owl:Class>
+
+
+
+    <!-- http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Normative_value -->
+
+    <owl:Class rdf:about="http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Normative_value"/>
 </rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
