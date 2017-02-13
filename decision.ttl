@@ -8,31 +8,34 @@
 @base <http://promsns.org/def/do> .
 
 <http://promsns.org/def/do> rdf:type owl:Ontology ;
-                                                                  owl:imports <http://promsns.org/def/ro> ;
-                                                                  rdfs:seeAlso "Decision Ontology website: http://github.com/nicholascar/decision-o"@en ;
-                                                                  rdfs:comment """1. Decision-making is initiated by some underlying problem that can be represented in form of a question.
+                             owl:imports <http://promsns.org/def/ro> ;
+                             rdfs:label "Decision ontology"^^xsd:string ;
+                             dcterms:modified "2017-02-13"^^xsd:string ;
+                             rdfs:comment """2017-02-13 Piotr Nowara
+----------------------------------
+Improved #Option definitions (equivalent axiom and annotation).
+
+2017-02-11 Piotr Nowara
+----------------------------------
+1) #has_criterion object property added (it was only present in the example file, probably ommited/removed earlier by mistake)
+2) Equivalent axiom for #Option
+3) Some minor annotations corrections."""^^xsd:string ;
+                             owl:versionInfo "v1.0"^^xsd:string ;
+                             rdfs:seeAlso "Decision Ontology website: http://github.com/nicholascar/decision-o"@en ;
+                             rdfs:comment """1. Decision-making is initiated by some underlying problem that can be represented in form of a question.
 
 2. Decision-making is a process that can result in some decision and decision is a situation of indicating one of the considered options. Decision Ontology provides means for precise distinguishing and distinct treatment of these two aspects.
 
 3. Option is a considered situation of choosing some specific solution.
 
 4. Options can have associated criteria that is requirements, recommendation (or other normative entities) that should be applied to them."""@en ;
-                                                                  rdfs:seeAlso "Requirement Ontology website: http://promsns.org/def/ro"@en ;
-                                                                  rdfs:comment """This is the Decision ontology. Let the authors know if you would like to participate in developing, testing or supporting this project.
+                             dcterms:created "2011"^^xsd:gYear ;
+                             rdfs:comment """This is the Decision ontology. Let the authors know if you would like to participate in developing, testing or supporting this project.
 
-If you need help in using the Decision Ontology or the imported Requirement Ontology please send an email to: piotrnowara(at)gmail.com"""@en ,
-                                                                               """2017-02-11 Piotr Nowara
-1) #has_criterion object property added (it was only present in the example file, probably ommited/removed earlier by mistake)
-
-2) Equivalent axiom for #Option
-
-3) Some minor annotations corrections."""^^xsd:string ;
-                                                                  rdfs:seeAlso "An example: https://github.com/nicholascar/decision-o/blob/master/examples/bacterial-throat-infection.md"@en ;
-                                                                  owl:versionInfo "v1.0"^^xsd:string ;
-                                                                  dcterms:created "2011"^^xsd:gYear ;
-                                                                  dcterms:creator "Piotr Nowara"^^xsd:string ;
-                                                                  dcterms:modified "2017-02-11"^^xsd:date ;
-                                                                  rdfs:label "Decision ontology"^^xsd:string .
+If you need help in using the Decision Ontology or the imported Requirement Ontology please send an email to: piotrnowara(at)gmail.com"""@en ;
+                             rdfs:seeAlso "Requirement Ontology website: http://promsns.org/def/ro"@en ;
+                             dcterms:creator "Piotr Nowara"^^xsd:string ;
+                             rdfs:seeAlso "An example: https://github.com/nicholascar/decision-o/blob/master/examples/bacterial-throat-infection.md"@en .
 
 #################################################################
 #    Object Properties
@@ -291,12 +294,21 @@ In most cases stages 2-3 consist of many (concurrent or sequential) actions, eve
 
 ###  http://promsns.org/def/do#Option
 :Option rdf:type owl:Class ;
-        owl:equivalentClass [ rdf:type owl:Restriction ;
-                              owl:onProperty :has_criterion ;
-                              owl:someValuesFrom <http://promsns.org/def/ro#Normative_value>
+        owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :involves_choosing ;
+                                                     owl:someValuesFrom owl:Thing
+                                                   ]
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://promsns.org/def/ro#has_criterion> ;
+                                                     owl:someValuesFrom <http://promsns.org/def/ro#Normative_value>
+                                                   ]
+                                                 ) ;
+                              rdf:type owl:Class
                             ] ;
         rdfs:subClassOf :Situation ;
-        rdfs:comment """Option has always related criteria which correspond to requirements, recommendations,obligations etc. Those criteria might be implied from some documents, agreements, formal regulations etc. but also from subjective preferences or feelings. For example choosing a car may have a criterion related to subjective color or brand preferneces.
+        rdfs:comment """Option is a situation in which some entity appears as a possible choice in a decision-making process.
+
+Option has always related criteria which correspond to requirements, recommendations,obligations etc. Those criteria might be implied from some documents, agreements, formal regulations etc. but also from subjective preferences or feelings. For example choosing a car may have a criterion related to subjective color or brand preferneces.
 
 TODO: A set of entities for representing the criteria \"source\" may be a valuable addition to Decision-O, but it will require modeling a new set of concepts related to subjective phenomena like attitudes, preferences, emotions, intutions etc."""@en ;
         rdfs:label "Opcja"@pl ,
