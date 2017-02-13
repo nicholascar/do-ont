@@ -1,6 +1,6 @@
 # Example: Bacterial throat infection
 The example decision-making process is initiated by following problem/question: **What is the appropriate therapy for a 
-bacterial throat infection?**. It covers the following scenario: 
+bacterial throat infection?** It covers the following scenario: 
 
 STAGE 1.  
 A patient is diagnosed with a bacterial throat infection. The doctor needs to decide what treatment would be most 
