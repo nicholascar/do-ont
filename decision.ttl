@@ -4,21 +4,21 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @base <http://promsns.org/def/do> .
 
 <http://promsns.org/def/do> rdf:type owl:Ontology ;
-                                                                  owl:imports <https://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl> ;
-                                                                  rdfs:seeAlso "Decision Ontology website: http://code.google.com/p/decision-ontology/"@en ;
-                                                                  rdfs:comment """SUMMARY:
-1. Decision-making is initiated by some underlying problem that can be represented in form of a question.
+                                                                  owl:imports <http://promsns.org/def/ro> ;
+                                                                  rdfs:seeAlso "Decision Ontology website: http://github.com/nicholascar/decision-o"@en ;
+                                                                  rdfs:comment """1. Decision-making is initiated by some underlying problem that can be represented in form of a question.
 
 2. Decision-making is a process that can result in some decision and decision is a situation of indicating one of the considered options. Decision Ontology provides means for precise distinguishing and distinct treatment of these two aspects.
 
 3. Option is a considered situation of choosing some specific solution.
 
 4. Options can have associated criteria that is requirements, recommendation (or other normative entities) that should be applied to them."""@en ;
-                                                                  rdfs:seeAlso "Requirement Ontology website: https://requirement-ontology.googlecode.com/ "@en ;
-                                                                  rdfs:comment """This is the decision ontology (v.2). Let me know if you would like to participate in developing, testing or supporting this project.
+                                                                  rdfs:seeAlso "Requirement Ontology website: http://promsns.org/def/ro"@en ;
+                                                                  rdfs:comment """This is the Decision ontology. Let the authors know if you would like to participate in developing, testing or supporting this project.
 
 If you need help in using the Decision Ontology or the imported Requirement Ontology please send an email to: piotrnowara(at)gmail.com"""@en ,
                                                                                """2017-02-11 Piotr Nowara
@@ -27,9 +27,12 @@ If you need help in using the Decision Ontology or the imported Requirement Onto
 2) Equivalent axiom for #Option
 
 3) Some minor annotations corrections."""^^xsd:string ;
-                                                                  rdfs:seeAlso "An example: http://code.google.com/p/decision-ontology/wiki/DecisionOntologyExample"@en ;
-                                                                  owl:versionInfo "2017_02_11_1"^^xsd:string ;
-                                                                  rdfs:comment "Author: Piotr Nowara  (piotrnowara(at)gmail.com)"@en .
+                                                                  rdfs:seeAlso "An example: https://github.com/nicholascar/decision-o/blob/master/examples/bacterial-throat-infection.md"@en ;
+                                                                  owl:versionInfo "v1.0"^^xsd:string ;
+                                                                  dcterms:created "2011"^^xsd:gYear ;
+                                                                  dcterms:creator "Piotr Nowara"^^xsd:string ;
+                                                                  dcterms:modified "2017-02-11"^^xsd:date ;
+                                                                  rdfs:label "Decision ontology"^^xsd:string .
 
 #################################################################
 #    Object Properties
