@@ -143,7 +143,7 @@ capability to be used as basis for community-based extensions.
 
 ## Examples
 * [Bacterial throat infection](examples/bacterial-throat-infection.md)
-    * illustrates the data-driven usage scenario
+    * illustrates the normative usage scenario
 
 ## References
 *Coming...*
