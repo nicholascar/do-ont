@@ -4,17 +4,20 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Decision ontology</title>
 		<title>Decision ontology</title>
-		<link href="http://eelst.cs.unibo.it/apps/LODE/owl.css" rel="stylesheet" type="text/css" />
-		<link href="http://eelst.cs.unibo.it/apps/LODE/Primer.css" rel="stylesheet" type="text/css" />
-		<link href="http://eelst.cs.unibo.it/apps/LODE/rec.css" rel="stylesheet" type="text/css" />
-		<link href="http://eelst.cs.unibo.it/apps/LODE/extra.css" rel="stylesheet" type="text/css" />
-		<link rel="shortcut icon" href="http://eelst.cs.unibo.it/apps/LODE/favicon.ico" />
-		<script src="http://eelst.cs.unibo.it/apps/LODE/jquery.js"></script><script src="http://eelst.cs.unibo.it/apps/LODE/jquery.scrollTo.js"></script><script src="/static/js/marked.min.js"></script><script>
+		<link href="/static/owl.css" rel="stylesheet" type="text/css" />
+		<link href="/static/Primer.css" rel="stylesheet" type="text/css" />
+		<link href="/static/rec.css" rel="stylesheet" type="text/css" />
+		<link href="/static/extra.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="/static/favicon.ico" />
+		<script src="/static/jquery.js"></script>
+        <script src="/static/jquery.scrollTo.js"></script>
+        <script src="/static/marked.min.js"></script>
+		<script>
 			$(document).ready(
 			    function () {
 			    	jQuery(".markdown").each(function(el){
 			jQuery(this).after(marked(jQuery(this).text())).remove()});
-			        var list = $('a[name="http://www.essepuntato.it/tmp/1486991884-ontology"]');
+			        var list = $('a[name="http://www.essepuntato.it/tmp/1487156869-ontology"]');
 			        if (list.size() != 0) {
 			        	var element = list.first();
 			        	$.scrollTo(element);
@@ -39,11 +42,11 @@
 			</dl>
 			<dl>
 				<dt>Imported Ontologies:</dt>
-				<dd><a href="http://promsns.org/def/ro">http://promsns.org/def/ro</a> (<a href="http://www.essepuntato.it/lode/owlapi/http://promsns.org/def/ro">visualise it with LODE</a>)</dd>
+				<dd><a href="http://promsns.org/def/ro">http://promsns.org/def/ro</a></dd>
 			</dl>
 			<dl>
 				<dt>Other visualisation:</dt>
-				<dd><a href="http://eelst.cs.unibo.it/apps/LODE/source?url=http://www.essepuntato.it/tmp/1486991884-ontology">Ontology source</a></dd>
+				<dd><a href="http://promsns.org/def/do.ttl">Ontology source</a></dd>
 			</dl>
 		</div>
 		<hr />
@@ -63,59 +66,59 @@
 		<div id="classes">
 			<h2>Classes</h2>
 			<ul class="hlist">
-				<li><a href="#d4e347" title="http://promsns.org/def/do#Answer">Answer</a></li>
-				<li><a href="#d4e393" title="http://promsns.org/def/do#Context">Context</a></li>
-				<li><a href="#d4e403" title="http://promsns.org/def/do#Decision">Decision</a></li>
-				<li><a href="#d4e440" title="http://promsns.org/def/do#Decision_making">Decision making</a></li>
-				<li><a href="#d4e476" title="http://promsns.org/def/do#Option">Option</a></li>
-				<li><a href="#d4e505" title="http://promsns.org/def/do#Problem">Problem</a></li>
-				<li><a href="#d4e516" title="http://promsns.org/def/do#Process">Process</a></li>
-				<li><a href="#d4e524" title="http://promsns.org/def/do#Question">Question</a></li>
-				<li><a href="#d4e547" title="http://promsns.org/def/do#Question_for_confirming">Question for confirming</a></li>
-				<li><a href="#d4e592" title="http://promsns.org/def/do#Question_for_indicating">Question for indicating</a></li>
-				<li><a href="#d4e636" title="http://promsns.org/def/do#Question_for_indicating_solution">Question for indicating solution</a></li>
-				<li><a href="#d4e656" title="http://promsns.org/def/do#Situation">Situation</a></li>
+				<li><a href="#d4e351" title="http://promsns.org/def/do#Answer">Answer</a></li>
+				<li><a href="#d4e397" title="http://promsns.org/def/do#Context">Context</a></li>
+				<li><a href="#d4e408" title="http://promsns.org/def/do#Decision">Decision</a></li>
+				<li><a href="#d4e444" title="http://promsns.org/def/do#Decision_making">Decision making</a></li>
+				<li><a href="#d4e480" title="http://promsns.org/def/do#Option">Option</a></li>
+				<li><a href="#d4e523" title="http://promsns.org/def/do#Problem">Problem</a></li>
+				<li><a href="#d4e533" title="http://promsns.org/def/do#Process">Process</a></li>
+				<li><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a></li>
+				<li><a href="#d4e565" title="http://promsns.org/def/do#Question_for_confirming">Question for confirming</a></li>
+				<li><a href="#d4e609" title="http://promsns.org/def/do#Question_for_indicating">Question for indicating</a></li>
+				<li><a href="#d4e653" title="http://promsns.org/def/do#Question_for_indicating_solution">Question for indicating solution</a></li>
+				<li><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a></li>
 			</ul>
-			<div id="d4e347" class="entity">
+			<div id="d4e351" class="entity">
 				<a name="http://promsns.org/def/do#Answer"></a>
 				<h3>Answer<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
 				<p><strong>IRI:</strong> http://promsns.org/def/do#Answer</p>
 				<div class="comment"><span class="markdown">Indication of something requested in a question.</span></div>
 				<dl class="description">
 					<dt>has super-classes</dt>
-					<dd><a href="#d4e656" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e180" title="http://promsns.org/def/do#is_answer_for">is answer for</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
 					<dd>(<a href="#d4e136" title="http://promsns.org/def/do#indicates">indicates</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>) <span class="logic">or</span> (<span class="dotted" title="http://promsns.org/def/do#indicates_boolean_value">indicates boolean value</span><sup title="data property" class="type-dp">dp</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</span>)</dd>
-					<dd><a href="#d4e180" title="http://promsns.org/def/do#is_answer_for">is answer for</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e524" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
 					<dt>is in domain of</dt>
 					<dd><a href="#d4e180" title="http://promsns.org/def/do#is_answer_for">is answer for</a><sup title="object property" class="type-op">op</sup></dd>
 					<dt>is in range of</dt>
 					<dd><a href="#d4e47" title="http://promsns.org/def/do#has_answer">has answer</a><sup title="object property" class="type-op">op</sup></dd>
 				</dl>
 			</div>
-			<div id="d4e393" class="entity">
+			<div id="d4e397" class="entity">
 				<a name="http://promsns.org/def/do#Context"></a>
 				<h3>Context<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
 				<p><strong>IRI:</strong> http://promsns.org/def/do#Context</p>
 				<dl class="description">
 					<dt>has super-classes</dt>
-					<dd><a href="#d4e656" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
 					<dt>is in range of</dt>
 					<dd><a href="#d4e76" title="http://promsns.org/def/do#has_context">has context</a><sup title="object property" class="type-op">op</sup></dd>
 				</dl>
 			</div>
-			<div id="d4e403" class="entity">
+			<div id="d4e408" class="entity">
 				<a name="http://promsns.org/def/do#Decision"></a>
 				<h3>Decision<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
 				<p><strong>IRI:</strong> http://promsns.org/def/do#Decision</p>
 				<div class="comment"><span class="markdown">Recognizing something as the right/appropriate/best possible solution to a question/problem. It can be a consequence of an objective evaluation of clearly defined criteria but also an intuition, emotion or other subjective factor.</span></div>
 				<dl class="description">
 					<dt>is equivalent to</dt>
-					<dd>(<a href="#d4e136" title="http://promsns.org/def/do#indicates">indicates</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e476" title="http://promsns.org/def/do#Option">Option</a><sup title="class" class="type-c">c</sup>) <span class="logic">and</span> (<span class="dotted" title="http://promsns.org/def/do#is_result_of">is result of</span><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e440" title="http://promsns.org/def/do#Decision_making">Decision making</a><sup title="class" class="type-c">c</sup>)</dd>
+					<dd>(<a href="#d4e136" title="http://promsns.org/def/do#indicates">indicates</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e480" title="http://promsns.org/def/do#Option">Option</a><sup title="class" class="type-c">c</sup>) <span class="logic">and</span> (<span class="dotted" title="http://promsns.org/def/do#is_result_of">is result of</span><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e444" title="http://promsns.org/def/do#Decision_making">Decision making</a><sup title="class" class="type-c">c</sup>)</dd>
 					<dt>has super-classes</dt>
-					<dd><a href="#d4e656" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
 				</dl>
 			</div>
-			<div id="d4e440" class="entity">
+			<div id="d4e444" class="entity">
 				<a name="http://promsns.org/def/do#Decision_making"></a>
 				<h3>Decision making<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
 				<p><strong>IRI:</strong> http://promsns.org/def/do#Decision_making</p>
@@ -129,52 +132,53 @@
 				</div>
 				<dl class="description">
 					<dt>has super-classes</dt>
-					<dd><a href="#d4e516" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
-					<dd><a href="#d4e253" title="http://promsns.org/def/do#is_initiated_by">is initiated by</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e592" title="http://promsns.org/def/do#Question_for_indicating">Question for indicating</a><sup title="class" class="type-c">c</sup></dd>
-					<dd><a href="#d4e205" title="http://promsns.org/def/do#is_consideration_of">is consideration of</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e476" title="http://promsns.org/def/do#Option">Option</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e533" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e253" title="http://promsns.org/def/do#is_initiated_by">is initiated by</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e609" title="http://promsns.org/def/do#Question_for_indicating">Question for indicating</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e205" title="http://promsns.org/def/do#is_consideration_of">is consideration of</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e480" title="http://promsns.org/def/do#Option">Option</a><sup title="class" class="type-c">c</sup></dd>
 				</dl>
 			</div>
-			<div id="d4e476" class="entity">
+			<div id="d4e480" class="entity">
 				<a name="http://promsns.org/def/do#Option"></a>
 				<h3>Option<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
 				<p><strong>IRI:</strong> http://promsns.org/def/do#Option</p>
-				<div class="comment"><span class="markdown">Option has always related criteria which correspond to requirements, recommendations,obligations etc. Those criteria might be implied from some documents, agreements, formal regulations etc. but also from subjective preferences or feelings. For example choosing a car may have a criterion related to subjective color or brand preferneces.
+				<div class="comment"><span class="markdown">Option is a situation in which some entity appears as a possible choice in a decision-making process.
+					Option has always related criteria which correspond to requirements, recommendations,obligations etc. Those criteria might be implied from some documents, agreements, formal regulations etc. but also from subjective preferences or feelings. For example choosing a car may have a criterion related to subjective color or brand preferneces.
 					TODO: A set of entities for representing the criteria "source" may be a valuable addition to Decision-O, but it will require modeling a new set of concepts related to subjective phenomena like attitudes, preferences, emotions, intutions etc.</span>
 				</div>
 				<dl class="description">
 					<dt>is equivalent to</dt>
-					<dd><a href="#d4e90" title="http://promsns.org/def/do#has_criterion">has criterion</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://promsns.org/def/ro#Normative_value">normative value</span><sup title="class" class="type-c">c</sup></dd>
+					<dd>(<a href="#d4e161" title="http://promsns.org/def/do#involves_choosing">involves choosing</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>) <span class="logic">and</span> (<span class="dotted" title="http://promsns.org/def/ro#has_criterion">has criterion</span><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://promsns.org/def/ro#Normative_value">normative value</span><sup title="class" class="type-c">c</sup>)</dd>
 					<dt>has super-classes</dt>
-					<dd><a href="#d4e656" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
 				</dl>
 			</div>
-			<div id="d4e505" class="entity">
+			<div id="d4e523" class="entity">
 				<a name="http://promsns.org/def/do#Problem"></a>
 				<h3>Problem<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
 				<p><strong>IRI:</strong> http://promsns.org/def/do#Problem</p>
 				<dl class="description">
 					<dt>has super-classes</dt>
-					<dd><a href="#d4e656" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
 					<dt>is in domain of</dt>
 					<dd><a href="#d4e111" title="http://promsns.org/def/do#has_solution">has solution</a><sup title="object property" class="type-op">op</sup></dd>
 					<dt>is in range of</dt>
 					<dd><a href="#d4e307" title="http://promsns.org/def/do#is_solution_for">is solution for</a><sup title="object property" class="type-op">op</sup></dd>
 				</dl>
 			</div>
-			<div id="d4e516" class="entity">
+			<div id="d4e533" class="entity">
 				<a name="http://promsns.org/def/do#Process"></a>
 				<h3>Process<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
 				<p><strong>IRI:</strong> http://promsns.org/def/do#Process</p>
 				<dl class="description">
 					<dt>has sub-classes</dt>
-					<dd><a href="#d4e440" title="http://promsns.org/def/do#Decision_making">Decision making</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e444" title="http://promsns.org/def/do#Decision_making">Decision making</a><sup title="class" class="type-c">c</sup></dd>
 					<dt>is in domain of</dt>
 					<dd><a href="#d4e205" title="http://promsns.org/def/do#is_consideration_of">is consideration of</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e253" title="http://promsns.org/def/do#is_initiated_by">is initiated by</a><sup title="object property" class="type-op">op</sup></dd>
 					<dt>is in range of</dt>
 					<dd><a href="#d4e149" title="http://promsns.org/def/do#initiates">initiates</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e217" title="http://promsns.org/def/do#is_considered_during">is considered during</a><sup title="object property" class="type-op">op</sup></dd>
 				</dl>
 			</div>
-			<div id="d4e524" class="entity">
+			<div id="d4e541" class="entity">
 				<a name="http://promsns.org/def/do#Question"></a>
 				<h3>Question<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
 				<p><strong>IRI:</strong> http://promsns.org/def/do#Question</p>
@@ -183,16 +187,16 @@
 					<dt>is equivalent to</dt>
 					<dd><a href="#d4e268" title="http://promsns.org/def/do#is_question_for">is question for</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup></dd>
 					<dt>has super-classes</dt>
-					<dd><a href="#d4e656" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
 					<dt>has sub-classes</dt>
-					<dd><a href="#d4e547" title="http://promsns.org/def/do#Question_for_confirming">Question for confirming</a><sup title="class" class="type-c">c</sup>, <a href="#d4e592" title="http://promsns.org/def/do#Question_for_indicating">Question for indicating</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e565" title="http://promsns.org/def/do#Question_for_confirming">Question for confirming</a><sup title="class" class="type-c">c</sup>, <a href="#d4e609" title="http://promsns.org/def/do#Question_for_indicating">Question for indicating</a><sup title="class" class="type-c">c</sup></dd>
 					<dt>is in domain of</dt>
 					<dd><a href="#d4e47" title="http://promsns.org/def/do#has_answer">has answer</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e268" title="http://promsns.org/def/do#is_question_for">is question for</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e278" title="http://promsns.org/def/do#is_question_for_confirming">is question for confirming</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e291" title="http://promsns.org/def/do#is_question_for_indicating">is question for indicating</a><sup title="object property" class="type-op">op</sup></dd>
 					<dt>is in range of</dt>
 					<dd><a href="#d4e180" title="http://promsns.org/def/do#is_answer_for">is answer for</a><sup title="object property" class="type-op">op</sup></dd>
 				</dl>
 			</div>
-			<div id="d4e547" class="entity">
+			<div id="d4e565" class="entity">
 				<a name="http://promsns.org/def/do#Question_for_confirming"></a>
 				<h3>Question for confirming<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
 				<p><strong>IRI:</strong> http://promsns.org/def/do#Question_for_confirming</p>
@@ -203,10 +207,10 @@
 					<dt>is equivalent to</dt>
 					<dd>(<a href="#d4e278" title="http://promsns.org/def/do#is_question_for_confirming">is question for confirming</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>) <span class="logic">and</span> (<a href="#d4e47" title="http://promsns.org/def/do#has_answer">has answer</a><sup title="object property" class="type-op">op</sup> <span class="logic">only</span> <span class="dotted" title="http://promsns.org/def/do#indicates_boolean_value">indicates boolean value</span><sup title="data property" class="type-dp">dp</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</span>)</dd>
 					<dt>has super-classes</dt>
-					<dd><a href="#d4e524" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
 				</dl>
 			</div>
-			<div id="d4e592" class="entity">
+			<div id="d4e609" class="entity">
 				<a name="http://promsns.org/def/do#Question_for_indicating"></a>
 				<h3>Question for indicating<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
 				<p><strong>IRI:</strong> http://promsns.org/def/do#Question_for_indicating</p>
@@ -217,28 +221,28 @@
 					<dt>is equivalent to</dt>
 					<dd>(<a href="#d4e291" title="http://promsns.org/def/do#is_question_for_indicating">is question for indicating</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>) <span class="logic">and</span> (<a href="#d4e47" title="http://promsns.org/def/do#has_answer">has answer</a><sup title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e136" title="http://promsns.org/def/do#indicates">indicates</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>)</dd>
 					<dt>has super-classes</dt>
-					<dd><a href="#d4e524" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
 					<dt>has sub-classes</dt>
-					<dd><a href="#d4e636" title="http://promsns.org/def/do#Question_for_indicating_solution">Question for indicating solution</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e653" title="http://promsns.org/def/do#Question_for_indicating_solution">Question for indicating solution</a><sup title="class" class="type-c">c</sup></dd>
 				</dl>
 			</div>
-			<div id="d4e636" class="entity">
+			<div id="d4e653" class="entity">
 				<a name="http://promsns.org/def/do#Question_for_indicating_solution"></a>
 				<h3>Question for indicating solution<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
 				<p><strong>IRI:</strong> http://promsns.org/def/do#Question_for_indicating_solution</p>
 				<dl class="description">
 					<dt>has super-classes</dt>
-					<dd><a href="#d4e592" title="http://promsns.org/def/do#Question_for_indicating">Question for indicating</a><sup title="class" class="type-c">c</sup></dd>
-					<dd><a href="#d4e192" title="http://promsns.org/def/do#is_consequence_of">is consequence of</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e505" title="http://promsns.org/def/do#Problem">Problem</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e609" title="http://promsns.org/def/do#Question_for_indicating">Question for indicating</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e192" title="http://promsns.org/def/do#is_consequence_of">is consequence of</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e523" title="http://promsns.org/def/do#Problem">Problem</a><sup title="class" class="type-c">c</sup></dd>
 				</dl>
 			</div>
-			<div id="d4e656" class="entity">
+			<div id="d4e674" class="entity">
 				<a name="http://promsns.org/def/do#Situation"></a>
 				<h3>Situation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
 				<p><strong>IRI:</strong> http://promsns.org/def/do#Situation</p>
 				<dl class="description">
 					<dt>has sub-classes</dt>
-					<dd><a href="#d4e347" title="http://promsns.org/def/do#Answer">Answer</a><sup title="class" class="type-c">c</sup>, <a href="#d4e393" title="http://promsns.org/def/do#Context">Context</a><sup title="class" class="type-c">c</sup>, <a href="#d4e403" title="http://promsns.org/def/do#Decision">Decision</a><sup title="class" class="type-c">c</sup>, <a href="#d4e476" title="http://promsns.org/def/do#Option">Option</a><sup title="class" class="type-c">c</sup>, <a href="#d4e505" title="http://promsns.org/def/do#Problem">Problem</a><sup title="class" class="type-c">c</sup>, <a href="#d4e524" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+					<dd><a href="#d4e351" title="http://promsns.org/def/do#Answer">Answer</a><sup title="class" class="type-c">c</sup>, <a href="#d4e397" title="http://promsns.org/def/do#Context">Context</a><sup title="class" class="type-c">c</sup>, <a href="#d4e408" title="http://promsns.org/def/do#Decision">Decision</a><sup title="class" class="type-c">c</sup>, <a href="#d4e480" title="http://promsns.org/def/do#Option">Option</a><sup title="class" class="type-c">c</sup>, <a href="#d4e523" title="http://promsns.org/def/do#Problem">Problem</a><sup title="class" class="type-c">c</sup>, <a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
 					<dt>is in domain of</dt>
 					<dd><a href="#d4e62" title="http://promsns.org/def/do#has_consequence">has consequence</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e192" title="http://promsns.org/def/do#is_consequence_of">is consequence of</a><sup title="object property" class="type-op">op</sup></dd>
 					<dt>is in range of</dt>
@@ -281,9 +285,9 @@
 				<div class="description">
 					<dl>
 						<dt>has domain</dt>
-						<dd><a href="#d4e524" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>has range</dt>
-						<dd><a href="#d4e347" title="http://promsns.org/def/do#Answer">Answer</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e351" title="http://promsns.org/def/do#Answer">Answer</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>is inverse of</dt>
 						<dd><a href="#d4e180" title="http://promsns.org/def/do#is_answer_for">is answer for</a><sup title="object property" class="type-op">op</sup></dd>
 					</dl>
@@ -296,9 +300,9 @@
 				<div class="description">
 					<dl>
 						<dt>has domain</dt>
-						<dd><a href="#d4e656" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>has range</dt>
-						<dd><a href="#d4e656" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>is inverse of</dt>
 						<dd><a href="#d4e192" title="http://promsns.org/def/do#is_consequence_of">is consequence of</a><sup title="object property" class="type-op">op</sup></dd>
 					</dl>
@@ -313,7 +317,7 @@
 						<dt>has super-properties</dt>
 						<dd><span class="dotted" title="http://promsns.org/def/do#occurs_in">occurs in</span><sup title="object property" class="type-op">op</sup></dd>
 						<dt>has range</dt>
-						<dd><a href="#d4e393" title="http://promsns.org/def/do#Context">Context</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e397" title="http://promsns.org/def/do#Context">Context</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>is inverse of</dt>
 						<dd><a href="#d4e227" title="http://promsns.org/def/do#is_context_of">is context of</a><sup title="object property" class="type-op">op</sup></dd>
 					</dl>
@@ -348,7 +352,7 @@
 				<div class="description">
 					<dl>
 						<dt>has domain</dt>
-						<dd><a href="#d4e505" title="http://promsns.org/def/do#Problem">Problem</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e523" title="http://promsns.org/def/do#Problem">Problem</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>is inverse of</dt>
 						<dd><a href="#d4e307" title="http://promsns.org/def/do#is_solution_for">is solution for</a><sup title="object property" class="type-op">op</sup></dd>
 					</dl>
@@ -385,7 +389,7 @@
 				<div class="description">
 					<dl>
 						<dt>has range</dt>
-						<dd><a href="#d4e516" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e533" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>is inverse of</dt>
 						<dd><a href="#d4e253" title="http://promsns.org/def/do#is_initiated_by">is initiated by</a><sup title="object property" class="type-op">op</sup></dd>
 					</dl>
@@ -414,9 +418,9 @@
 				<div class="description">
 					<dl>
 						<dt>has domain</dt>
-						<dd><a href="#d4e347" title="http://promsns.org/def/do#Answer">Answer</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e351" title="http://promsns.org/def/do#Answer">Answer</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>has range</dt>
-						<dd><a href="#d4e524" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>is inverse of</dt>
 						<dd><a href="#d4e47" title="http://promsns.org/def/do#has_answer">has answer</a><sup title="object property" class="type-op">op</sup></dd>
 					</dl>
@@ -429,9 +433,9 @@
 				<div class="description">
 					<dl>
 						<dt>has domain</dt>
-						<dd><a href="#d4e656" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>has range</dt>
-						<dd><a href="#d4e656" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>is inverse of</dt>
 						<dd><a href="#d4e62" title="http://promsns.org/def/do#has_consequence">has consequence</a><sup title="object property" class="type-op">op</sup></dd>
 					</dl>
@@ -444,7 +448,7 @@
 				<div class="description">
 					<dl>
 						<dt>has domain</dt>
-						<dd><a href="#d4e516" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e533" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>is inverse of</dt>
 						<dd><a href="#d4e217" title="http://promsns.org/def/do#is_considered_during">is considered during</a><sup title="object property" class="type-op">op</sup></dd>
 					</dl>
@@ -457,7 +461,7 @@
 				<div class="description">
 					<dl>
 						<dt>has range</dt>
-						<dd><a href="#d4e516" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e533" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>is inverse of</dt>
 						<dd><a href="#d4e205" title="http://promsns.org/def/do#is_consideration_of">is consideration of</a><sup title="object property" class="type-op">op</sup></dd>
 					</dl>
@@ -507,7 +511,7 @@
 				<div class="description">
 					<dl>
 						<dt>has domain</dt>
-						<dd><a href="#d4e516" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e533" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>is inverse of</dt>
 						<dd><a href="#d4e149" title="http://promsns.org/def/do#initiates">initiates</a><sup title="object property" class="type-op">op</sup></dd>
 					</dl>
@@ -522,7 +526,7 @@
 						<dt>has sub-properties</dt>
 						<dd><a href="#d4e278" title="http://promsns.org/def/do#is_question_for_confirming">is question for confirming</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e291" title="http://promsns.org/def/do#is_question_for_indicating">is question for indicating</a><sup title="object property" class="type-op">op</sup></dd>
 						<dt>has domain</dt>
-						<dd><a href="#d4e524" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
 					</dl>
 				</div>
 			</div>
@@ -535,7 +539,7 @@
 						<dt>has super-properties</dt>
 						<dd><a href="#d4e268" title="http://promsns.org/def/do#is_question_for">is question for</a><sup title="object property" class="type-op">op</sup></dd>
 						<dt>has domain</dt>
-						<dd><a href="#d4e524" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
 					</dl>
 				</div>
 			</div>
@@ -548,7 +552,7 @@
 						<dt>has super-properties</dt>
 						<dd><a href="#d4e268" title="http://promsns.org/def/do#is_question_for">is question for</a><sup title="object property" class="type-op">op</sup></dd>
 						<dt>has domain</dt>
-						<dd><a href="#d4e524" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
 					</dl>
 				</div>
 			</div>
@@ -559,7 +563,7 @@
 				<div class="description">
 					<dl>
 						<dt>has range</dt>
-						<dd><a href="#d4e505" title="http://promsns.org/def/do#Problem">Problem</a><sup title="class" class="type-c">c</sup></dd>
+						<dd><a href="#d4e523" title="http://promsns.org/def/do#Problem">Problem</a><sup title="class" class="type-c">c</sup></dd>
 						<dt>is inverse of</dt>
 						<dd><a href="#d4e111" title="http://promsns.org/def/do#has_solution">has solution</a><sup title="object property" class="type-op">op</sup></dd>
 					</dl>
