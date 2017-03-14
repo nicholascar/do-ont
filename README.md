@@ -9,7 +9,8 @@ features as the work on the decision format progresses.
 ## Ontology document
 Turtle format: [decision.ttl](decision.ttl)  
 RDF XML format: [decision.owl](decision.owl)  
-HTML format: *coming*
+HTML (using a renderer): [decision.html](http://htmlpreview.github.io/?https://github.com/nicholascar/decision-o/blob/master/decision.html)
+* to see the HTML document source click here: [HTML source](decision.html).
 
 ## Use
 ### What it can be used for?
