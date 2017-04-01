@@ -5,13 +5,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://promsns.org/def/do> .
 
-<http://promsns.org/def/do> rdf:type owl:Ontology ;
-                             owl:imports <http://promsns.org/def/ro> ;
-                             rdfs:label "Decision ontology"^^xsd:string ;
-                             dcterms:modified "2017-02-13"^^xsd:string ;
-                             rdfs:comment """2017-02-13 Piotr Nowara
+<http://example.com/ns/dec> a owl:Ontology ;
+	owl:versionIRI <http://example.com/ns/dec> ;
+	owl:imports <http://example.com/ns/req> ;
+	rdfs:label "Decision ontology"^^xsd:string ;
+	rdfs:comment """2017-02-13 Piotr Nowara
 ----------------------------------
 Improved #Option definitions (equivalent axiom and annotation).
 
@@ -19,268 +18,316 @@ Improved #Option definitions (equivalent axiom and annotation).
 ----------------------------------
 1) #has_criterion object property added (it was only present in the example file, probably ommited/removed earlier by mistake)
 2) Equivalent axiom for #Option
-3) Some minor annotations corrections."""^^xsd:string ;
-                             owl:versionInfo "v1.0"^^xsd:string ;
-                             rdfs:seeAlso "Decision Ontology website: http://github.com/nicholascar/decision-o"@en ;
-                             rdfs:comment """1. Decision-making is initiated by some underlying problem that can be represented in form of a question.
+3) Some minor annotations corrections."""^^xsd:string , """2017-04-01 Nicholas Car (http://orcid.org/0000-0002-8742-7730)
+-------------------------------------------------------------------------
+Changed namesapce IRI to http://example.com/ns/dec# to indicate it doesn't resolve. Changed imported Requirements ontology similarly (http://example.com/ns/req#)."""@en ;
+	dcterms:modified "2017-04-01"^^xsd:date ;
+	owl:versionInfo "v1.0"^^xsd:string ;
+	rdfs:seeAlso "Decision Ontology website: http://github.com/nicholascar/decision-o"@en ;
+	rdfs:comment """1. Decision-making is initiated by some underlying problem that can be represented in form of a question.
 
 2. Decision-making is a process that can result in some decision and decision is a situation of indicating one of the considered options. Decision Ontology provides means for precise distinguishing and distinct treatment of these two aspects.
 
 3. Option is a considered situation of choosing some specific solution.
 
 4. Options can have associated criteria that is requirements, recommendation (or other normative entities) that should be applied to them."""@en ;
-                             dcterms:created "2011"^^xsd:gYear ;
-                             rdfs:comment """This is the Decision ontology. Let the authors know if you would like to participate in developing, testing or supporting this project.
+	dcterms:created "2011"^^xsd:gYear ;
+	rdfs:comment """This is the Decision ontology. Let the authors know if you would like to participate in developing, testing or supporting this project.
 
 If you need help in using the Decision Ontology or the imported Requirement Ontology please send an email to: piotrnowara(at)gmail.com"""@en ;
-                             rdfs:seeAlso "Requirement Ontology website: http://promsns.org/def/ro"@en ;
-                             dcterms:creator "Piotr Nowara"^^xsd:string ;
-                             rdfs:seeAlso "An example: https://github.com/nicholascar/decision-o/blob/master/examples/bacterial-throat-infection.md"@en .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  http://promsns.org/def/do#has_answer
-:has_answer rdf:type owl:ObjectProperty ;
-            owl:inverseOf :is_answer_for ;
-            rdfs:domain :Question ;
-            rdfs:range :Answer ;
-            rdfs:label "has answer"@en .
-
-
-###  http://promsns.org/def/do#has_consequence
-:has_consequence rdf:type owl:ObjectProperty ;
-                 owl:inverseOf :is_consequence_of ;
-                 rdfs:domain :Situation ;
-                 rdfs:range :Situation ;
-                 rdfs:label "has consequence"@en .
-
-
-###  http://promsns.org/def/do#has_context
-:has_context rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :occurs_in ;
-             owl:inverseOf :is_context_of ;
-             rdfs:range :Context ;
-             rdfs:label "has context"@en .
-
-
-###  http://promsns.org/def/do#has_criterion
-:has_criterion rdf:type owl:ObjectProperty ;
-               rdfs:range <http://promsns.org/def/ro#Normative_value> ;
-               rdfs:label "has criterion"@en .
-
-
-###  http://promsns.org/def/do#has_result
-:has_result rdf:type owl:ObjectProperty ;
-            owl:inverseOf :is_result_of ;
-            rdfs:label "has result"@en .
-
-
-###  http://promsns.org/def/do#has_solution
-:has_solution rdf:type owl:ObjectProperty ;
-              owl:inverseOf :is_solution_for ;
-              rdfs:domain :Problem ;
-              rdfs:label "has solution"@en .
-
-
-###  http://promsns.org/def/do#includes
-:includes rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf :is_occurence_of ;
-          owl:inverseOf :is_included_in ;
-          rdfs:label "includes"@en .
-
-
-###  http://promsns.org/def/do#indicates
-:indicates rdf:type owl:ObjectProperty ;
-           owl:inverseOf :is_indicated_by ;
-           rdfs:label "indicates"@en ,
-                      "wskazuje"@pl .
-
-
-###  http://promsns.org/def/do#initiates
-:initiates rdf:type owl:ObjectProperty ;
-           owl:inverseOf :is_initiated_by ;
-           rdfs:range :Process ;
-           rdfs:label "initiates"@en .
-
-
-###  http://promsns.org/def/do#involves_choosing
-:involves_choosing rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf :is_occurence_of ;
-                   rdfs:label "involves choosing"@en .
-
-
-###  http://promsns.org/def/do#is_adressed_to
-:is_adressed_to rdf:type owl:ObjectProperty ;
-                rdfs:label "is adressed to"@en .
-
-
-###  http://promsns.org/def/do#is_answer_for
-:is_answer_for rdf:type owl:ObjectProperty ;
-               rdfs:domain :Answer ;
-               rdfs:range :Question ;
-               rdfs:label "is answer for"@en .
-
-
-###  http://promsns.org/def/do#is_consequence_of
-:is_consequence_of rdf:type owl:ObjectProperty ;
-                   rdfs:domain :Situation ;
-                   rdfs:range :Situation ;
-                   rdfs:label "is consequence of"@en .
-
-
-###  http://promsns.org/def/do#is_consideration_of
-:is_consideration_of rdf:type owl:ObjectProperty ;
-                     owl:inverseOf :is_considered_during ;
-                     rdfs:domain :Process ;
-                     rdfs:label "is consideration of"@en .
-
-
-###  http://promsns.org/def/do#is_considered_during
-:is_considered_during rdf:type owl:ObjectProperty ;
-                      rdfs:range :Process ;
-                      rdfs:label "is considered during"@en .
-
-
-###  http://promsns.org/def/do#is_context_of
-:is_context_of rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf :is_occurence_of .
-
-
-###  http://promsns.org/def/do#is_included_in
-:is_included_in rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :occurs_in ;
-                rdfs:label "is included in"@en .
-
-
-###  http://promsns.org/def/do#is_indicated_by
-:is_indicated_by rdf:type owl:ObjectProperty ;
-                 rdfs:label "is indicated by"@en .
-
-
-###  http://promsns.org/def/do#is_initiated_by
-:is_initiated_by rdf:type owl:ObjectProperty ;
-                 rdfs:domain :Process ;
-                 rdfs:label "is initiated by"@en .
-
-
-###  http://promsns.org/def/do#is_occurence_of
-:is_occurence_of rdf:type owl:ObjectProperty .
-
-
-###  http://promsns.org/def/do#is_question_for
-:is_question_for rdf:type owl:ObjectProperty ;
-                 rdfs:domain :Question ;
-                 rdfs:label "is question for"@en .
-
-
-###  http://promsns.org/def/do#is_question_for_confirming
-:is_question_for_confirming rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf :is_question_for ;
-                            rdfs:domain :Question ;
-                            rdfs:label "is question for confirming"@en .
-
-
-###  http://promsns.org/def/do#is_question_for_indicating
-:is_question_for_indicating rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf :is_question_for ;
-                            rdfs:domain :Question ;
-                            rdfs:label "is question for indicating"@en .
-
-
-###  http://promsns.org/def/do#is_result_of
-:is_result_of rdf:type owl:ObjectProperty .
-
-
-###  http://promsns.org/def/do#is_solution_for
-:is_solution_for rdf:type owl:ObjectProperty ;
-                 rdfs:range :Problem ;
-                 rdfs:label "is solution for"@en .
-
-
-###  http://promsns.org/def/do#occurs_in
-:occurs_in rdf:type owl:ObjectProperty .
-
-
-###  http://promsns.org/def/do#supposedly_same_as
-:supposedly_same_as rdf:type owl:ObjectProperty ,
-                             owl:SymmetricProperty ;
-                    rdfs:comment "Renamed from 'is supposed to be identical with'."@en ,
-                                 "Using to indicate supposedly same individuals (like in the context of a question where someone suppose some individual has certain properties or when introducing some unverified statements)."@en ;
-                    rdfs:label "supposedly same as"@en .
-
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  http://promsns.org/def/do#indicates_boolean_value
-:indicates_boolean_value rdf:type owl:DatatypeProperty .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  http://promsns.org/def/do#Answer
-:Answer rdf:type owl:Class ;
-        rdfs:subClassOf :Situation ,
-                        [ rdf:type owl:Class ;
-                          owl:unionOf ( [ rdf:type owl:Restriction ;
-                                          owl:onProperty :indicates ;
-                                          owl:someValuesFrom owl:Thing
-                                        ]
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :indicates_boolean_value ;
-                                          owl:someValuesFrom xsd:boolean
-                                        ]
-                                      )
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :is_answer_for ;
-                          owl:someValuesFrom :Question
-                        ] ;
-        rdfs:comment "Indication of something requested in a question."@en ;
-        rdfs:label "Answer"@en .
-
-
-###  http://promsns.org/def/do#Context
-:Context rdf:type owl:Class ;
-         rdfs:subClassOf :Situation ;
-         rdfs:label "Context"@en .
-
-
-###  http://promsns.org/def/do#Decision
-:Decision rdf:type owl:Class ;
-          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                       owl:onProperty :indicates ;
-                                                       owl:someValuesFrom :Option
-                                                     ]
-                                                     [ rdf:type owl:Restriction ;
-                                                       owl:onProperty :is_result_of ;
-                                                       owl:someValuesFrom :Decision_making
-                                                     ]
-                                                   ) ;
-                                rdf:type owl:Class
-                              ] ;
-          rdfs:subClassOf :Situation ;
-          rdfs:comment "Recognizing something as the right/appropriate/best possible solution to a question/problem. It can be a consequence of an objective evaluation of clearly defined criteria but also an intuition, emotion or other subjective factor."@en ;
-          rdfs:label "Decision"@en .
-
-
-###  http://promsns.org/def/do#Decision_making
-:Decision_making rdf:type owl:Class ;
-                 rdfs:subClassOf :Process ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :is_consideration_of ;
-                                   owl:someValuesFrom :Option
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :is_initiated_by ;
-                                   owl:someValuesFrom :Question_for_indicating
-                                 ] ;
-                 rdfs:comment """2011-10-13
+	rdfs:seeAlso "Requirement Ontology website: http://promsns.org/def/ro"@en ;
+	dcterms:creator "Piotr Nowara"^^xsd:string ;
+	rdfs:seeAlso "An example: https://github.com/nicholascar/decision-o/blob/master/examples/bacterial-throat-infection.md"@en .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://example.com/ns/dec#has_answer
+
+<http://example.com/ns/dec#has_answer> a owl:ObjectProperty ;
+	owl:inverseOf <http://example.com/ns/dec#is_answer_for> ;
+	rdfs:domain <http://example.com/ns/dec#Question> ;
+	rdfs:range <http://example.com/ns/dec#Answer> ;
+	rdfs:label "has answer"@en .
+# 
+# http://example.com/ns/dec#has_consequence
+
+<http://example.com/ns/dec#has_consequence> a owl:ObjectProperty ;
+	owl:inverseOf <http://example.com/ns/dec#is_consequence_of> ;
+	rdfs:domain <http://example.com/ns/dec#Situation> ;
+	rdfs:range <http://example.com/ns/dec#Situation> ;
+	rdfs:label "has consequence"@en .
+# 
+# http://example.com/ns/dec#has_context
+
+<http://example.com/ns/dec#has_context> a owl:ObjectProperty ;
+	rdfs:subPropertyOf <http://example.com/ns/dec#occurs_in> ;
+	owl:inverseOf <http://example.com/ns/dec#is_context_of> ;
+	rdfs:range <http://example.com/ns/dec#Context> ;
+	rdfs:label "has context"@en .
+# 
+# http://example.com/ns/dec#has_criterion
+
+<http://example.com/ns/dec#has_criterion> a owl:ObjectProperty ;
+	rdfs:range <http://promsns.org/def/ro#Normative_value> ;
+	rdfs:label "has criterion"@en .
+# 
+# http://example.com/ns/dec#has_result
+
+<http://example.com/ns/dec#has_result> a owl:ObjectProperty ;
+	owl:inverseOf <http://example.com/ns/dec#is_result_of> ;
+	rdfs:label "has result"@en .
+# 
+# http://example.com/ns/dec#has_solution
+
+<http://example.com/ns/dec#has_solution> a owl:ObjectProperty ;
+	owl:inverseOf <http://example.com/ns/dec#is_solution_for> ;
+	rdfs:domain <http://example.com/ns/dec#Problem> ;
+	rdfs:label "has solution"@en .
+# 
+# http://example.com/ns/dec#includes
+
+<http://example.com/ns/dec#includes> a owl:ObjectProperty ;
+	rdfs:subPropertyOf <http://example.com/ns/dec#is_occurence_of> ;
+	owl:inverseOf <http://example.com/ns/dec#is_included_in> ;
+	rdfs:label "includes"@en .
+# 
+# http://example.com/ns/dec#indicates
+
+<http://example.com/ns/dec#indicates> a owl:ObjectProperty ;
+	owl:inverseOf <http://example.com/ns/dec#is_indicated_by> ;
+	rdfs:label "indicates"@en , "wskazuje"@pl .
+# 
+# http://example.com/ns/dec#initiates
+
+<http://example.com/ns/dec#initiates> a owl:ObjectProperty ;
+	owl:inverseOf <http://example.com/ns/dec#is_initiated_by> ;
+	rdfs:range <http://example.com/ns/dec#Process> ;
+	rdfs:label "initiates"@en .
+# 
+# http://example.com/ns/dec#involves_choosing
+
+<http://example.com/ns/dec#involves_choosing> a owl:ObjectProperty ;
+	rdfs:subPropertyOf <http://example.com/ns/dec#is_occurence_of> ;
+	rdfs:label "involves choosing"@en .
+# 
+# http://example.com/ns/dec#is_adressed_to
+
+<http://example.com/ns/dec#is_adressed_to> a owl:ObjectProperty ;
+	rdfs:label "is adressed to"@en .
+# 
+# http://example.com/ns/dec#is_answer_for
+
+<http://example.com/ns/dec#is_answer_for> a owl:ObjectProperty ;
+	rdfs:domain <http://example.com/ns/dec#Answer> ;
+	rdfs:range <http://example.com/ns/dec#Question> ;
+	rdfs:label "is answer for"@en .
+# 
+# http://example.com/ns/dec#is_consequence_of
+
+<http://example.com/ns/dec#is_consequence_of> a owl:ObjectProperty ;
+	rdfs:domain <http://example.com/ns/dec#Situation> ;
+	rdfs:range <http://example.com/ns/dec#Situation> ;
+	rdfs:label "is consequence of"@en .
+# 
+# http://example.com/ns/dec#is_consideration_of
+
+<http://example.com/ns/dec#is_consideration_of> a owl:ObjectProperty ;
+	owl:inverseOf <http://example.com/ns/dec#is_considered_during> ;
+	rdfs:domain <http://example.com/ns/dec#Process> ;
+	rdfs:label "is consideration of"@en .
+# 
+# http://example.com/ns/dec#is_considered_during
+
+<http://example.com/ns/dec#is_considered_during> a owl:ObjectProperty ;
+	rdfs:range <http://example.com/ns/dec#Process> ;
+	rdfs:label "is considered during"@en .
+# 
+# http://example.com/ns/dec#is_context_of
+
+<http://example.com/ns/dec#is_context_of> a owl:ObjectProperty ;
+	rdfs:subPropertyOf <http://example.com/ns/dec#is_occurence_of> .
+# 
+# http://example.com/ns/dec#is_included_in
+
+<http://example.com/ns/dec#is_included_in> a owl:ObjectProperty ;
+	rdfs:subPropertyOf <http://example.com/ns/dec#occurs_in> ;
+	rdfs:label "is included in"@en .
+# 
+# http://example.com/ns/dec#is_indicated_by
+
+<http://example.com/ns/dec#is_indicated_by> a owl:ObjectProperty ;
+	rdfs:label "is indicated by"@en .
+# 
+# http://example.com/ns/dec#is_initiated_by
+
+<http://example.com/ns/dec#is_initiated_by> a owl:ObjectProperty ;
+	rdfs:domain <http://example.com/ns/dec#Process> ;
+	rdfs:label "is initiated by"@en .
+# 
+# http://example.com/ns/dec#is_occurence_of
+
+<http://example.com/ns/dec#is_occurence_of> a owl:ObjectProperty .
+# 
+# http://example.com/ns/dec#is_question_for
+
+<http://example.com/ns/dec#is_question_for> a owl:ObjectProperty ;
+	rdfs:domain <http://example.com/ns/dec#Question> ;
+	rdfs:label "is question for"@en .
+# 
+# http://example.com/ns/dec#is_question_for_confirming
+
+<http://example.com/ns/dec#is_question_for_confirming> a owl:ObjectProperty ;
+	rdfs:subPropertyOf <http://example.com/ns/dec#is_question_for> ;
+	rdfs:domain <http://example.com/ns/dec#Question> ;
+	rdfs:label "is question for confirming"@en .
+# 
+# http://example.com/ns/dec#is_question_for_indicating
+
+<http://example.com/ns/dec#is_question_for_indicating> a owl:ObjectProperty ;
+	rdfs:subPropertyOf <http://example.com/ns/dec#is_question_for> ;
+	rdfs:domain <http://example.com/ns/dec#Question> ;
+	rdfs:label "is question for indicating"@en .
+# 
+# http://example.com/ns/dec#is_result_of
+
+<http://example.com/ns/dec#is_result_of> a owl:ObjectProperty .
+# 
+# http://example.com/ns/dec#is_solution_for
+
+<http://example.com/ns/dec#is_solution_for> a owl:ObjectProperty ;
+	rdfs:range <http://example.com/ns/dec#Problem> ;
+	rdfs:label "is solution for"@en .
+# 
+# http://example.com/ns/dec#occurs_in
+
+<http://example.com/ns/dec#occurs_in> a owl:ObjectProperty .
+# 
+# http://example.com/ns/dec#supposedly_same_as
+
+<http://example.com/ns/dec#supposedly_same_as> a owl:ObjectProperty , owl:SymmetricProperty ;
+	rdfs:comment "Renamed from 'is supposed to be identical with'."@en , "Using to indicate supposedly same individuals (like in the context of a question where someone suppose some individual has certain properties or when introducing some unverified statements)."@en ;
+	rdfs:label "supposedly same as"@en .
+# 
+# http://promsns.org/def/ro#has_criterion
+
+<http://promsns.org/def/ro#has_criterion> a owl:ObjectProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://example.com/ns/dec#indicates_boolean_value
+
+<http://example.com/ns/dec#indicates_boolean_value> a owl:DatatypeProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://example.com/ns/dec#Answer
+
+<http://example.com/ns/dec#Answer> a owl:Class ;
+	rdfs:subClassOf <http://example.com/ns/dec#Situation> , _:genid1 .
+
+_:genid1 a owl:Class ;
+	owl:unionOf _:genid4 .
+
+_:genid4 a rdf:List ;
+	rdf:first _:genid5 .
+
+_:genid5 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#indicates> ;
+	owl:someValuesFrom owl:Thing .
+
+_:genid4 rdf:rest _:genid2 .
+
+_:genid2 a rdf:List ;
+	rdf:first _:genid3 .
+
+_:genid3 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#indicates_boolean_value> ;
+	owl:someValuesFrom xsd:boolean .
+
+_:genid2 rdf:rest rdf:nil .
+
+<http://example.com/ns/dec#Answer> rdfs:subClassOf _:genid6 .
+
+_:genid6 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#is_answer_for> ;
+	owl:someValuesFrom <http://example.com/ns/dec#Question> .
+
+<http://example.com/ns/dec#Answer> rdfs:comment "Indication of something requested in a question."@en ;
+	rdfs:label "Answer"@en .
+# 
+# http://example.com/ns/dec#Context
+
+<http://example.com/ns/dec#Context> a owl:Class ;
+	rdfs:subClassOf <http://example.com/ns/dec#Situation> ;
+	rdfs:label "Context"@en .
+# 
+# http://example.com/ns/dec#Decision
+
+<http://example.com/ns/dec#Decision> a owl:Class ;
+	owl:equivalentClass _:genid7 .
+
+_:genid7 owl:intersectionOf _:genid10 .
+
+_:genid10 a rdf:List ;
+	rdf:first _:genid11 .
+
+_:genid11 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#indicates> ;
+	owl:someValuesFrom <http://example.com/ns/dec#Option> .
+
+_:genid10 rdf:rest _:genid8 .
+
+_:genid8 a rdf:List ;
+	rdf:first _:genid9 .
+
+_:genid9 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#is_result_of> ;
+	owl:someValuesFrom <http://example.com/ns/dec#Decision_making> .
+
+_:genid8 rdf:rest rdf:nil .
+
+_:genid7 a owl:Class .
+
+<http://example.com/ns/dec#Decision> rdfs:subClassOf <http://example.com/ns/dec#Situation> ;
+	rdfs:comment "Recognizing something as the right/appropriate/best possible solution to a question/problem. It can be a consequence of an objective evaluation of clearly defined criteria but also an intuition, emotion or other subjective factor."@en ;
+	rdfs:label "Decision"@en .
+# 
+# http://example.com/ns/dec#Decision_making
+
+<http://example.com/ns/dec#Decision_making> a owl:Class ;
+	rdfs:subClassOf <http://example.com/ns/dec#Process> , _:genid12 .
+
+_:genid12 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#is_consideration_of> ;
+	owl:someValuesFrom <http://example.com/ns/dec#Option> .
+
+<http://example.com/ns/dec#Decision_making> rdfs:subClassOf _:genid13 .
+
+_:genid13 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#is_initiated_by> ;
+	owl:someValuesFrom <http://example.com/ns/dec#Question_for_indicating> .
+
+<http://example.com/ns/dec#Decision_making> rdfs:comment """2011-10-13
 A complex process that starts with a question and may result in indication of a solution for the underlying problem. It is important to note that a decision-making is something substantially different than decision, which is an output of the process of deciding. Usually it can be represented by the following pattern:
 1. Decision-making starts with a question which is an utterance of some problem
 2. The decider gathers and analyzes some information
@@ -288,119 +335,155 @@ A complex process that starts with a question and may result in indication of a 
 4. One of the options may get recognized as the right/appropriate/best possible solution for the initial question/problem or the decider may choose to restrain from choice. What justifies this act could be an objective evaluation of clearly defined criteria but also an intuition, emotion or other subjective factor.
 
 In most cases stages 2-3 consist of many (concurrent or sequential) actions, events, processes related to information gathering, processing, verifying etc. In some cases a decision-making can be viewed as a complex process involving many sub-decisions preceding the recognition of the initial problem solution. In our current work we have focused on the basic elements of the above pattern (the question, gathering information, considering options, choosing solution). It should be considered to what extent this ontology should support the modeling of correlated issues such as: information verification and retrieval etc."""@en ;
-                 rdfs:label "Decision making"@en ;
-                 rdfs:seeAlso :Decision .
+	rdfs:label "Decision making"@en ;
+	rdfs:seeAlso <http://example.com/ns/dec#Decision> .
+# 
+# http://example.com/ns/dec#Option
 
+<http://example.com/ns/dec#Option> a owl:Class ;
+	owl:equivalentClass _:genid14 .
 
-###  http://promsns.org/def/do#Option
-:Option rdf:type owl:Class ;
-        owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                     owl:onProperty :involves_choosing ;
-                                                     owl:someValuesFrom owl:Thing
-                                                   ]
-                                                   [ rdf:type owl:Restriction ;
-                                                     owl:onProperty <http://promsns.org/def/ro#has_criterion> ;
-                                                     owl:someValuesFrom <http://promsns.org/def/ro#Normative_value>
-                                                   ]
-                                                 ) ;
-                              rdf:type owl:Class
-                            ] ;
-        rdfs:subClassOf :Situation ;
-        rdfs:comment """Option is a situation in which some entity appears as a possible choice in a decision-making process.
+_:genid14 owl:intersectionOf _:genid17 .
+
+_:genid17 a rdf:List ;
+	rdf:first _:genid18 .
+
+_:genid18 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#involves_choosing> ;
+	owl:someValuesFrom owl:Thing .
+
+_:genid17 rdf:rest _:genid15 .
+
+_:genid15 a rdf:List ;
+	rdf:first _:genid16 .
+
+_:genid16 a owl:Restriction ;
+	owl:onProperty <http://promsns.org/def/ro#has_criterion> ;
+	owl:someValuesFrom <http://promsns.org/def/ro#Normative_value> .
+
+_:genid15 rdf:rest rdf:nil .
+
+_:genid14 a owl:Class .
+
+<http://example.com/ns/dec#Option> rdfs:subClassOf <http://example.com/ns/dec#Situation> ;
+	rdfs:comment """Option is a situation in which some entity appears as a possible choice in a decision-making process.
 
 Option has always related criteria which correspond to requirements, recommendations,obligations etc. Those criteria might be implied from some documents, agreements, formal regulations etc. but also from subjective preferences or feelings. For example choosing a car may have a criterion related to subjective color or brand preferneces.
 
 TODO: A set of entities for representing the criteria \"source\" may be a valuable addition to Decision-O, but it will require modeling a new set of concepts related to subjective phenomena like attitudes, preferences, emotions, intutions etc."""@en ;
-        rdfs:label "Opcja"@pl ,
-                   "Option"@en ;
-        rdfs:seeAlso :Decision_making .
+	rdfs:label "Opcja"@pl , "Option"@en ;
+	rdfs:seeAlso <http://example.com/ns/dec#Decision_making> .
+# 
+# http://example.com/ns/dec#Problem
 
+<http://example.com/ns/dec#Problem> a owl:Class ;
+	rdfs:subClassOf <http://example.com/ns/dec#Situation> ;
+	rdfs:label "Problem"@en .
+# 
+# http://example.com/ns/dec#Process
 
-###  http://promsns.org/def/do#Problem
-:Problem rdf:type owl:Class ;
-         rdfs:subClassOf :Situation ;
-         rdfs:label "Problem"@en .
+<http://example.com/ns/dec#Process> a owl:Class ;
+	rdfs:label "Process"@en .
+# 
+# http://example.com/ns/dec#Question
 
+<http://example.com/ns/dec#Question> a owl:Class ;
+	rdfs:subClassOf <http://example.com/ns/dec#Situation> ;
+	rdfs:comment "A situation in which a person indicates a will for acquiring knowledge about something."@en ;
+	rdfs:label "Question"@en .
+# 
+# http://example.com/ns/dec#Question_for_confirming
 
-###  http://promsns.org/def/do#Process
-:Process rdf:type owl:Class ;
-         rdfs:label "Process"@en .
+<http://example.com/ns/dec#Question_for_confirming> a owl:Class ;
+	owl:equivalentClass _:genid19 .
 
+_:genid19 owl:intersectionOf _:genid23 .
 
-###  http://promsns.org/def/do#Question
-:Question rdf:type owl:Class ;
-          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                owl:onProperty :is_question_for ;
-                                owl:someValuesFrom owl:Thing
-                              ] ;
-          rdfs:subClassOf :Situation ;
-          rdfs:comment "A situation in which a person indicates a will for acquiring knowledge about something."@en ;
-          rdfs:label "Question"@en .
+_:genid23 a rdf:List ;
+	rdf:first _:genid24 .
 
+_:genid24 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#is_question_for_confirming> ;
+	owl:someValuesFrom owl:Thing .
 
-###  http://promsns.org/def/do#Question_for_confirming
-:Question_for_confirming rdf:type owl:Class ;
-                         owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                      owl:onProperty :is_question_for_confirming ;
-                                                                      owl:someValuesFrom owl:Thing
-                                                                    ]
-                                                                    [ rdf:type owl:Restriction ;
-                                                                      owl:onProperty :has_answer ;
-                                                                      owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                          owl:onProperty :indicates_boolean_value ;
-                                                                                          owl:someValuesFrom xsd:boolean
-                                                                                        ]
-                                                                    ]
-                                                                  ) ;
-                                               rdf:type owl:Class
-                                             ] ;
-                         rdfs:subClassOf :Question ;
-                         rdfs:comment """A question containing a whole proposition, that is an utterance that could be true or false. It is answerd by confirming or denying that proposition ('yes/no question')
+_:genid23 rdf:rest _:genid20 .
+
+_:genid20 a rdf:List ;
+	rdf:first _:genid21 .
+
+_:genid21 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#has_answer> ;
+	owl:allValuesFrom _:genid22 .
+
+_:genid22 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#indicates_boolean_value> ;
+	owl:someValuesFrom xsd:boolean .
+
+_:genid20 rdf:rest rdf:nil .
+
+_:genid19 a owl:Class .
+
+<http://example.com/ns/dec#Question_for_confirming> rdfs:subClassOf <http://example.com/ns/dec#Question> ;
+	rdfs:comment """A question containing a whole proposition, that is an utterance that could be true or false. It is answerd by confirming or denying that proposition ('yes/no question')
 
 Examples: Are you a vegetarian? Is Norway a member of UE?"""@en ;
-                         rdfs:label "Question for confirming"@en .
+	rdfs:label "Question for confirming"@en .
+# 
+# http://example.com/ns/dec#Question_for_indicating
 
+<http://example.com/ns/dec#Question_for_indicating> a owl:Class ;
+	owl:equivalentClass _:genid25 .
 
-###  http://promsns.org/def/do#Question_for_indicating
-:Question_for_indicating rdf:type owl:Class ;
-                         owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                      owl:onProperty :is_question_for_indicating ;
-                                                                      owl:someValuesFrom owl:Thing
-                                                                    ]
-                                                                    [ rdf:type owl:Restriction ;
-                                                                      owl:onProperty :has_answer ;
-                                                                      owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                          owl:onProperty :indicates ;
-                                                                                          owl:someValuesFrom owl:Thing
-                                                                                        ]
-                                                                    ]
-                                                                  ) ;
-                                               rdf:type owl:Class
-                                             ] ;
-                         rdfs:subClassOf :Question ;
-                         rdfs:comment """A question demanding indication of some concept, thing or its property in order to be anwsered.
+_:genid25 owl:intersectionOf _:genid29 .
+
+_:genid29 a rdf:List ;
+	rdf:first _:genid30 .
+
+_:genid30 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#is_question_for_indicating> ;
+	owl:someValuesFrom owl:Thing .
+
+_:genid29 rdf:rest _:genid26 .
+
+_:genid26 a rdf:List ;
+	rdf:first _:genid27 .
+
+_:genid27 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#has_answer> ;
+	owl:allValuesFrom _:genid28 .
+
+_:genid28 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#indicates> ;
+	owl:someValuesFrom owl:Thing .
+
+_:genid26 rdf:rest rdf:nil .
+
+_:genid25 a owl:Class .
+
+<http://example.com/ns/dec#Question_for_indicating> rdfs:subClassOf <http://example.com/ns/dec#Question> ;
+	rdfs:comment """A question demanding indication of some concept, thing or its property in order to be anwsered.
 
 Examples: What's your date of birth? What is the name of the Director of the W3C?"""@en ;
-                         rdfs:label "Question for indicating"@en .
+	rdfs:label "Question for indicating"@en .
+# 
+# http://example.com/ns/dec#Question_for_indicating_solution
 
+<http://example.com/ns/dec#Question_for_indicating_solution> a owl:Class ;
+	rdfs:subClassOf <http://example.com/ns/dec#Question_for_indicating> , _:genid31 .
 
-###  http://promsns.org/def/do#Question_for_indicating_solution
-:Question_for_indicating_solution rdf:type owl:Class ;
-                                  rdfs:subClassOf :Question_for_indicating ,
-                                                  [ rdf:type owl:Restriction ;
-                                                    owl:onProperty :is_consequence_of ;
-                                                    owl:someValuesFrom :Problem
-                                                  ] ;
-                                  rdfs:label "Question for indicating solution"@en .
+_:genid31 a owl:Restriction ;
+	owl:onProperty <http://example.com/ns/dec#is_consequence_of> ;
+	owl:someValuesFrom <http://example.com/ns/dec#Problem> .
 
+<http://example.com/ns/dec#Question_for_indicating_solution> rdfs:label "Question for indicating solution"@en .
+# 
+# http://example.com/ns/dec#Situation
 
-###  http://promsns.org/def/do#Situation
-:Situation rdf:type owl:Class ;
-           rdfs:label "Situation"@en .
+<http://example.com/ns/dec#Situation> a owl:Class ;
+	rdfs:label "Situation"@en .
+# 
+# http://promsns.org/def/ro#Normative_value
 
-
-###  http://promsns.org/def/ro#Normative_value
-<http://promsns.org/def/ro#Normative_value> rdf:type owl:Class .
-
-
-###  Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi
+<http://promsns.org/def/ro#Normative_value> a owl:Class .
+# 
+# Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi

@@ -1,32 +1,25 @@
 <?xml version="1.0"?>
-
-
-<!DOCTYPE rdf:RDF [
-    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY requirement_ontology "http://promsns.org/def/ro#" >
-]>
-
-
 <rdf:RDF xmlns="http://promsns.org/def/ro"
      xml:base="http://promsns.org/def/ro"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:requirement_ontology="http://promsns.org/def/ro#">
-    <owl:Ontology rdf:about="http://promsns.org/def/ro">
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:requirement_ontology="http://promsns.org/def/ro#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:req="http://example.com/ns/req#">
+    <owl:Ontology rdf:about="http://example.com/ns/req">
+        <owl:versionIRI rdf:resource="http://example.com/ns/req"/>
         <owl:versionInfo xml:lang="en">2012_11_23_1</owl:versionInfo>
-        <rdfs:comment xml:lang="en">Author: Piotr Nowara  (piotrnowara(at)gmail.com)</rdfs:comment>
         <owl:versionInfo xml:lang="en">CHANGELOG
 
 2012_11_22_1: has validity for -&gt; is valid for
 
 2012_11_23_1: pl labels</owl:versionInfo>
+        <rdfs:seeAlso xml:lang="en">Project webiste: http://github.com/nicholascar/decision-o</rdfs:seeAlso>
+        <owl:versionInfo xml:lang="en">2017-04-01_1: namespace changed to example.com</owl:versionInfo>
         <rdfs:comment xml:lang="en">If you don&apos;t know how to start describing your requirements or need assistance in using the Requirement Ontology please send an email to: piotrnowara(at)gmail.com</rdfs:comment>
-        <rdfs:seeAlso xml:lang="en">Project webiste: http://code.google.com/p/requirement-ontology/</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">Author: Piotr Nowara  (piotrnowara(at)gmail.com)</rdfs:comment>
     </owl:Ontology>
     
 
@@ -39,22 +32,21 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:AnnotationProperty rdf:about="&requirement_ontology;has_description">
-        <rdfs:label xml:lang="en">description</rdfs:label>
-        <rdfs:label xml:lang="pl">opis</rdfs:label>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&requirement_ontology;toDo"/>
     
 
 
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Datatypes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
+    <!-- http://example.com/ns/req#has_description -->
 
+    <owl:AnnotationProperty rdf:about="http://example.com/ns/req#has_description">
+        <rdfs:label xml:lang="en">description</rdfs:label>
+        <rdfs:label xml:lang="pl">opis</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://example.com/ns/req#toDo -->
+
+    <owl:AnnotationProperty rdf:about="http://example.com/ns/req#toDo"/>
     
 
 
@@ -69,170 +61,170 @@
     
 
 
-    <!-- http://promsns.org/def/ro#has_criterion -->
+    <!-- http://example.com/ns/req#has_criterion -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;has_criterion">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#has_criterion">
+        <rdfs:subPropertyOf rdf:resource="http://example.com/ns/req#is_affected_by_validity_of"/>
+        <owl:inverseOf rdf:resource="http://example.com/ns/req#is_criterion_for"/>
+        <rdfs:range rdf:resource="http://example.com/ns/req#Criterion"/>
         <rdfs:label xml:lang="en">has criterion</rdfs:label>
         <rdfs:label xml:lang="pl">ma kryterium</rdfs:label>
-        <rdfs:range rdf:resource="&requirement_ontology;Criterion"/>
-        <rdfs:subPropertyOf rdf:resource="&requirement_ontology;is_affected_by_validity_of"/>
-        <owl:inverseOf rdf:resource="&requirement_ontology;is_criterion_for"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#has_exception -->
+    <!-- http://example.com/ns/req#has_exception -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;has_exception">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#has_exception">
+        <rdfs:domain rdf:resource="http://example.com/ns/req#Value"/>
         <rdfs:label xml:lang="en">has exception</rdfs:label>
         <rdfs:label xml:lang="pl">ma wyjątek</rdfs:label>
-        <rdfs:domain rdf:resource="&requirement_ontology;Value"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#is_affected_by_validity_of -->
+    <!-- http://example.com/ns/req#is_affected_by_validity_of -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;is_affected_by_validity_of">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#is_affected_by_validity_of">
+        <owl:inverseOf rdf:resource="http://example.com/ns/req#is_valid_for"/>
+        <rdfs:range rdf:resource="http://example.com/ns/req#Value"/>
         <rdfs:label xml:lang="en">is affected by validity of</rdfs:label>
-        <rdfs:range rdf:resource="&requirement_ontology;Value"/>
-        <owl:inverseOf rdf:resource="&requirement_ontology;is_valid_for"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#is_criterion_for -->
+    <!-- http://example.com/ns/req#is_criterion_for -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;is_criterion_for">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#is_criterion_for">
+        <rdfs:subPropertyOf rdf:resource="http://example.com/ns/req#is_valid_for"/>
+        <rdfs:domain rdf:resource="http://example.com/ns/req#Criterion"/>
         <rdfs:label xml:lang="en">is criterion for</rdfs:label>
         <rdfs:label xml:lang="pl">jest kryterium dla</rdfs:label>
-        <rdfs:domain rdf:resource="&requirement_ontology;Criterion"/>
-        <rdfs:subPropertyOf rdf:resource="&requirement_ontology;is_valid_for"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#is_permission_for -->
+    <!-- http://example.com/ns/req#is_permission_for -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;is_permission_for">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#is_permission_for">
+        <rdfs:subPropertyOf rdf:resource="http://example.com/ns/req#is_valid_for"/>
+        <rdfs:domain rdf:resource="http://example.com/ns/req#Permission"/>
         <rdfs:label xml:lang="en">is permission for</rdfs:label>
         <rdfs:label xml:lang="pl">jest pozwaleniem dla</rdfs:label>
-        <rdfs:domain rdf:resource="&requirement_ontology;Permission"/>
-        <rdfs:subPropertyOf rdf:resource="&requirement_ontology;is_valid_for"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#is_recommendation_for -->
+    <!-- http://example.com/ns/req#is_recommendation_for -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;is_recommendation_for">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#is_recommendation_for">
+        <rdfs:subPropertyOf rdf:resource="http://example.com/ns/req#is_valid_for"/>
+        <rdfs:domain rdf:resource="http://example.com/ns/req#Recommendation"/>
         <rdfs:label xml:lang="en">is recommendation for</rdfs:label>
         <rdfs:label xml:lang="pl">jest zaleceniem dla</rdfs:label>
-        <rdfs:domain rdf:resource="&requirement_ontology;Recommendation"/>
-        <rdfs:subPropertyOf rdf:resource="&requirement_ontology;is_valid_for"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#is_requirement_for -->
+    <!-- http://example.com/ns/req#is_requirement_for -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;is_requirement_for">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#is_requirement_for">
+        <rdfs:subPropertyOf rdf:resource="http://example.com/ns/req#is_valid_for"/>
+        <rdfs:domain rdf:resource="http://example.com/ns/req#Requirement"/>
         <rdfs:label xml:lang="en">is requirement for</rdfs:label>
         <rdfs:label xml:lang="pl">jest wymaganiem dla</rdfs:label>
-        <rdfs:domain rdf:resource="&requirement_ontology;Requirement"/>
-        <rdfs:subPropertyOf rdf:resource="&requirement_ontology;is_valid_for"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#is_satisfied_by -->
+    <!-- http://example.com/ns/req#is_satisfied_by -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;is_satisfied_by">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#is_satisfied_by">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://example.com/ns/req#satisfies"/>
+        <rdfs:domain rdf:resource="http://example.com/ns/req#Value"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:label xml:lang="en">is satisfied by</rdfs:label>
         <rdfs:label xml:lang="pl">jest spełnione przez</rdfs:label>
-        <rdfs:domain rdf:resource="&requirement_ontology;Value"/>
-        <owl:inverseOf rdf:resource="&requirement_ontology;satisfies"/>
-        <rdfs:range rdf:resource="&owl;Thing"/>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#is_valid_for -->
+    <!-- http://example.com/ns/req#is_valid_for -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;is_valid_for">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#is_valid_for">
+        <rdfs:domain rdf:resource="http://example.com/ns/req#Value"/>
+        <rdfs:comment xml:lang="en">A value is always valid for some specific thing. This relation should point to an entity which is expected to satisfy a given value. Sometimes a temporal or spatial context needs to be provided, e.g. Non-EU students, 2011 graduates etc. Exceptions describing special conditions affecting the validity of a value can be described using the &apos;has exception&apos; relation.</rdfs:comment>
         <rdfs:label xml:lang="en">is valid for</rdfs:label>
         <rdfs:label xml:lang="pl">obowiązuje dla</rdfs:label>
-        <rdfs:comment xml:lang="en">A value is always valid for some specific thing. This relation should point to an entity which is expected to satisfy a given value. Sometimes a temporal or spatial context needs to be provided, e.g. Non-EU students, 2011 graduates etc. Exceptions describing special conditions affecting the validity of a value can be described using the &apos;has exception&apos; relation.</rdfs:comment>
-        <rdfs:domain rdf:resource="&requirement_ontology;Value"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#is_violated_by -->
+    <!-- http://example.com/ns/req#is_violated_by -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;is_violated_by">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#is_violated_by">
+        <owl:inverseOf rdf:resource="http://example.com/ns/req#violates"/>
+        <rdfs:domain rdf:resource="http://example.com/ns/req#Value"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:label xml:lang="en">is violated by</rdfs:label>
         <rdfs:label xml:lang="pl">jest naruszone przez</rdfs:label>
-        <rdfs:domain rdf:resource="&requirement_ontology;Value"/>
-        <owl:inverseOf rdf:resource="&requirement_ontology;violates"/>
-        <rdfs:range rdf:resource="&owl;Thing"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#satisfies -->
+    <!-- http://example.com/ns/req#satisfies -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;satisfies">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#satisfies">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://example.com/ns/req#Value"/>
         <rdfs:label xml:lang="en">satisfies</rdfs:label>
         <rdfs:label xml:lang="pl">spełnia</rdfs:label>
-        <rdfs:range rdf:resource="&requirement_ontology;Value"/>
-        <rdfs:domain rdf:resource="&owl;Thing"/>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#satisfies_criterion -->
+    <!-- http://example.com/ns/req#satisfies_criterion -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;satisfies_criterion">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#satisfies_criterion">
+        <rdfs:subPropertyOf rdf:resource="http://example.com/ns/req#satisfies"/>
+        <rdfs:range rdf:resource="http://example.com/ns/req#Criterion"/>
         <rdfs:label xml:lang="en">satisfies criterion</rdfs:label>
         <rdfs:label xml:lang="pl">spełnia kryterium</rdfs:label>
-        <rdfs:range rdf:resource="&requirement_ontology;Criterion"/>
-        <rdfs:subPropertyOf rdf:resource="&requirement_ontology;satisfies"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#satisfies_recommendation -->
+    <!-- http://example.com/ns/req#satisfies_recommendation -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;satisfies_recommendation">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#satisfies_recommendation">
+        <rdfs:subPropertyOf rdf:resource="http://example.com/ns/req#satisfies"/>
+        <rdfs:range rdf:resource="http://example.com/ns/req#Recommendation"/>
         <rdfs:label xml:lang="en">satisfies recommendation</rdfs:label>
         <rdfs:label xml:lang="pl">spełnia zalecenie</rdfs:label>
-        <rdfs:range rdf:resource="&requirement_ontology;Recommendation"/>
-        <rdfs:subPropertyOf rdf:resource="&requirement_ontology;satisfies"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#satisfies_requirement -->
+    <!-- http://example.com/ns/req#satisfies_requirement -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;satisfies_requirement">
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#satisfies_requirement">
+        <rdfs:subPropertyOf rdf:resource="http://example.com/ns/req#satisfies"/>
+        <rdfs:range rdf:resource="http://example.com/ns/req#Requirement"/>
         <rdfs:label xml:lang="en">satisfies requirement</rdfs:label>
         <rdfs:label xml:lang="pl">spełnia wymaganie</rdfs:label>
-        <rdfs:range rdf:resource="&requirement_ontology;Requirement"/>
-        <rdfs:subPropertyOf rdf:resource="&requirement_ontology;satisfies"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://promsns.org/def/ro#violates -->
+    <!-- http://example.com/ns/req#violates -->
 
-    <owl:ObjectProperty rdf:about="&requirement_ontology;violates">
-        <rdfs:label xml:lang="en">violates</rdfs:label>
+    <owl:ObjectProperty rdf:about="http://example.com/ns/req#violates">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://example.com/ns/req#Value"/>
         <rdfs:label xml:lang="pl">narusza</rdfs:label>
-        <rdfs:range rdf:resource="&requirement_ontology;Value"/>
-        <rdfs:domain rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en">violates</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -248,32 +240,30 @@
     
 
 
-    <!-- http://promsns.org/def/ro#Criterion -->
+    <!-- http://example.com/ns/req#Criterion -->
 
-    <owl:Class rdf:about="&requirement_ontology;Criterion">
+    <owl:Class rdf:about="http://example.com/ns/req#Criterion">
+        <rdfs:subClassOf rdf:resource="http://example.com/ns/req#Normative_value"/>
         <rdfs:label xml:lang="en">Criterion</rdfs:label>
         <rdfs:label xml:lang="pl">Kryterium</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&requirement_ontology;Normative_value"/>
     </owl:Class>
     
 
 
-    <!-- http://promsns.org/def/ro#Norm -->
+    <!-- http://example.com/ns/req#Norm -->
 
-    <owl:Class rdf:about="&requirement_ontology;Norm">
+    <owl:Class rdf:about="http://example.com/ns/req#Norm">
+        <rdfs:subClassOf rdf:resource="http://example.com/ns/req#Normative_value"/>
         <rdfs:label xml:lang="en">Norm</rdfs:label>
         <rdfs:label xml:lang="pl">Norma</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&requirement_ontology;Normative_value"/>
     </owl:Class>
     
 
 
-    <!-- http://promsns.org/def/ro#Normative_value -->
+    <!-- http://example.com/ns/req#Normative_value -->
 
-    <owl:Class rdf:about="&requirement_ontology;Normative_value">
-        <rdfs:label xml:lang="en">Normative value</rdfs:label>
-        <rdfs:label xml:lang="pl">Wartość normatywna</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&requirement_ontology;Value"/>
+    <owl:Class rdf:about="http://example.com/ns/req#Normative_value">
+        <rdfs:subClassOf rdf:resource="http://example.com/ns/req#Value"/>
         <rdfs:comment xml:lang="en">Examples:
 1. &apos;It is recemmended that every associated supplier should have a quality management system&apos;.
 
@@ -281,80 +271,80 @@
 
 3. &apos;Every hazard identified during hazard assesment process has to be described&apos;</rdfs:comment>
         <rdfs:comment xml:lang="en">Value that can serve as a norm, standard, codex, requirement, criterion etc.</rdfs:comment>
+        <rdfs:label xml:lang="en">Normative value</rdfs:label>
+        <rdfs:label xml:lang="pl">Wartość normatywna</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://promsns.org/def/ro#Obligation -->
+    <!-- http://example.com/ns/req#Obligation -->
 
-    <owl:Class rdf:about="&requirement_ontology;Obligation">
+    <owl:Class rdf:about="http://example.com/ns/req#Obligation">
+        <rdfs:subClassOf rdf:resource="http://example.com/ns/req#Normative_value"/>
         <rdfs:label xml:lang="en">Obligation</rdfs:label>
         <rdfs:label xml:lang="pl">Zobowiązanie</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&requirement_ontology;Normative_value"/>
     </owl:Class>
     
 
 
-    <!-- http://promsns.org/def/ro#Permission -->
+    <!-- http://example.com/ns/req#Permission -->
 
-    <owl:Class rdf:about="&requirement_ontology;Permission">
+    <owl:Class rdf:about="http://example.com/ns/req#Permission">
+        <rdfs:subClassOf rdf:resource="http://example.com/ns/req#Normative_value"/>
         <rdfs:label xml:lang="en">Permission</rdfs:label>
         <rdfs:label xml:lang="pl">Pozwolenie</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&requirement_ontology;Normative_value"/>
     </owl:Class>
     
 
 
-    <!-- http://promsns.org/def/ro#Privilege -->
+    <!-- http://example.com/ns/req#Privilege -->
 
-    <owl:Class rdf:about="&requirement_ontology;Privilege">
+    <owl:Class rdf:about="http://example.com/ns/req#Privilege">
+        <rdfs:subClassOf rdf:resource="http://example.com/ns/req#Permission"/>
         <rdfs:label xml:lang="en">Privilege</rdfs:label>
         <rdfs:label xml:lang="pl">Przywilej</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&requirement_ontology;Permission"/>
     </owl:Class>
     
 
 
-    <!-- http://promsns.org/def/ro#Recommendation -->
+    <!-- http://example.com/ns/req#Recommendation -->
 
-    <owl:Class rdf:about="&requirement_ontology;Recommendation">
+    <owl:Class rdf:about="http://example.com/ns/req#Recommendation">
+        <rdfs:subClassOf rdf:resource="http://example.com/ns/req#Normative_value"/>
         <rdfs:label xml:lang="en">Recommendation</rdfs:label>
         <rdfs:label xml:lang="pl">Zalecenie</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&requirement_ontology;Normative_value"/>
     </owl:Class>
     
 
 
-    <!-- http://promsns.org/def/ro#Requirement -->
+    <!-- http://example.com/ns/req#Requirement -->
 
-    <owl:Class rdf:about="&requirement_ontology;Requirement">
+    <owl:Class rdf:about="http://example.com/ns/req#Requirement">
+        <rdfs:subClassOf rdf:resource="http://example.com/ns/req#Normative_value"/>
         <rdfs:label xml:lang="en">Requirement</rdfs:label>
         <rdfs:label xml:lang="pl">Wymaganie</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&requirement_ontology;Normative_value"/>
     </owl:Class>
     
 
 
-    <!-- http://promsns.org/def/ro#Standard -->
+    <!-- http://example.com/ns/req#Standard -->
 
-    <owl:Class rdf:about="&requirement_ontology;Standard">
+    <owl:Class rdf:about="http://example.com/ns/req#Standard">
+        <rdfs:subClassOf rdf:resource="http://example.com/ns/req#Normative_value"/>
+        <rdfs:comment xml:lang="en">A set of normative values (for example requirements and recommendations) that can be viewed as a normative value itself.</rdfs:comment>
         <rdfs:label xml:lang="en">Standard</rdfs:label>
         <rdfs:label xml:lang="pl">Standard</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&requirement_ontology;Normative_value"/>
-        <rdfs:comment xml:lang="en">A set of normative values (for example requirements and recommendations) that can be viewed as a normative value itself.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://promsns.org/def/ro#Value -->
+    <!-- http://example.com/ns/req#Value -->
 
-    <owl:Class rdf:about="&requirement_ontology;Value">
-        <rdfs:label xml:lang="en">Value</rdfs:label>
-        <rdfs:label xml:lang="pl">Wartość</rdfs:label>
+    <owl:Class rdf:about="http://example.com/ns/req#Value">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&requirement_ontology;is_valid_for"/>
-                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                <owl:onProperty rdf:resource="http://example.com/ns/req#is_valid_for"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Consider following issue:
@@ -367,10 +357,12 @@ Or maybe it is the problem of incomplete information about the EXACT context of 
         <rdfs:comment xml:lang="en">Discarded alternative: using punning (defines some Concept) and (&apos;has validity for&apos; some Thing) where Concept is meta-class for puns.</rdfs:comment>
         <rdfs:comment xml:lang="en">Examples: self-interest, reliability, warranty, benefit, norm, requirement, criterion, recommendation...</rdfs:comment>
         <rdfs:comment xml:lang="en">Value is everything that has validity for something and what determines how it would be satisfied.</rdfs:comment>
+        <rdfs:label xml:lang="en">Value</rdfs:label>
+        <rdfs:label xml:lang="pl">Wartość</rdfs:label>
     </owl:Class>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
 

@@ -11,7 +11,7 @@ STAGE 2.
 Patient P1 returns with some symptoms of allergic reaction, which suggests that P1 has allergy for Penicillin. The 
 doctor decides to prescribe the other antibiotic.
 
-In the [OWL file](decision_example_03.ttl) this type of process is represented by class labeled as **Deciding about 
+In the [OWL file](03.ttl) this type of process is represented by class labeled as **Deciding about 
 appropriate therapy for bacterial throat infection**.
 
 ```

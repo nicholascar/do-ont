@@ -1,0 +1,743 @@
+@prefix : <http://decision-ontology.googlecode.com/svn/trunk/decision_example_03.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix decision: <http://decision-ontology.googlecode.com/svn/trunk/decision.owl#> .
+@prefix requirement_ontology: <http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#> .
+
+<http://example.com/example/03> a owl:Ontology ;
+	owl:versionIRI <http://example.com/example/03> ;
+	owl:imports <http://example.com/dec> ;
+	rdfs:comment "Project website: http://code.google.com/p/decision-ontology/"@en ;
+	owl:versionInfo "20120128_1" ;
+	rdfs:seeAlso "Wiki page describing this example: http://code.google.com/p/decision-ontology/wiki/DecisionOntologyExample"@en ;
+	rdfs:comment """This owl file contains an example of how the Decision Ontology can be helpful in describing decsion-making patterns - see the class labeled as 'Deciding about appropriate therapy for bacterial throat infection' and requirement defined for that process specifying options and critetria.
+
+If you have any questions or comments or need help in using this ontology, send an email to: piotrnowara(at)gmail.com"""@en , "Author: Piotr Nowara - piotrnowara(at)gmail.com"@en , """There can be many possible ways to solve a problem and many recommendations/rules/best practises regarding a given type of a decision-making process. Using Decision Ontology (DO) together with Requirement Ontology (RO) allows to represent and compare these aspects on many levels providing a way to inspect different approaches originated from multiple contexts.
+
+This example demonstrates how to describe the knowledge and experience of domain experts in form of requirements and/or recommendations related to a given type of decision-making. 
+
+The example decision-making process is initiated by following problem/question: 'What is the appropriate therapy for a bacterial throat infection?'. In the OWL file this type of process is represented by class labeled as ‘Deciding about appropriate therapy for bacterial throat infection’.
+
+Let’s suppose our expert has a recommendation regarding the choice of possible options and their associated criteria for this particular case. These fact has been represented in our knowledge base by adding ‘Recommendation for deciding about appropriate therapy for bacterial throat infection’ indicating what kind of decision-making it applies to and how it can be satisfied.
+
+It seems to be a good practice to add a distinct OWL class for every domain object (or other relevant entity) - that is why another class labeled as ‘Recommended decision making about appropriate therapy for bacterial throat infection 1’ has been introduced to our example indicating options recommended to being considered during this decision. Please note that there are distinct OWL classes for every option and their underlying evaluation criteria (in Protégé they can be tracked by using the usage view). Optionally a set of question related to options’ criteria can be explicitly added to a class description."""@en .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#has_criterion
+
+decision:has_criterion a owl:ObjectProperty .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#initiates
+
+decision:initiates a owl:ObjectProperty .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#involves_choosing
+
+decision:involves_choosing a owl:ObjectProperty .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_consideration_of
+
+decision:is_consideration_of a owl:ObjectProperty .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_criterion_for
+
+decision:is_criterion_for a owl:ObjectProperty .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_initiated_by
+
+decision:is_initiated_by a owl:ObjectProperty .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_question_for_indicating
+
+decision:is_question_for_indicating a owl:ObjectProperty .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_recommendation_for
+
+decision:is_recommendation_for a owl:ObjectProperty .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_requirement_for
+
+decision:is_requirement_for a owl:ObjectProperty .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#is_satisfied_by
+
+decision:is_satisfied_by a owl:ObjectProperty .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#satisfies_recommendation
+
+decision:satisfies_recommendation a owl:ObjectProperty .
+# 
+# http://example.com/example/03##has_realization
+
+<http://example.com/example/03##has_realization> a owl:ObjectProperty ;
+	owl:inverseOf <http://example.com/example/03##is_realization_of> ;
+	rdfs:label "has realization"@en .
+# 
+# http://example.com/example/03##is_appropriate_for
+
+<http://example.com/example/03##is_appropriate_for> a owl:ObjectProperty ;
+	rdfs:label "is appropriate for"@en .
+# 
+# http://example.com/example/03##is_bearer_of
+
+<http://example.com/example/03##is_bearer_of> a owl:ObjectProperty ;
+	rdfs:label "is bearer of"@en .
+# 
+# http://example.com/example/03##is_realization_of
+
+<http://example.com/example/03##is_realization_of> a owl:ObjectProperty ;
+	rdfs:label "is realization of"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://example.com/example/03##has_value
+
+<http://example.com/example/03##has_value> a owl:DatatypeProperty ;
+	rdfs:label "has value"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Decision_making
+
+decision:Decision_making a owl:Class .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Option
+
+decision:Option a owl:Class .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question_for_confirming
+
+decision:Question_for_confirming a owl:Class .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Question_for_indicating
+
+decision:Question_for_indicating a owl:Class .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Recommendation
+
+decision:Recommendation a owl:Class .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Requirement
+
+decision:Requirement a owl:Class .
+# 
+# http://decision-ontology.googlecode.com/svn/trunk/decision.owl#Situation
+
+decision:Situation a owl:Class .
+# 
+# http://example.com/example/03##Age
+
+<http://example.com/example/03##Age> a owl:Class ;
+	rdfs:subClassOf owl:Thing ;
+	rdfs:label "Age"@en .
+# 
+# http://example.com/example/03##Amoxicilin_therapy
+
+<http://example.com/example/03##Amoxicilin_therapy> a owl:Class ;
+	rdfs:subClassOf <http://example.com/example/03##Therapy> ;
+	rdfs:label "Amoxicilin therapy"@en .
+# 
+# http://example.com/example/03##Bacterial_throat_infection
+
+<http://example.com/example/03##Bacterial_throat_infection> a owl:Class ;
+	rdfs:subClassOf <http://example.com/example/03##Health_problem> ;
+	rdfs:label "Bacterial throat infection"@en .
+# 
+# http://example.com/example/03##Choosing_amoxicilin_therapy
+
+<http://example.com/example/03##Choosing_amoxicilin_therapy> a owl:Class ;
+	rdfs:subClassOf decision:Option , _:genid1 .
+
+_:genid1 a owl:Restriction ;
+	owl:onProperty decision:has_criterion ;
+	owl:someValuesFrom <http://example.com/example/03##Criterion_of_having_penicilin_allergy> .
+
+<http://example.com/example/03##Choosing_amoxicilin_therapy> rdfs:subClassOf _:genid2 .
+
+_:genid2 a owl:Restriction ;
+	owl:onProperty decision:has_criterion ;
+	owl:someValuesFrom <http://example.com/example/03##Minimum_age_of_12_requirement> .
+
+<http://example.com/example/03##Choosing_amoxicilin_therapy> rdfs:subClassOf _:genid3 .
+
+_:genid3 a owl:Restriction ;
+	owl:onProperty decision:has_criterion ;
+	owl:someValuesFrom <http://example.com/example/03##Requirement_for_not_having_amoxicilin_allergy> .
+
+<http://example.com/example/03##Choosing_amoxicilin_therapy> rdfs:subClassOf _:genid4 .
+
+_:genid4 a owl:Restriction ;
+	owl:onProperty decision:involves_choosing ;
+	owl:someValuesFrom <http://example.com/example/03##Amoxicilin_therapy> .
+
+<http://example.com/example/03##Choosing_amoxicilin_therapy> rdfs:label "Choosing amoxicilin therapy"@en .
+# 
+# http://example.com/example/03##Choosing_non-atibiotic_therapy
+
+<http://example.com/example/03##Choosing_non-atibiotic_therapy> a owl:Class ;
+	rdfs:subClassOf decision:Option , _:genid5 .
+
+_:genid5 a owl:Restriction ;
+	owl:onProperty decision:has_criterion ;
+	owl:someValuesFrom <http://example.com/example/03##Recommendation_for_being_ready_to_stay_home_for_five_days> .
+
+<http://example.com/example/03##Choosing_non-atibiotic_therapy> rdfs:subClassOf _:genid6 .
+
+_:genid6 a owl:Restriction ;
+	owl:onProperty decision:involves_choosing ;
+	owl:someValuesFrom <http://example.com/example/03##Non-antibiotic_therapy> .
+
+<http://example.com/example/03##Choosing_non-atibiotic_therapy> rdfs:label "Choosing non-atibiotic therapy"@en .
+# 
+# http://example.com/example/03##Choosing_penicilin_therapy
+
+<http://example.com/example/03##Choosing_penicilin_therapy> a owl:Class ;
+	rdfs:subClassOf decision:Option , _:genid7 .
+
+_:genid7 a owl:Restriction ;
+	owl:onProperty decision:has_criterion ;
+	owl:someValuesFrom <http://example.com/example/03##Minimum_age_of_12_requirement> .
+
+<http://example.com/example/03##Choosing_penicilin_therapy> rdfs:subClassOf _:genid8 .
+
+_:genid8 a owl:Restriction ;
+	owl:onProperty decision:has_criterion ;
+	owl:someValuesFrom <http://example.com/example/03##Requirement_for_not_having_penicilin_allergy> .
+
+<http://example.com/example/03##Choosing_penicilin_therapy> rdfs:subClassOf _:genid9 .
+
+_:genid9 a owl:Restriction ;
+	owl:onProperty decision:involves_choosing ;
+	owl:someValuesFrom <http://example.com/example/03##Penicilin_therapy> .
+
+<http://example.com/example/03##Choosing_penicilin_therapy> rdfs:label "Choosing penicilin therapy"@en .
+# 
+# http://example.com/example/03##Criterion_of_having_penicilin_allergy
+
+<http://example.com/example/03##Criterion_of_having_penicilin_allergy> a owl:Class ;
+	rdfs:subClassOf requirement_ontology:Criterion , _:genid10 .
+
+_:genid10 owl:intersectionOf _:genid13 .
+
+_:genid13 a rdf:List ;
+	rdf:first _:genid14 .
+
+_:genid14 a owl:Restriction ;
+	owl:onProperty decision:is_criterion_for ;
+	owl:someValuesFrom <http://example.com/example/03##Patient> .
+
+_:genid13 rdf:rest _:genid11 .
+
+_:genid11 a rdf:List ;
+	rdf:first _:genid12 .
+
+_:genid12 a owl:Restriction ;
+	owl:onProperty decision:is_satisfied_by ;
+	owl:allValuesFrom <http://example.com/example/03##Patient_with_penicilin_allergy> .
+
+_:genid11 rdf:rest rdf:nil .
+
+_:genid10 a owl:Class .
+
+<http://example.com/example/03##Criterion_of_having_penicilin_allergy> rdfs:label "Criterion of having penicilin allergy"@en .
+# 
+# http://example.com/example/03##Deciding_about_appropriate_therapy_for_bacterial_throat_infection
+
+<http://example.com/example/03##Deciding_about_appropriate_therapy_for_bacterial_throat_infection> a owl:Class ;
+	owl:equivalentClass _:genid15 .
+
+_:genid15 owl:intersectionOf _:genid18 .
+
+_:genid18 a rdf:List ;
+	rdf:first decision:Decision_making ;
+	rdf:rest _:genid16 .
+
+_:genid16 a rdf:List ;
+	rdf:first _:genid17 .
+
+_:genid17 a owl:Restriction ;
+	owl:onProperty decision:is_initiated_by ;
+	owl:someValuesFrom <http://example.com/example/03##Question_for_indicating_appropriate_therapy_for_bacterial_throat_infection> .
+
+_:genid16 rdf:rest rdf:nil .
+
+_:genid15 a owl:Class .
+
+<http://example.com/example/03##Deciding_about_appropriate_therapy_for_bacterial_throat_infection> rdfs:subClassOf decision:Decision_making ;
+	rdfs:comment "See 'Requirement_for_deciding_about_appropriate_therapy_for_bacterial_throat_infection' that defines necessary options and their criteria."@en ;
+	rdfs:label "Deciding about appropriate therapy for bacterial throat infection"@en ;
+	rdfs:seeAlso <http://example.com/example/03##Recommendation_for_deciding_about_appropriate_therapy_for_bacterial_throat_infection> .
+# 
+# http://example.com/example/03##Health_problem
+
+<http://example.com/example/03##Health_problem> a owl:Class ;
+	rdfs:subClassOf owl:Thing ;
+	rdfs:label "Health problem"@en .
+# 
+# http://example.com/example/03##Minimum_age_of_12_requirement
+
+<http://example.com/example/03##Minimum_age_of_12_requirement> a owl:Class ;
+	rdfs:subClassOf decision:Requirement , _:genid19 .
+
+_:genid19 owl:intersectionOf _:genid22 .
+
+_:genid22 a rdf:List ;
+	rdf:first _:genid23 .
+
+_:genid23 a owl:Restriction ;
+	owl:onProperty decision:is_requirement_for ;
+	owl:someValuesFrom <http://example.com/example/03##Patient> .
+
+_:genid22 rdf:rest _:genid20 .
+
+_:genid20 a rdf:List ;
+	rdf:first _:genid21 .
+
+_:genid21 a owl:Restriction ;
+	owl:onProperty decision:is_satisfied_by ;
+	owl:allValuesFrom <http://example.com/example/03##Patient_above_age_of_12> .
+
+_:genid20 rdf:rest rdf:nil .
+
+_:genid19 a owl:Class .
+
+<http://example.com/example/03##Minimum_age_of_12_requirement> rdfs:label "Minimum age of 12 requirement"@en .
+# 
+# http://example.com/example/03##Non-antibiotic_therapy
+
+<http://example.com/example/03##Non-antibiotic_therapy> a owl:Class ;
+	rdfs:subClassOf <http://example.com/example/03##Therapy> ;
+	rdfs:label "Non-antibiotic therapy"@en .
+# 
+# http://example.com/example/03##Patient
+
+<http://example.com/example/03##Patient> a owl:Class ;
+	rdfs:label "Patient"@en .
+# 
+# http://example.com/example/03##Patient_above_age_of_12
+
+<http://example.com/example/03##Patient_above_age_of_12> a owl:Class ;
+	rdfs:subClassOf <http://example.com/example/03##Patient> ;
+	rdfs:label "Patient above age of 12"@en .
+# 
+# http://example.com/example/03##Patient_with_penicilin_allergy
+
+<http://example.com/example/03##Patient_with_penicilin_allergy> a owl:Class ;
+	rdfs:subClassOf <http://example.com/example/03##Patient> ;
+	rdfs:label "Patient with penicilin allergy"@en .
+# 
+# http://example.com/example/03##Patient_without_amoxicillin_allergy
+
+<http://example.com/example/03##Patient_without_amoxicillin_allergy> a owl:Class ;
+	rdfs:subClassOf <http://example.com/example/03##Patient> ;
+	rdfs:label "Patient without amoxicillin allergy"@en .
+# 
+# http://example.com/example/03##Patient_without_penicilin_allergy
+
+<http://example.com/example/03##Patient_without_penicilin_allergy> a owl:Class ;
+	rdfs:subClassOf <http://example.com/example/03##Patient> ;
+	rdfs:label "Patient without penicilin allergy"@en .
+# 
+# http://example.com/example/03##Penicilin_therapy
+
+<http://example.com/example/03##Penicilin_therapy> a owl:Class ;
+	rdfs:subClassOf <http://example.com/example/03##Therapy> ;
+	rdfs:label "Penicilin therapy"@en .
+# 
+# http://example.com/example/03##Question_for_confirming_of_being_older_than_12
+
+<http://example.com/example/03##Question_for_confirming_of_being_older_than_12> a owl:Class ;
+	rdfs:subClassOf decision:Question_for_confirming ;
+	rdfs:label "Question for confirming of being older than 12"@en .
+# 
+# http://example.com/example/03##Question_for_confirming_of_not_having_amoxicilin_allergy
+
+<http://example.com/example/03##Question_for_confirming_of_not_having_amoxicilin_allergy> a owl:Class ;
+	rdfs:subClassOf decision:Question_for_confirming ;
+	rdfs:label "Question for confirming of not having amoxicilin allergy"@en .
+# 
+# http://example.com/example/03##Question_for_confirming_of_not_having_penicilin_allergy
+
+<http://example.com/example/03##Question_for_confirming_of_not_having_penicilin_allergy> a owl:Class ;
+	rdfs:subClassOf decision:Question_for_confirming ;
+	rdfs:label "Question for confirming of not having penicilin allergy"@en .
+# 
+# http://example.com/example/03##Question_for_confirming_the_readiness_to_stay_home_for_five_days
+
+<http://example.com/example/03##Question_for_confirming_the_readiness_to_stay_home_for_five_days> a owl:Class ;
+	rdfs:subClassOf decision:Question_for_confirming ;
+	rdfs:label "Question for confirming the readiness to stay home for five days"@en .
+# 
+# http://example.com/example/03##Question_for_indicating_appropriate_therapy_for_bacterial_throat_infection
+
+<http://example.com/example/03##Question_for_indicating_appropriate_therapy_for_bacterial_throat_infection> a owl:Class ;
+	rdfs:subClassOf decision:Question_for_indicating , _:genid24 .
+
+_:genid24 a owl:Restriction ;
+	owl:onProperty decision:is_question_for_indicating ;
+	owl:someValuesFrom <http://example.com/example/03##Therapy_appropriate_for_bacterial_throat_infection> .
+
+<http://example.com/example/03##Question_for_indicating_appropriate_therapy_for_bacterial_throat_infection> rdfs:comment "What is the appropriate therapy for a bacterial throat infection?"@en ;
+	rdfs:label "Question for indicating appropriate therapy for bacterial throat infection"@en .
+# 
+# http://example.com/example/03##Readiness
+
+<http://example.com/example/03##Readiness> a owl:Class ;
+	rdfs:label "Readiness"@en .
+# 
+# http://example.com/example/03##Recommendation_for_being_ready_to_stay_home_for_five_days
+
+<http://example.com/example/03##Recommendation_for_being_ready_to_stay_home_for_five_days> a owl:Class ;
+	rdfs:subClassOf decision:Recommendation , _:genid25 .
+
+_:genid25 owl:intersectionOf _:genid36 .
+
+_:genid36 a rdf:List ;
+	rdf:first _:genid37 .
+
+_:genid37 a owl:Restriction ;
+	owl:onProperty decision:is_recommendation_for ;
+	owl:someValuesFrom <http://example.com/example/03##Patient> .
+
+_:genid36 rdf:rest _:genid26 .
+
+_:genid26 a rdf:List ;
+	rdf:first _:genid27 .
+
+_:genid27 a owl:Restriction ;
+	owl:onProperty decision:is_satisfied_by ;
+	owl:allValuesFrom _:genid28 .
+
+_:genid28 owl:intersectionOf _:genid35 .
+
+_:genid35 a rdf:List ;
+	rdf:first <http://example.com/example/03##Patient> ;
+	rdf:rest _:genid29 .
+
+_:genid29 a rdf:List ;
+	rdf:first _:genid30 .
+
+_:genid30 a owl:Restriction ;
+	owl:onProperty <http://example.com/example/03##is_bearer_of> ;
+	owl:someValuesFrom _:genid31 .
+
+_:genid31 owl:intersectionOf _:genid34 .
+
+_:genid34 a rdf:List ;
+	rdf:first <http://example.com/example/03##Readiness> ;
+	rdf:rest _:genid32 .
+
+_:genid32 a rdf:List ;
+	rdf:first _:genid33 .
+
+_:genid33 a owl:Restriction ;
+	owl:onProperty <http://example.com/example/03##has_realization> ;
+	owl:someValuesFrom <http://example.com/example/03##Staying_home_for_five_days> .
+
+_:genid32 rdf:rest rdf:nil .
+
+_:genid31 a owl:Class .
+
+_:genid29 rdf:rest rdf:nil .
+
+_:genid28 a owl:Class .
+
+_:genid26 rdf:rest rdf:nil .
+
+_:genid25 a owl:Class .
+
+<http://example.com/example/03##Recommendation_for_being_ready_to_stay_home_for_five_days> rdfs:label "Recommendation for being ready to stay home for five days"@en .
+# 
+# http://example.com/example/03##Recommendation_for_being_ready_to_stay_home_for_three_days
+
+<http://example.com/example/03##Recommendation_for_being_ready_to_stay_home_for_three_days> a owl:Class ;
+	rdfs:subClassOf decision:Recommendation , _:genid38 .
+
+_:genid38 owl:intersectionOf _:genid49 .
+
+_:genid49 a rdf:List ;
+	rdf:first _:genid50 .
+
+_:genid50 a owl:Restriction ;
+	owl:onProperty decision:is_recommendation_for ;
+	owl:someValuesFrom <http://example.com/example/03##Patient> .
+
+_:genid49 rdf:rest _:genid39 .
+
+_:genid39 a rdf:List ;
+	rdf:first _:genid40 .
+
+_:genid40 a owl:Restriction ;
+	owl:onProperty decision:is_satisfied_by ;
+	owl:allValuesFrom _:genid41 .
+
+_:genid41 owl:intersectionOf _:genid48 .
+
+_:genid48 a rdf:List ;
+	rdf:first <http://example.com/example/03##Patient> ;
+	rdf:rest _:genid42 .
+
+_:genid42 a rdf:List ;
+	rdf:first _:genid43 .
+
+_:genid43 a owl:Restriction ;
+	owl:onProperty <http://example.com/example/03##is_bearer_of> ;
+	owl:someValuesFrom _:genid44 .
+
+_:genid44 owl:intersectionOf _:genid47 .
+
+_:genid47 a rdf:List ;
+	rdf:first <http://example.com/example/03##Readiness> ;
+	rdf:rest _:genid45 .
+
+_:genid45 a rdf:List ;
+	rdf:first _:genid46 .
+
+_:genid46 a owl:Restriction ;
+	owl:onProperty <http://example.com/example/03##has_realization> ;
+	owl:someValuesFrom <http://example.com/example/03##Staying_home_for_three_days> .
+
+_:genid45 rdf:rest rdf:nil .
+
+_:genid44 a owl:Class .
+
+_:genid42 rdf:rest rdf:nil .
+
+_:genid41 a owl:Class .
+
+_:genid39 rdf:rest rdf:nil .
+
+_:genid38 a owl:Class .
+
+<http://example.com/example/03##Recommendation_for_being_ready_to_stay_home_for_three_days> rdfs:label "Recommendation for being ready to stay home for three days"@en .
+# 
+# http://example.com/example/03##Recommendation_for_deciding_about_appropriate_therapy_for_bacterial_throat_infection
+
+<http://example.com/example/03##Recommendation_for_deciding_about_appropriate_therapy_for_bacterial_throat_infection> a owl:Class ;
+	owl:equivalentClass _:genid51 .
+
+_:genid51 owl:intersectionOf _:genid54 .
+
+_:genid54 a rdf:List ;
+	rdf:first _:genid55 .
+
+_:genid55 a owl:Restriction ;
+	owl:onProperty decision:is_recommendation_for ;
+	owl:someValuesFrom <http://example.com/example/03##Deciding_about_appropriate_therapy_for_bacterial_throat_infection> .
+
+_:genid54 rdf:rest _:genid52 .
+
+_:genid52 a rdf:List ;
+	rdf:first _:genid53 .
+
+_:genid53 a owl:Restriction ;
+	owl:onProperty decision:is_satisfied_by ;
+	owl:allValuesFrom <http://example.com/example/03##Recommended_decision_making_about_appropriate_therapy_for_bacterial_throat_infection_1> .
+
+_:genid52 rdf:rest rdf:nil .
+
+_:genid51 a owl:Class .
+
+<http://example.com/example/03##Recommendation_for_deciding_about_appropriate_therapy_for_bacterial_throat_infection> rdfs:subClassOf decision:Recommendation ;
+	rdfs:label "Recommendation for deciding about appropriate therapy for bacterial throat infection"@en .
+# 
+# http://example.com/example/03##Recommended_decision_making_about_appropriate_therapy_for_bacterial_throat_infection_1
+
+<http://example.com/example/03##Recommended_decision_making_about_appropriate_therapy_for_bacterial_throat_infection_1> a owl:Class ;
+	owl:equivalentClass _:genid56 .
+
+_:genid56 owl:intersectionOf _:genid71 .
+
+_:genid71 a rdf:List ;
+	rdf:first <http://example.com/example/03##Deciding_about_appropriate_therapy_for_bacterial_throat_infection> ;
+	rdf:rest _:genid69 .
+
+_:genid69 a rdf:List ;
+	rdf:first _:genid70 .
+
+_:genid70 a owl:Restriction ;
+	owl:onProperty decision:initiates ;
+	owl:someValuesFrom <http://example.com/example/03##Question_for_confirming_of_being_older_than_12> .
+
+_:genid69 rdf:rest _:genid67 .
+
+_:genid67 a rdf:List ;
+	rdf:first _:genid68 .
+
+_:genid68 a owl:Restriction ;
+	owl:onProperty decision:initiates ;
+	owl:someValuesFrom <http://example.com/example/03##Question_for_confirming_of_not_having_amoxicilin_allergy> .
+
+_:genid67 rdf:rest _:genid65 .
+
+_:genid65 a rdf:List ;
+	rdf:first _:genid66 .
+
+_:genid66 a owl:Restriction ;
+	owl:onProperty decision:initiates ;
+	owl:someValuesFrom <http://example.com/example/03##Question_for_confirming_of_not_having_penicilin_allergy> .
+
+_:genid65 rdf:rest _:genid63 .
+
+_:genid63 a rdf:List ;
+	rdf:first _:genid64 .
+
+_:genid64 a owl:Restriction ;
+	owl:onProperty decision:initiates ;
+	owl:someValuesFrom <http://example.com/example/03##Question_for_confirming_the_readiness_to_stay_home_for_five_days> .
+
+_:genid63 rdf:rest _:genid61 .
+
+_:genid61 a rdf:List ;
+	rdf:first _:genid62 .
+
+_:genid62 a owl:Restriction ;
+	owl:onProperty decision:is_consideration_of ;
+	owl:someValuesFrom <http://example.com/example/03##Choosing_amoxicilin_therapy> .
+
+_:genid61 rdf:rest _:genid59 .
+
+_:genid59 a rdf:List ;
+	rdf:first _:genid60 .
+
+_:genid60 a owl:Restriction ;
+	owl:onProperty decision:is_consideration_of ;
+	owl:someValuesFrom <http://example.com/example/03##Choosing_non-atibiotic_therapy> .
+
+_:genid59 rdf:rest _:genid57 .
+
+_:genid57 a rdf:List ;
+	rdf:first _:genid58 .
+
+_:genid58 a owl:Restriction ;
+	owl:onProperty decision:is_consideration_of ;
+	owl:someValuesFrom <http://example.com/example/03##Choosing_penicilin_therapy> .
+
+_:genid57 rdf:rest rdf:nil .
+
+_:genid56 a owl:Class .
+
+<http://example.com/example/03##Recommended_decision_making_about_appropriate_therapy_for_bacterial_throat_infection_1> owl:equivalentClass _:genid72 .
+
+_:genid72 a owl:Restriction ;
+	owl:onProperty decision:satisfies_recommendation ;
+	owl:someValuesFrom <http://example.com/example/03##Recommendation_for_deciding_about_appropriate_therapy_for_bacterial_throat_infection> .
+
+<http://example.com/example/03##Recommended_decision_making_about_appropriate_therapy_for_bacterial_throat_infection_1> rdfs:subClassOf <http://example.com/example/03##Deciding_about_appropriate_therapy_for_bacterial_throat_infection> ;
+	rdfs:label "Recommended decision making about appropriate therapy for bacterial throat infection 1"@en .
+# 
+# http://example.com/example/03##Requirement_for_not_having_amoxicilin_allergy
+
+<http://example.com/example/03##Requirement_for_not_having_amoxicilin_allergy> a owl:Class ;
+	rdfs:subClassOf decision:Requirement , _:genid73 .
+
+_:genid73 owl:intersectionOf _:genid76 .
+
+_:genid76 a rdf:List ;
+	rdf:first _:genid77 .
+
+_:genid77 a owl:Restriction ;
+	owl:onProperty decision:is_requirement_for ;
+	owl:someValuesFrom <http://example.com/example/03##Patient> .
+
+_:genid76 rdf:rest _:genid74 .
+
+_:genid74 a rdf:List ;
+	rdf:first _:genid75 .
+
+_:genid75 a owl:Restriction ;
+	owl:onProperty decision:is_satisfied_by ;
+	owl:allValuesFrom <http://example.com/example/03##Patient_without_amoxicillin_allergy> .
+
+_:genid74 rdf:rest rdf:nil .
+
+_:genid73 a owl:Class .
+
+<http://example.com/example/03##Requirement_for_not_having_amoxicilin_allergy> rdfs:label "Requirement for not having amoxicilin allergy"@en .
+# 
+# http://example.com/example/03##Requirement_for_not_having_penicilin_allergy
+
+<http://example.com/example/03##Requirement_for_not_having_penicilin_allergy> a owl:Class ;
+	rdfs:subClassOf decision:Requirement , _:genid78 .
+
+_:genid78 owl:intersectionOf _:genid81 .
+
+_:genid81 a rdf:List ;
+	rdf:first _:genid82 .
+
+_:genid82 a owl:Restriction ;
+	owl:onProperty decision:is_requirement_for ;
+	owl:someValuesFrom <http://example.com/example/03##Patient> .
+
+_:genid81 rdf:rest _:genid79 .
+
+_:genid79 a rdf:List ;
+	rdf:first _:genid80 .
+
+_:genid80 a owl:Restriction ;
+	owl:onProperty decision:is_satisfied_by ;
+	owl:allValuesFrom <http://example.com/example/03##Patient_without_penicilin_allergy> .
+
+_:genid79 rdf:rest rdf:nil .
+
+_:genid78 a owl:Class .
+
+<http://example.com/example/03##Requirement_for_not_having_penicilin_allergy> rdfs:label "Requirement for not having penicilin allergy"@en .
+# 
+# http://example.com/example/03##Staying_home_for_five_days
+
+<http://example.com/example/03##Staying_home_for_five_days> a owl:Class ;
+	rdfs:subClassOf decision:Situation ;
+	rdfs:label "Staying home for five days"@en .
+# 
+# http://example.com/example/03##Staying_home_for_three_days
+
+<http://example.com/example/03##Staying_home_for_three_days> a owl:Class ;
+	rdfs:subClassOf decision:Situation ;
+	rdfs:label "Staying home for three days"@en .
+# 
+# http://example.com/example/03##Therapy
+
+<http://example.com/example/03##Therapy> a owl:Class ;
+	rdfs:label "Therapy"@en .
+# 
+# http://example.com/example/03##Therapy_appropriate_for_bacterial_throat_infection
+
+<http://example.com/example/03##Therapy_appropriate_for_bacterial_throat_infection> a owl:Class ;
+	rdfs:subClassOf <http://example.com/example/03##Therapy> , _:genid83 .
+
+_:genid83 a owl:Restriction ;
+	owl:onProperty <http://example.com/example/03##is_appropriate_for> ;
+	owl:someValuesFrom <http://example.com/example/03##Bacterial_throat_infection> .
+
+<http://example.com/example/03##Therapy_appropriate_for_bacterial_throat_infection> rdfs:label "Therapy appropriate for bacterial throat infection"@en .
+# 
+# http://requirement-ontology.googlecode.com/svn/trunk/requirement_ontology.owl#Criterion
+
+requirement_ontology:Criterion a owl:Class .
+# 
+# Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi
