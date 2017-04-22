@@ -6,6 +6,22 @@ The Decision Ontology (DO) provides basic means for describing decision and deci
 Ontology Language (OWL) and can be accessed here. The current DO prototype is intended to be extended with additional 
 features as the work on the decision format progresses.
 
+## Background
+This DO was published as an output of the [W3C Decisions and Decision-Making Incubator Group](https://www.w3.org/2005/Incubator/decision/) 
+in 2012 as the [Sample Decision Ontology ](https://www.w3.org/2005/Incubator/decision/XGR-decision-20120417/Sample_Decision_Ontology.html). 
+Since then the DO has been re-published here in order to position it for continued development. 
+
+This version of the DO published by the Incubator group will be referred to as the Sample DO and this version, 
+published here, referred to as the DO, v1.0.
+ 
+The differences between the Sample DO and DO v1.0 ontologies themselves are minimal: only updates to a few OWL 
+properties with broken syntax where made. Additional comments and change notes have also been added to the to DO v1.0 
+ontology document. DO v1.0 also includes all of the documentation from the Sample DO's original web pages and PDF 
+documents given on a now-defunct CodeProject website and minor documentation updates have been included: formatting, 
+grammar and spelling, no substantial updates.
+
+DO v1.0 has also, for the first time, been rendered into HTML for browsing. See next section.
+
 ## Ontology document
 Turtle format: [decision.ttl](decision.ttl)  
 RDF XML format: [decision.owl](decision.owl)  
