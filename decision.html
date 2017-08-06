@@ -1,602 +1,604 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Decision ontology</title>
-		<title>Decision ontology</title>
-		<link href="https://raw.githubusercontent.com/nicholascar/decision-o/master/static/owl.css" rel="stylesheet" type="text/css" />
-		<link href="https://raw.githubusercontent.com/nicholascar/decision-o/master/static/Primer.css" rel="stylesheet" type="text/css" />
-		<link href="https://raw.githubusercontent.com/nicholascar/decision-o/master/static/rec.css" rel="stylesheet" type="text/css" />
-		<link href="https://raw.githubusercontent.com/nicholascar/decision-o/master/static/extra.css" rel="stylesheet" type="text/css" />
-		<link rel="shortcut icon" href="/static/favicon.ico" />
-		<script src="https://raw.githubusercontent.com/nicholascar/decision-o/master/static/jquery.js"></script>
-        <script src="https://raw.githubusercontent.com/nicholascar/decision-o/master/static/jquery.scrollTo.js"></script>
-        <script src="https://raw.githubusercontent.com/nicholascar/decision-o/master/static/marked.min.js"></script>
-		<script>
-			$(document).ready(
-			    function () {
-			    	jQuery(".markdown").each(function(el){
-			jQuery(this).after(marked(jQuery(this).text())).remove()});
-			        var list = $('a[name="http://www.essepuntato.it/tmp/1487156869-ontology"]');
-			        if (list.size() != 0) {
-			        	var element = list.first();
-			        	$.scrollTo(element);
-			        }
-			    });
-		</script>
-	</head>
-	<body>
-		<div class="head">
-			<h1>Decision ontology</h1>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Decision ontology</title>
+        <link href="/static/LODE/owl.css" rel="stylesheet" type="text/css" />
+        <link href="/static/LODE/Primer.css" rel="stylesheet" type="text/css" />
+        <link href="/static/LODE/rec.css" rel="stylesheet" type="text/css" />
+        <link href="/static/LODE/extra.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="/static/LODE/favicon.ico" />
+        <script src="/static/LODE/jquery.js"></script>
+        <script src="/static/LODE/jquery.scrollTo.js"></script>
+        <script src="/static/LODE/marked.min.js"></script><script>
+            $(document).ready(
+                function () {
+                	jQuery(".markdown").each(function(el){
+            jQuery(this).after(marked(jQuery(this).text())).remove()});
+                    var list = $('a[id="http://www.essepuntato.it/tmp/1502020398-ontology"]');
+                    if (list.size() != 0) {
+                    	var element = list.first();
+                    	$.scrollTo(element);
+                    }
+                });
+        </script>
+    </head>
+    <body>
+        <div class="head">
+            <h1>Decision ontology</h1>
+            <dl>
+                <dt>IRI:</dt>
+                <dd>http://example.com/ns/dec</dd>
+                <dt>Version IRI:</dt>
+                <dd>http://example.com/ns/dec</dd>
+            </dl>
+            <dl>
+                <dt>Current version:</dt>
+                <dd>v1.0</dd>
+            </dl>
+            <dl>
+                <dt>Authors:</dt>
+                <dd>Piotr Nowara</dd>
+            </dl>
+            <dl>
+                <dt>Imported Ontologies:</dt>
+                <dd><a href="http://example.com/ns/req">http://example.com/ns/req</a> (<a href="http://www.essepuntato.it/lode/owlapi/http://example.com/ns/req">visualise it with LODE</a>)</dd>
+            </dl>
+            <dl>
+                <dt>Other visualisation:</dt>
+                <dd><a href="http://promsns.org/def/do.ttl">Ontology source</a></dd>
+            </dl>
 			<dl>
-				<dt>IRI:</dt>
-				<dd>http://promsns.org/def/do</dd>
+				<dt>Further documentation & examples:</dt>
+				<dd><a href="http://github.com/nicholascar/decision-o">This ontology on GitHub</a></dd>
 			</dl>
-			<dl>
-				<dt>Current version:</dt>
-				<dd>v1.0</dd>
-			</dl>
-			<dl>
-				<dt>Authors:</dt>
-				<dd>Piotr Nowara</dd>
-			</dl>
-			<dl>
-				<dt>Imported Ontologies:</dt>
-				<dd><a href="http://promsns.org/def/ro">http://promsns.org/def/ro</a></dd>
-			</dl>
-			<dl>
-				<dt>Other visualisation:</dt>
-				<dd><a href="http://promsns.org/def/do.ttl">Ontology source</a></dd>
-			</dl>
-		</div>
-		<hr />
-		<h2>Abstract</h2>
-		<p>1. Decision-making is initiated by some underlying problem that can be represented in form of a question.
-		2. Decision-making is a process that can result in some decision and decision is a situation of indicating one of the considered options. Decision Ontology provides means for precise distinguishing and distinct treatment of these two aspects.
-		3. Option is a considered situation of choosing some specific solution.
-		4. Options can have associated criteria that is requirements, recommendation (or other normative entities) that should be applied to them.</p>
-		<div id="toc">
-			<h2>Table of Content</h2>
-			<ol>
-				<li><a href="#classes">Classes</a></li>
-				<li><a href="#objectproperties">Object Properties</a></li>
-				<li><a href="#namespacedeclarations">Namespace Declarations</a></li>
-			</ol>
-		</div>
-		<div id="classes">
-			<h2>Classes</h2>
-			<ul class="hlist">
-				<li><a href="#d4e351" title="http://promsns.org/def/do#Answer">Answer</a></li>
-				<li><a href="#d4e397" title="http://promsns.org/def/do#Context">Context</a></li>
-				<li><a href="#d4e408" title="http://promsns.org/def/do#Decision">Decision</a></li>
-				<li><a href="#d4e444" title="http://promsns.org/def/do#Decision_making">Decision making</a></li>
-				<li><a href="#d4e480" title="http://promsns.org/def/do#Option">Option</a></li>
-				<li><a href="#d4e523" title="http://promsns.org/def/do#Problem">Problem</a></li>
-				<li><a href="#d4e533" title="http://promsns.org/def/do#Process">Process</a></li>
-				<li><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a></li>
-				<li><a href="#d4e565" title="http://promsns.org/def/do#Question_for_confirming">Question for confirming</a></li>
-				<li><a href="#d4e609" title="http://promsns.org/def/do#Question_for_indicating">Question for indicating</a></li>
-				<li><a href="#d4e653" title="http://promsns.org/def/do#Question_for_indicating_solution">Question for indicating solution</a></li>
-				<li><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a></li>
-			</ul>
-			<div id="d4e351" class="entity">
-				<a name="http://promsns.org/def/do#Answer"></a>
-				<h3>Answer<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#Answer</p>
-				<div class="comment"><span class="markdown">Indication of something requested in a question.</span></div>
-				<dl class="description">
-					<dt>has super-classes</dt>
-					<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
-					<dd><a href="#d4e180" title="http://promsns.org/def/do#is_answer_for">is answer for</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
-					<dd>(<a href="#d4e136" title="http://promsns.org/def/do#indicates">indicates</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>) <span class="logic">or</span> (<span class="dotted" title="http://promsns.org/def/do#indicates_boolean_value">indicates boolean value</span><sup title="data property" class="type-dp">dp</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</span>)</dd>
-					<dt>is in domain of</dt>
-					<dd><a href="#d4e180" title="http://promsns.org/def/do#is_answer_for">is answer for</a><sup title="object property" class="type-op">op</sup></dd>
-					<dt>is in range of</dt>
-					<dd><a href="#d4e47" title="http://promsns.org/def/do#has_answer">has answer</a><sup title="object property" class="type-op">op</sup></dd>
-				</dl>
-			</div>
-			<div id="d4e397" class="entity">
-				<a name="http://promsns.org/def/do#Context"></a>
-				<h3>Context<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#Context</p>
-				<dl class="description">
-					<dt>has super-classes</dt>
-					<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
-					<dt>is in range of</dt>
-					<dd><a href="#d4e76" title="http://promsns.org/def/do#has_context">has context</a><sup title="object property" class="type-op">op</sup></dd>
-				</dl>
-			</div>
-			<div id="d4e408" class="entity">
-				<a name="http://promsns.org/def/do#Decision"></a>
-				<h3>Decision<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#Decision</p>
-				<div class="comment"><span class="markdown">Recognizing something as the right/appropriate/best possible solution to a question/problem. It can be a consequence of an objective evaluation of clearly defined criteria but also an intuition, emotion or other subjective factor.</span></div>
-				<dl class="description">
-					<dt>is equivalent to</dt>
-					<dd>(<a href="#d4e136" title="http://promsns.org/def/do#indicates">indicates</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e480" title="http://promsns.org/def/do#Option">Option</a><sup title="class" class="type-c">c</sup>) <span class="logic">and</span> (<span class="dotted" title="http://promsns.org/def/do#is_result_of">is result of</span><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e444" title="http://promsns.org/def/do#Decision_making">Decision making</a><sup title="class" class="type-c">c</sup>)</dd>
-					<dt>has super-classes</dt>
-					<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
-				</dl>
-			</div>
-			<div id="d4e444" class="entity">
-				<a name="http://promsns.org/def/do#Decision_making"></a>
-				<h3>Decision making<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#Decision_making</p>
-				<div class="comment"><span class="markdown">2011-10-13
-					A complex process that starts with a question and may result in indication of a solution for the underlying problem. It is important to note that a decision-making is something substantially different than decision, which is an output of the process of deciding. Usually it can be represented by the following pattern:
-					1. Decision-making starts with a question which is an utterance of some problem
-					2. The decider gathers and analyzes some information
-					3. The decider evaluates possible options (under some criteria).
-					4. One of the options may get recognized as the right/appropriate/best possible solution for the initial question/problem or the decider may choose to restrain from choice. What justifies this act could be an objective evaluation of clearly defined criteria but also an intuition, emotion or other subjective factor.
-					In most cases stages 2-3 consist of many (concurrent or sequential) actions, events, processes related to information gathering, processing, verifying etc. In some cases a decision-making can be viewed as a complex process involving many sub-decisions preceding the recognition of the initial problem solution. In our current work we have focused on the basic elements of the above pattern (the question, gathering information, considering options, choosing solution). It should be considered to what extent this ontology should support the modeling of correlated issues such as: information verification and retrieval etc.</span>
-				</div>
-				<dl class="description">
-					<dt>has super-classes</dt>
-					<dd><a href="#d4e533" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
-					<dd><a href="#d4e253" title="http://promsns.org/def/do#is_initiated_by">is initiated by</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e609" title="http://promsns.org/def/do#Question_for_indicating">Question for indicating</a><sup title="class" class="type-c">c</sup></dd>
-					<dd><a href="#d4e205" title="http://promsns.org/def/do#is_consideration_of">is consideration of</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e480" title="http://promsns.org/def/do#Option">Option</a><sup title="class" class="type-c">c</sup></dd>
-				</dl>
-			</div>
-			<div id="d4e480" class="entity">
-				<a name="http://promsns.org/def/do#Option"></a>
-				<h3>Option<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#Option</p>
-				<div class="comment"><span class="markdown">Option is a situation in which some entity appears as a possible choice in a decision-making process.
-					Option has always related criteria which correspond to requirements, recommendations,obligations etc. Those criteria might be implied from some documents, agreements, formal regulations etc. but also from subjective preferences or feelings. For example choosing a car may have a criterion related to subjective color or brand preferneces.
-					TODO: A set of entities for representing the criteria "source" may be a valuable addition to Decision-O, but it will require modeling a new set of concepts related to subjective phenomena like attitudes, preferences, emotions, intutions etc.</span>
-				</div>
-				<dl class="description">
-					<dt>is equivalent to</dt>
-					<dd>(<a href="#d4e161" title="http://promsns.org/def/do#involves_choosing">involves choosing</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>) <span class="logic">and</span> (<span class="dotted" title="http://promsns.org/def/ro#has_criterion">has criterion</span><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://promsns.org/def/ro#Normative_value">normative value</span><sup title="class" class="type-c">c</sup>)</dd>
-					<dt>has super-classes</dt>
-					<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
-				</dl>
-			</div>
-			<div id="d4e523" class="entity">
-				<a name="http://promsns.org/def/do#Problem"></a>
-				<h3>Problem<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#Problem</p>
-				<dl class="description">
-					<dt>has super-classes</dt>
-					<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
-					<dt>is in domain of</dt>
-					<dd><a href="#d4e111" title="http://promsns.org/def/do#has_solution">has solution</a><sup title="object property" class="type-op">op</sup></dd>
-					<dt>is in range of</dt>
-					<dd><a href="#d4e307" title="http://promsns.org/def/do#is_solution_for">is solution for</a><sup title="object property" class="type-op">op</sup></dd>
-				</dl>
-			</div>
-			<div id="d4e533" class="entity">
-				<a name="http://promsns.org/def/do#Process"></a>
-				<h3>Process<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#Process</p>
-				<dl class="description">
-					<dt>has sub-classes</dt>
-					<dd><a href="#d4e444" title="http://promsns.org/def/do#Decision_making">Decision making</a><sup title="class" class="type-c">c</sup></dd>
-					<dt>is in domain of</dt>
-					<dd><a href="#d4e205" title="http://promsns.org/def/do#is_consideration_of">is consideration of</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e253" title="http://promsns.org/def/do#is_initiated_by">is initiated by</a><sup title="object property" class="type-op">op</sup></dd>
-					<dt>is in range of</dt>
-					<dd><a href="#d4e149" title="http://promsns.org/def/do#initiates">initiates</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e217" title="http://promsns.org/def/do#is_considered_during">is considered during</a><sup title="object property" class="type-op">op</sup></dd>
-				</dl>
-			</div>
-			<div id="d4e541" class="entity">
-				<a name="http://promsns.org/def/do#Question"></a>
-				<h3>Question<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#Question</p>
-				<div class="comment"><span class="markdown">A situation in which a person indicates a will for acquiring knowledge about something.</span></div>
-				<dl class="description">
-					<dt>is equivalent to</dt>
-					<dd><a href="#d4e268" title="http://promsns.org/def/do#is_question_for">is question for</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup></dd>
-					<dt>has super-classes</dt>
-					<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
-					<dt>has sub-classes</dt>
-					<dd><a href="#d4e565" title="http://promsns.org/def/do#Question_for_confirming">Question for confirming</a><sup title="class" class="type-c">c</sup>, <a href="#d4e609" title="http://promsns.org/def/do#Question_for_indicating">Question for indicating</a><sup title="class" class="type-c">c</sup></dd>
-					<dt>is in domain of</dt>
-					<dd><a href="#d4e47" title="http://promsns.org/def/do#has_answer">has answer</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e268" title="http://promsns.org/def/do#is_question_for">is question for</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e278" title="http://promsns.org/def/do#is_question_for_confirming">is question for confirming</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e291" title="http://promsns.org/def/do#is_question_for_indicating">is question for indicating</a><sup title="object property" class="type-op">op</sup></dd>
-					<dt>is in range of</dt>
-					<dd><a href="#d4e180" title="http://promsns.org/def/do#is_answer_for">is answer for</a><sup title="object property" class="type-op">op</sup></dd>
-				</dl>
-			</div>
-			<div id="d4e565" class="entity">
-				<a name="http://promsns.org/def/do#Question_for_confirming"></a>
-				<h3>Question for confirming<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#Question_for_confirming</p>
-				<div class="comment"><span class="markdown">A question containing a whole proposition, that is an utterance that could be true or false. It is answerd by confirming or denying that proposition ('yes/no question')
-					Examples: Are you a vegetarian? Is Norway a member of UE?</span>
-				</div>
-				<dl class="description">
-					<dt>is equivalent to</dt>
-					<dd>(<a href="#d4e278" title="http://promsns.org/def/do#is_question_for_confirming">is question for confirming</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>) <span class="logic">and</span> (<a href="#d4e47" title="http://promsns.org/def/do#has_answer">has answer</a><sup title="object property" class="type-op">op</sup> <span class="logic">only</span> <span class="dotted" title="http://promsns.org/def/do#indicates_boolean_value">indicates boolean value</span><sup title="data property" class="type-dp">dp</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</span>)</dd>
-					<dt>has super-classes</dt>
-					<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
-				</dl>
-			</div>
-			<div id="d4e609" class="entity">
-				<a name="http://promsns.org/def/do#Question_for_indicating"></a>
-				<h3>Question for indicating<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#Question_for_indicating</p>
-				<div class="comment"><span class="markdown">A question demanding indication of some concept, thing or its property in order to be anwsered.
-					Examples: What's your date of birth? What is the name of the Director of the W3C?</span>
-				</div>
-				<dl class="description">
-					<dt>is equivalent to</dt>
-					<dd>(<a href="#d4e291" title="http://promsns.org/def/do#is_question_for_indicating">is question for indicating</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>) <span class="logic">and</span> (<a href="#d4e47" title="http://promsns.org/def/do#has_answer">has answer</a><sup title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e136" title="http://promsns.org/def/do#indicates">indicates</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>)</dd>
-					<dt>has super-classes</dt>
-					<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
-					<dt>has sub-classes</dt>
-					<dd><a href="#d4e653" title="http://promsns.org/def/do#Question_for_indicating_solution">Question for indicating solution</a><sup title="class" class="type-c">c</sup></dd>
-				</dl>
-			</div>
-			<div id="d4e653" class="entity">
-				<a name="http://promsns.org/def/do#Question_for_indicating_solution"></a>
-				<h3>Question for indicating solution<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#Question_for_indicating_solution</p>
-				<dl class="description">
-					<dt>has super-classes</dt>
-					<dd><a href="#d4e609" title="http://promsns.org/def/do#Question_for_indicating">Question for indicating</a><sup title="class" class="type-c">c</sup></dd>
-					<dd><a href="#d4e192" title="http://promsns.org/def/do#is_consequence_of">is consequence of</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e523" title="http://promsns.org/def/do#Problem">Problem</a><sup title="class" class="type-c">c</sup></dd>
-				</dl>
-			</div>
-			<div id="d4e674" class="entity">
-				<a name="http://promsns.org/def/do#Situation"></a>
-				<h3>Situation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#Situation</p>
-				<dl class="description">
-					<dt>has sub-classes</dt>
-					<dd><a href="#d4e351" title="http://promsns.org/def/do#Answer">Answer</a><sup title="class" class="type-c">c</sup>, <a href="#d4e397" title="http://promsns.org/def/do#Context">Context</a><sup title="class" class="type-c">c</sup>, <a href="#d4e408" title="http://promsns.org/def/do#Decision">Decision</a><sup title="class" class="type-c">c</sup>, <a href="#d4e480" title="http://promsns.org/def/do#Option">Option</a><sup title="class" class="type-c">c</sup>, <a href="#d4e523" title="http://promsns.org/def/do#Problem">Problem</a><sup title="class" class="type-c">c</sup>, <a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
-					<dt>is in domain of</dt>
-					<dd><a href="#d4e62" title="http://promsns.org/def/do#has_consequence">has consequence</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e192" title="http://promsns.org/def/do#is_consequence_of">is consequence of</a><sup title="object property" class="type-op">op</sup></dd>
-					<dt>is in range of</dt>
-					<dd><a href="#d4e62" title="http://promsns.org/def/do#has_consequence">has consequence</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e192" title="http://promsns.org/def/do#is_consequence_of">is consequence of</a><sup title="object property" class="type-op">op</sup></dd>
-				</dl>
-			</div>
-		</div>
-		<div id="objectproperties">
-			<h2>Object Properties</h2>
-			<ul class="hlist">
-				<li><a href="#d4e47" title="http://promsns.org/def/do#has_answer">has answer</a></li>
-				<li><a href="#d4e62" title="http://promsns.org/def/do#has_consequence">has consequence</a></li>
-				<li><a href="#d4e76" title="http://promsns.org/def/do#has_context">has context</a></li>
-				<li><a href="#d4e90" title="http://promsns.org/def/do#has_criterion">has criterion</a></li>
-				<li><a href="#d4e101" title="http://promsns.org/def/do#has_result">has result</a></li>
-				<li><a href="#d4e111" title="http://promsns.org/def/do#has_solution">has solution</a></li>
-				<li><a href="#d4e123" title="http://promsns.org/def/do#includes">includes</a></li>
-				<li><a href="#d4e136" title="http://promsns.org/def/do#indicates">indicates</a></li>
-				<li><a href="#d4e149" title="http://promsns.org/def/do#initiates">initiates</a></li>
-				<li><a href="#d4e161" title="http://promsns.org/def/do#involves_choosing">involves choosing</a></li>
-				<li><a href="#d4e172" title="http://promsns.org/def/do#is_adressed_to">is adressed to</a></li>
-				<li><a href="#d4e180" title="http://promsns.org/def/do#is_answer_for">is answer for</a></li>
-				<li><a href="#d4e192" title="http://promsns.org/def/do#is_consequence_of">is consequence of</a></li>
-				<li><a href="#d4e205" title="http://promsns.org/def/do#is_consideration_of">is consideration of</a></li>
-				<li><a href="#d4e217" title="http://promsns.org/def/do#is_considered_during">is considered during</a></li>
-				<li><a href="#d4e227" title="http://promsns.org/def/do#is_context_of"><span>is context of</span></a></li>
-				<li><a href="#d4e235" title="http://promsns.org/def/do#is_included_in">is included in</a></li>
-				<li><a href="#d4e245" title="http://promsns.org/def/do#is_indicated_by">is indicated by</a></li>
-				<li><a href="#d4e253" title="http://promsns.org/def/do#is_initiated_by">is initiated by</a></li>
-				<li><a href="#d4e268" title="http://promsns.org/def/do#is_question_for">is question for</a></li>
-				<li><a href="#d4e278" title="http://promsns.org/def/do#is_question_for_confirming">is question for confirming</a></li>
-				<li><a href="#d4e291" title="http://promsns.org/def/do#is_question_for_indicating">is question for indicating</a></li>
-				<li><a href="#d4e307" title="http://promsns.org/def/do#is_solution_for">is solution for</a></li>
-				<li><a href="#d4e322" title="http://promsns.org/def/do#supposedly_same_as">supposedly same as</a></li>
-			</ul>
-			<div id="d4e47" class="entity">
-				<a name="http://promsns.org/def/do#has_answer"></a>
-				<h3>has answer<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#has_answer</p>
-				<div class="description">
-					<dl>
-						<dt>has domain</dt>
-						<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>has range</dt>
-						<dd><a href="#d4e351" title="http://promsns.org/def/do#Answer">Answer</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e180" title="http://promsns.org/def/do#is_answer_for">is answer for</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e62" class="entity">
-				<a name="http://promsns.org/def/do#has_consequence"></a>
-				<h3>has consequence<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#has_consequence</p>
-				<div class="description">
-					<dl>
-						<dt>has domain</dt>
-						<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>has range</dt>
-						<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e192" title="http://promsns.org/def/do#is_consequence_of">is consequence of</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e76" class="entity">
-				<a name="http://promsns.org/def/do#has_context"></a>
-				<h3>has context<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#has_context</p>
-				<div class="description">
-					<dl>
-						<dt>has super-properties</dt>
-						<dd><span class="dotted" title="http://promsns.org/def/do#occurs_in">occurs in</span><sup title="object property" class="type-op">op</sup></dd>
-						<dt>has range</dt>
-						<dd><a href="#d4e397" title="http://promsns.org/def/do#Context">Context</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e227" title="http://promsns.org/def/do#is_context_of">is context of</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e90" class="entity">
-				<a name="http://promsns.org/def/do#has_criterion"></a>
-				<h3>has criterion<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#has_criterion</p>
-				<div class="description">
-					<dl>
-						<dt>has range</dt>
-						<dd><span class="dotted" title="http://promsns.org/def/ro#Normative_value">normative value</span><sup title="class" class="type-c">c</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e101" class="entity">
-				<a name="http://promsns.org/def/do#has_result"></a>
-				<h3>has result<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#has_result</p>
-				<div class="description">
-					<dl>
-						<dt>is inverse of</dt>
-						<dd><span class="dotted" title="http://promsns.org/def/do#is_result_of">is result of</span><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e111" class="entity">
-				<a name="http://promsns.org/def/do#has_solution"></a>
-				<h3>has solution<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#has_solution</p>
-				<div class="description">
-					<dl>
-						<dt>has domain</dt>
-						<dd><a href="#d4e523" title="http://promsns.org/def/do#Problem">Problem</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e307" title="http://promsns.org/def/do#is_solution_for">is solution for</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e123" class="entity">
-				<a name="http://promsns.org/def/do#includes"></a>
-				<h3>includes<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#includes</p>
-				<div class="description">
-					<dl>
-						<dt>has super-properties</dt>
-						<dd><span class="dotted" title="http://promsns.org/def/do#is_occurence_of">is occurence of</span><sup title="object property" class="type-op">op</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e235" title="http://promsns.org/def/do#is_included_in">is included in</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e136" class="entity">
-				<a name="http://promsns.org/def/do#indicates"></a>
-				<h3>indicates<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#indicates</p>
-				<div class="description">
-					<dl>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e245" title="http://promsns.org/def/do#is_indicated_by">is indicated by</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e149" class="entity">
-				<a name="http://promsns.org/def/do#initiates"></a>
-				<h3>initiates<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#initiates</p>
-				<div class="description">
-					<dl>
-						<dt>has range</dt>
-						<dd><a href="#d4e533" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e253" title="http://promsns.org/def/do#is_initiated_by">is initiated by</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e161" class="entity">
-				<a name="http://promsns.org/def/do#involves_choosing"></a>
-				<h3>involves choosing<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#involves_choosing</p>
-				<div class="description">
-					<dl>
-						<dt>has super-properties</dt>
-						<dd><span class="dotted" title="http://promsns.org/def/do#is_occurence_of">is occurence of</span><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e172" class="entity">
-				<a name="http://promsns.org/def/do#is_adressed_to"></a>
-				<h3>is adressed to<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#is_adressed_to</p>
-			</div>
-			<div id="d4e180" class="entity">
-				<a name="http://promsns.org/def/do#is_answer_for"></a>
-				<h3>is answer for<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#is_answer_for</p>
-				<div class="description">
-					<dl>
-						<dt>has domain</dt>
-						<dd><a href="#d4e351" title="http://promsns.org/def/do#Answer">Answer</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>has range</dt>
-						<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e47" title="http://promsns.org/def/do#has_answer">has answer</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e192" class="entity">
-				<a name="http://promsns.org/def/do#is_consequence_of"></a>
-				<h3>is consequence of<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#is_consequence_of</p>
-				<div class="description">
-					<dl>
-						<dt>has domain</dt>
-						<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>has range</dt>
-						<dd><a href="#d4e674" title="http://promsns.org/def/do#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e62" title="http://promsns.org/def/do#has_consequence">has consequence</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e205" class="entity">
-				<a name="http://promsns.org/def/do#is_consideration_of"></a>
-				<h3>is consideration of<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#is_consideration_of</p>
-				<div class="description">
-					<dl>
-						<dt>has domain</dt>
-						<dd><a href="#d4e533" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e217" title="http://promsns.org/def/do#is_considered_during">is considered during</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e217" class="entity">
-				<a name="http://promsns.org/def/do#is_considered_during"></a>
-				<h3>is considered during<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#is_considered_during</p>
-				<div class="description">
-					<dl>
-						<dt>has range</dt>
-						<dd><a href="#d4e533" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e205" title="http://promsns.org/def/do#is_consideration_of">is consideration of</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e227" class="entity">
-				<a name="http://promsns.org/def/do#is_context_of"></a>
-				<h3>is context of<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#is_context_of</p>
-				<div class="description">
-					<dl>
-						<dt>has super-properties</dt>
-						<dd><span class="dotted" title="http://promsns.org/def/do#is_occurence_of">is occurence of</span><sup title="object property" class="type-op">op</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e76" title="http://promsns.org/def/do#has_context">has context</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e235" class="entity">
-				<a name="http://promsns.org/def/do#is_included_in"></a>
-				<h3>is included in<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#is_included_in</p>
-				<div class="description">
-					<dl>
-						<dt>has super-properties</dt>
-						<dd><span class="dotted" title="http://promsns.org/def/do#occurs_in">occurs in</span><sup title="object property" class="type-op">op</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e123" title="http://promsns.org/def/do#includes">includes</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e245" class="entity">
-				<a name="http://promsns.org/def/do#is_indicated_by"></a>
-				<h3>is indicated by<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#is_indicated_by</p>
-				<div class="description">
-					<dl>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e136" title="http://promsns.org/def/do#indicates">indicates</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e253" class="entity">
-				<a name="http://promsns.org/def/do#is_initiated_by"></a>
-				<h3>is initiated by<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#is_initiated_by</p>
-				<div class="description">
-					<dl>
-						<dt>has domain</dt>
-						<dd><a href="#d4e533" title="http://promsns.org/def/do#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e149" title="http://promsns.org/def/do#initiates">initiates</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e268" class="entity">
-				<a name="http://promsns.org/def/do#is_question_for"></a>
-				<h3>is question for<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#is_question_for</p>
-				<div class="description">
-					<dl>
-						<dt>has sub-properties</dt>
-						<dd><a href="#d4e278" title="http://promsns.org/def/do#is_question_for_confirming">is question for confirming</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e291" title="http://promsns.org/def/do#is_question_for_indicating">is question for indicating</a><sup title="object property" class="type-op">op</sup></dd>
-						<dt>has domain</dt>
-						<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e278" class="entity">
-				<a name="http://promsns.org/def/do#is_question_for_confirming"></a>
-				<h3>is question for confirming<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#is_question_for_confirming</p>
-				<div class="description">
-					<dl>
-						<dt>has super-properties</dt>
-						<dd><a href="#d4e268" title="http://promsns.org/def/do#is_question_for">is question for</a><sup title="object property" class="type-op">op</sup></dd>
-						<dt>has domain</dt>
-						<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e291" class="entity">
-				<a name="http://promsns.org/def/do#is_question_for_indicating"></a>
-				<h3>is question for indicating<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#is_question_for_indicating</p>
-				<div class="description">
-					<dl>
-						<dt>has super-properties</dt>
-						<dd><a href="#d4e268" title="http://promsns.org/def/do#is_question_for">is question for</a><sup title="object property" class="type-op">op</sup></dd>
-						<dt>has domain</dt>
-						<dd><a href="#d4e541" title="http://promsns.org/def/do#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e307" class="entity">
-				<a name="http://promsns.org/def/do#is_solution_for"></a>
-				<h3>is solution for<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#is_solution_for</p>
-				<div class="description">
-					<dl>
-						<dt>has range</dt>
-						<dd><a href="#d4e523" title="http://promsns.org/def/do#Problem">Problem</a><sup title="class" class="type-c">c</sup></dd>
-						<dt>is inverse of</dt>
-						<dd><a href="#d4e111" title="http://promsns.org/def/do#has_solution">has solution</a><sup title="object property" class="type-op">op</sup></dd>
-					</dl>
-				</div>
-			</div>
-			<div id="d4e322" class="entity">
-				<a name="http://promsns.org/def/do#supposedly_same_as"></a>
-				<h3>supposedly same as<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-				<p><strong>IRI:</strong> http://promsns.org/def/do#supposedly_same_as</p>
-				<div class="comment"><span class="markdown">Renamed from 'is supposed to be identical with'.</span></div>
-			</div>
-		</div>
-		<div id="namespacedeclarations">
-			<h2>Namespace Declarations <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-			<dl>
-				<dt><em>default namespace</em></dt>
-				<dd>http://promsns.org/def/do#</dd>
-				<dt>def</dt>
-				<dd>http://promsns.org/def/</dd>
-				<dt>owl</dt>
-				<dd>http://www.w3.org/2002/07/owl#</dd>
-				<dt>rdf</dt>
-				<dd>http://www.w3.org/1999/02/22-rdf-syntax-ns#</dd>
-				<dt>rdfs</dt>
-				<dd>http://www.w3.org/2000/01/rdf-schema#</dd>
-				<dt>ro</dt>
-				<dd>http://promsns.org/def/ro#</dd>
-				<dt>terms</dt>
-				<dd>http://purl.org/dc/terms/</dd>
-				<dt>xsd</dt>
-				<dd>http://www.w3.org/2001/XMLSchema#</dd>
-			</dl>
-		</div>
-		<p class="endnote">This HTML document was obtained by processing the OWL ontology source code through <a href="http://www.essepuntato.it/lode">LODE</a>, <em>Live OWL Documentation Environment</em>, developed by <a href="http://www.essepuntato.it">Silvio Peroni</a>.</p>
-	</body>
+        </div>
+        <hr />
+        <h2>Abstract</h2>
+        <span class="markdown">1. Decision-making is initiated by some underlying problem that can be represented in form of a question.
+        2. Decision-making is a process that can result in some decision and decision is a situation of indicating one of the considered options. Decision Ontology provides means for precise distinguishing and distinct treatment of these two aspects.
+        3. Option is a considered situation of choosing some specific solution.
+        4. Options can have associated criteria that is requirements, recommendation (or other normative entities) that should be applied to them.</span>
+        <div id="toc">
+            <h2>Table of Content</h2>
+            <ol>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#objectproperties">Object Properties</a></li>
+                <li><a href="#namespacedeclarations">Namespace Declarations</a></li>
+            </ol>
+        </div>
+        <div id="classes">
+            <h2>Classes</h2>
+            <ul class="hlist">
+                <li><a href="#d4e356" title="http://example.com/ns/dec#Answer">Answer</a></li>
+                <li><a href="#d4e402" title="http://example.com/ns/dec#Context">Context</a></li>
+                <li><a href="#d4e413" title="http://example.com/ns/dec#Decision">Decision</a></li>
+                <li><a href="#d4e449" title="http://example.com/ns/dec#Decision_making">Decision making</a></li>
+                <li><a href="#d4e485" title="http://example.com/ns/dec#Option">Option</a></li>
+                <li><a href="#d4e528" title="http://example.com/ns/dec#Problem">Problem</a></li>
+                <li><a href="#d4e538" title="http://example.com/ns/dec#Process">Process</a></li>
+                <li><a href="#d4e546" title="http://example.com/ns/dec#Question">Question</a></li>
+                <li><a href="#d4e560" title="http://example.com/ns/dec#Question_for_confirming">Question for confirming</a></li>
+                <li><a href="#d4e604" title="http://example.com/ns/dec#Question_for_indicating">Question for indicating</a></li>
+                <li><a href="#d4e648" title="http://example.com/ns/dec#Question_for_indicating_solution">Question for indicating solution</a></li>
+                <li><a href="#d4e669" title="http://example.com/ns/dec#Situation">Situation</a></li>
+            </ul>
+            <div id="d4e356" class="entity">
+                <a id="http://example.com/ns/dec#Answer"></a>
+                <h3>Answer<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#Answer</p>
+                <div class="comment"><span class="markdown">Indication of something requested in a question.</span></div>
+                <dl class="description">
+                    <dt>has super-classes</dt>
+                    <dd><a href="#d4e669" title="http://example.com/ns/dec#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+                    <dd><a href="#d4e185" title="http://example.com/ns/dec#is_answer_for">is answer for</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e546" title="http://example.com/ns/dec#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+                    <dd>(<a href="#d4e141" title="http://example.com/ns/dec#indicates">indicates</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>) <span class="logic">or</span> (<span class="dotted" title="http://example.com/ns/dec#indicates_boolean_value">indicates boolean value</span><sup title="data property" class="type-dp">dp</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</span>)</dd>
+                    <dt>is in domain of</dt>
+                    <dd><a href="#d4e185" title="http://example.com/ns/dec#is_answer_for">is answer for</a><sup title="object property" class="type-op">op</sup></dd>
+                    <dt>is in range of</dt>
+                    <dd><a href="#d4e52" title="http://example.com/ns/dec#has_answer">has answer</a><sup title="object property" class="type-op">op</sup></dd>
+                </dl>
+            </div>
+            <div id="d4e402" class="entity">
+                <a id="http://example.com/ns/dec#Context"></a>
+                <h3>Context<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#Context</p>
+                <dl class="description">
+                    <dt>has super-classes</dt>
+                    <dd><a href="#d4e669" title="http://example.com/ns/dec#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+                    <dt>is in range of</dt>
+                    <dd><a href="#d4e81" title="http://example.com/ns/dec#has_context">has context</a><sup title="object property" class="type-op">op</sup></dd>
+                </dl>
+            </div>
+            <div id="d4e413" class="entity">
+                <a id="http://example.com/ns/dec#Decision"></a>
+                <h3>Decision<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#Decision</p>
+                <div class="comment"><span class="markdown">Recognizing something as the right/appropriate/best possible solution to a question/problem. It can be a consequence of an objective evaluation of clearly defined criteria but also an intuition, emotion or other subjective factor.</span></div>
+                <dl class="description">
+                    <dt>is equivalent to</dt>
+                    <dd>(<a href="#d4e141" title="http://example.com/ns/dec#indicates">indicates</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e485" title="http://example.com/ns/dec#Option">Option</a><sup title="class" class="type-c">c</sup>) <span class="logic">and</span> (<span class="dotted" title="http://example.com/ns/dec#is_result_of">is result of</span><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e449" title="http://example.com/ns/dec#Decision_making">Decision making</a><sup title="class" class="type-c">c</sup>)</dd>
+                    <dt>has super-classes</dt>
+                    <dd><a href="#d4e669" title="http://example.com/ns/dec#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+                </dl>
+            </div>
+            <div id="d4e449" class="entity">
+                <a id="http://example.com/ns/dec#Decision_making"></a>
+                <h3>Decision making<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#Decision_making</p>
+                <div class="comment"><span class="markdown">2011-10-13
+                    A complex process that starts with a question and may result in indication of a solution for the underlying problem. It is important to note that a decision-making is something substantially different than decision, which is an output of the process of deciding. Usually it can be represented by the following pattern:
+                    1. Decision-making starts with a question which is an utterance of some problem
+                    2. The decider gathers and analyzes some information
+                    3. The decider evaluates possible options (under some criteria).
+                    4. One of the options may get recognized as the right/appropriate/best possible solution for the initial question/problem or the decider may choose to restrain from choice. What justifies this act could be an objective evaluation of clearly defined criteria but also an intuition, emotion or other subjective factor.
+                    In most cases stages 2-3 consist of many (concurrent or sequential) actions, events, processes related to information gathering, processing, verifying etc. In some cases a decision-making can be viewed as a complex process involving many sub-decisions preceding the recognition of the initial problem solution. In our current work we have focused on the basic elements of the above pattern (the question, gathering information, considering options, choosing solution). It should be considered to what extent this ontology should support the modeling of correlated issues such as: information verification and retrieval etc.</span>
+                </div>
+                <dl class="description">
+                    <dt>has super-classes</dt>
+                    <dd><a href="#d4e538" title="http://example.com/ns/dec#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
+                    <dd><a href="#d4e258" title="http://example.com/ns/dec#is_initiated_by">is initiated by</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e604" title="http://example.com/ns/dec#Question_for_indicating">Question for indicating</a><sup title="class" class="type-c">c</sup></dd>
+                    <dd><a href="#d4e210" title="http://example.com/ns/dec#is_consideration_of">is consideration of</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e485" title="http://example.com/ns/dec#Option">Option</a><sup title="class" class="type-c">c</sup></dd>
+                </dl>
+            </div>
+            <div id="d4e485" class="entity">
+                <a id="http://example.com/ns/dec#Option"></a>
+                <h3>Option<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#Option</p>
+                <div class="comment"><span class="markdown">Option is a situation in which some entity appears as a possible choice in a decision-making process.
+                    Option has always related criteria which correspond to requirements, recommendations,obligations etc. Those criteria might be implied from some documents, agreements, formal regulations etc. but also from subjective preferences or feelings. For example choosing a car may have a criterion related to subjective color or brand preferneces.
+                    TODO: A set of entities for representing the criteria "source" may be a valuable addition to Decision-O, but it will require modeling a new set of concepts related to subjective phenomena like attitudes, preferences, emotions, intutions etc.</span>
+                </div>
+                <dl class="description">
+                    <dt>is equivalent to</dt>
+                    <dd>(<a href="#d4e166" title="http://example.com/ns/dec#involves_choosing">involves choosing</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>) <span class="logic">and</span> (<span class="dotted" title="http://promsns.org/def/ro#has_criterion">has criterion</span><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://promsns.org/def/ro#Normative_value">normative value</span><sup title="class" class="type-c">c</sup>)</dd>
+                    <dt>has super-classes</dt>
+                    <dd><a href="#d4e669" title="http://example.com/ns/dec#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+                </dl>
+            </div>
+            <div id="d4e528" class="entity">
+                <a id="http://example.com/ns/dec#Problem"></a>
+                <h3>Problem<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#Problem</p>
+                <dl class="description">
+                    <dt>has super-classes</dt>
+                    <dd><a href="#d4e669" title="http://example.com/ns/dec#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+                    <dt>is in domain of</dt>
+                    <dd><a href="#d4e116" title="http://example.com/ns/dec#has_solution">has solution</a><sup title="object property" class="type-op">op</sup></dd>
+                    <dt>is in range of</dt>
+                    <dd><a href="#d4e312" title="http://example.com/ns/dec#is_solution_for">is solution for</a><sup title="object property" class="type-op">op</sup></dd>
+                </dl>
+            </div>
+            <div id="d4e538" class="entity">
+                <a id="http://example.com/ns/dec#Process"></a>
+                <h3>Process<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#Process</p>
+                <dl class="description">
+                    <dt>has sub-classes</dt>
+                    <dd><a href="#d4e449" title="http://example.com/ns/dec#Decision_making">Decision making</a><sup title="class" class="type-c">c</sup></dd>
+                    <dt>is in domain of</dt>
+                    <dd><a href="#d4e210" title="http://example.com/ns/dec#is_consideration_of">is consideration of</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e258" title="http://example.com/ns/dec#is_initiated_by">is initiated by</a><sup title="object property" class="type-op">op</sup></dd>
+                    <dt>is in range of</dt>
+                    <dd><a href="#d4e154" title="http://example.com/ns/dec#initiates">initiates</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e222" title="http://example.com/ns/dec#is_considered_during">is considered during</a><sup title="object property" class="type-op">op</sup></dd>
+                </dl>
+            </div>
+            <div id="d4e546" class="entity">
+                <a id="http://example.com/ns/dec#Question"></a>
+                <h3>Question<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#Question</p>
+                <div class="comment"><span class="markdown">A situation in which a person indicates a will for acquiring knowledge about something.</span></div>
+                <dl class="description">
+                    <dt>has super-classes</dt>
+                    <dd><a href="#d4e669" title="http://example.com/ns/dec#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+                    <dt>has sub-classes</dt>
+                    <dd><a href="#d4e560" title="http://example.com/ns/dec#Question_for_confirming">Question for confirming</a><sup title="class" class="type-c">c</sup>, <a href="#d4e604" title="http://example.com/ns/dec#Question_for_indicating">Question for indicating</a><sup title="class" class="type-c">c</sup></dd>
+                    <dt>is in domain of</dt>
+                    <dd><a href="#d4e52" title="http://example.com/ns/dec#has_answer">has answer</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e273" title="http://example.com/ns/dec#is_question_for">is question for</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e283" title="http://example.com/ns/dec#is_question_for_confirming">is question for confirming</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e296" title="http://example.com/ns/dec#is_question_for_indicating">is question for indicating</a><sup title="object property" class="type-op">op</sup></dd>
+                    <dt>is in range of</dt>
+                    <dd><a href="#d4e185" title="http://example.com/ns/dec#is_answer_for">is answer for</a><sup title="object property" class="type-op">op</sup></dd>
+                </dl>
+            </div>
+            <div id="d4e560" class="entity">
+                <a id="http://example.com/ns/dec#Question_for_confirming"></a>
+                <h3>Question for confirming<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#Question_for_confirming</p>
+                <div class="comment"><span class="markdown">A question containing a whole proposition, that is an utterance that could be true or false. It is answerd by confirming or denying that proposition ('yes/no question')
+                    Examples: Are you a vegetarian? Is Norway a member of UE?</span>
+                </div>
+                <dl class="description">
+                    <dt>is equivalent to</dt>
+                    <dd>(<a href="#d4e283" title="http://example.com/ns/dec#is_question_for_confirming">is question for confirming</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>) <span class="logic">and</span> (<a href="#d4e52" title="http://example.com/ns/dec#has_answer">has answer</a><sup title="object property" class="type-op">op</sup> <span class="logic">only</span> <span class="dotted" title="http://example.com/ns/dec#indicates_boolean_value">indicates boolean value</span><sup title="data property" class="type-dp">dp</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</span>)</dd>
+                    <dt>has super-classes</dt>
+                    <dd><a href="#d4e546" title="http://example.com/ns/dec#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+                </dl>
+            </div>
+            <div id="d4e604" class="entity">
+                <a id="http://example.com/ns/dec#Question_for_indicating"></a>
+                <h3>Question for indicating<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#Question_for_indicating</p>
+                <div class="comment"><span class="markdown">A question demanding indication of some concept, thing or its property in order to be anwsered.
+                    Examples: What's your date of birth? What is the name of the Director of the W3C?</span>
+                </div>
+                <dl class="description">
+                    <dt>is equivalent to</dt>
+                    <dd>(<a href="#d4e296" title="http://example.com/ns/dec#is_question_for_indicating">is question for indicating</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>) <span class="logic">and</span> (<a href="#d4e52" title="http://example.com/ns/dec#has_answer">has answer</a><sup title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e141" title="http://example.com/ns/dec#indicates">indicates</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span><sup title="class" class="type-c">c</sup>)</dd>
+                    <dt>has super-classes</dt>
+                    <dd><a href="#d4e546" title="http://example.com/ns/dec#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+                    <dt>has sub-classes</dt>
+                    <dd><a href="#d4e648" title="http://example.com/ns/dec#Question_for_indicating_solution">Question for indicating solution</a><sup title="class" class="type-c">c</sup></dd>
+                </dl>
+            </div>
+            <div id="d4e648" class="entity">
+                <a id="http://example.com/ns/dec#Question_for_indicating_solution"></a>
+                <h3>Question for indicating solution<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#Question_for_indicating_solution</p>
+                <dl class="description">
+                    <dt>has super-classes</dt>
+                    <dd><a href="#d4e604" title="http://example.com/ns/dec#Question_for_indicating">Question for indicating</a><sup title="class" class="type-c">c</sup></dd>
+                    <dd><a href="#d4e197" title="http://example.com/ns/dec#is_consequence_of">is consequence of</a><sup title="object property" class="type-op">op</sup> <span class="logic">some</span> <a href="#d4e528" title="http://example.com/ns/dec#Problem">Problem</a><sup title="class" class="type-c">c</sup></dd>
+                </dl>
+            </div>
+            <div id="d4e669" class="entity">
+                <a id="http://example.com/ns/dec#Situation"></a>
+                <h3>Situation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#Situation</p>
+                <dl class="description">
+                    <dt>has sub-classes</dt>
+                    <dd><a href="#d4e356" title="http://example.com/ns/dec#Answer">Answer</a><sup title="class" class="type-c">c</sup>, <a href="#d4e402" title="http://example.com/ns/dec#Context">Context</a><sup title="class" class="type-c">c</sup>, <a href="#d4e413" title="http://example.com/ns/dec#Decision">Decision</a><sup title="class" class="type-c">c</sup>, <a href="#d4e485" title="http://example.com/ns/dec#Option">Option</a><sup title="class" class="type-c">c</sup>, <a href="#d4e528" title="http://example.com/ns/dec#Problem">Problem</a><sup title="class" class="type-c">c</sup>, <a href="#d4e546" title="http://example.com/ns/dec#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+                    <dt>is in domain of</dt>
+                    <dd><a href="#d4e67" title="http://example.com/ns/dec#has_consequence">has consequence</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e197" title="http://example.com/ns/dec#is_consequence_of">is consequence of</a><sup title="object property" class="type-op">op</sup></dd>
+                    <dt>is in range of</dt>
+                    <dd><a href="#d4e67" title="http://example.com/ns/dec#has_consequence">has consequence</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e197" title="http://example.com/ns/dec#is_consequence_of">is consequence of</a><sup title="object property" class="type-op">op</sup></dd>
+                </dl>
+            </div>
+        </div>
+        <div id="objectproperties">
+            <h2>Object Properties</h2>
+            <ul class="hlist">
+                <li><a href="#d4e52" title="http://example.com/ns/dec#has_answer">has answer</a></li>
+                <li><a href="#d4e67" title="http://example.com/ns/dec#has_consequence">has consequence</a></li>
+                <li><a href="#d4e81" title="http://example.com/ns/dec#has_context">has context</a></li>
+                <li><a href="#d4e95" title="http://example.com/ns/dec#has_criterion">has criterion</a></li>
+                <li><a href="#d4e106" title="http://example.com/ns/dec#has_result">has result</a></li>
+                <li><a href="#d4e116" title="http://example.com/ns/dec#has_solution">has solution</a></li>
+                <li><a href="#d4e128" title="http://example.com/ns/dec#includes">includes</a></li>
+                <li><a href="#d4e141" title="http://example.com/ns/dec#indicates">indicates</a></li>
+                <li><a href="#d4e154" title="http://example.com/ns/dec#initiates">initiates</a></li>
+                <li><a href="#d4e166" title="http://example.com/ns/dec#involves_choosing">involves choosing</a></li>
+                <li><a href="#d4e177" title="http://example.com/ns/dec#is_adressed_to">is adressed to</a></li>
+                <li><a href="#d4e185" title="http://example.com/ns/dec#is_answer_for">is answer for</a></li>
+                <li><a href="#d4e197" title="http://example.com/ns/dec#is_consequence_of">is consequence of</a></li>
+                <li><a href="#d4e210" title="http://example.com/ns/dec#is_consideration_of">is consideration of</a></li>
+                <li><a href="#d4e222" title="http://example.com/ns/dec#is_considered_during">is considered during</a></li>
+                <li><a href="#d4e232" title="http://example.com/ns/dec#is_context_of"><span>is context of</span></a></li>
+                <li><a href="#d4e240" title="http://example.com/ns/dec#is_included_in">is included in</a></li>
+                <li><a href="#d4e250" title="http://example.com/ns/dec#is_indicated_by">is indicated by</a></li>
+                <li><a href="#d4e258" title="http://example.com/ns/dec#is_initiated_by">is initiated by</a></li>
+                <li><a href="#d4e273" title="http://example.com/ns/dec#is_question_for">is question for</a></li>
+                <li><a href="#d4e283" title="http://example.com/ns/dec#is_question_for_confirming">is question for confirming</a></li>
+                <li><a href="#d4e296" title="http://example.com/ns/dec#is_question_for_indicating">is question for indicating</a></li>
+                <li><a href="#d4e312" title="http://example.com/ns/dec#is_solution_for">is solution for</a></li>
+                <li><a href="#d4e327" title="http://example.com/ns/dec#supposedly_same_as">supposedly same as</a></li>
+            </ul>
+            <div id="d4e52" class="entity">
+                <a id="http://example.com/ns/dec#has_answer"></a>
+                <h3>has answer<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#has_answer</p>
+                <div class="description">
+                    <dl>
+                        <dt>has domain</dt>
+                        <dd><a href="#d4e546" title="http://example.com/ns/dec#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>has range</dt>
+                        <dd><a href="#d4e356" title="http://example.com/ns/dec#Answer">Answer</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e185" title="http://example.com/ns/dec#is_answer_for">is answer for</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e67" class="entity">
+                <a id="http://example.com/ns/dec#has_consequence"></a>
+                <h3>has consequence<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#has_consequence</p>
+                <div class="description">
+                    <dl>
+                        <dt>has domain</dt>
+                        <dd><a href="#d4e669" title="http://example.com/ns/dec#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>has range</dt>
+                        <dd><a href="#d4e669" title="http://example.com/ns/dec#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e197" title="http://example.com/ns/dec#is_consequence_of">is consequence of</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e81" class="entity">
+                <a id="http://example.com/ns/dec#has_context"></a>
+                <h3>has context<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#has_context</p>
+                <div class="description">
+                    <dl>
+                        <dt>has super-properties</dt>
+                        <dd><span class="dotted" title="http://example.com/ns/dec#occurs_in">occurs in</span><sup title="object property" class="type-op">op</sup></dd>
+                        <dt>has range</dt>
+                        <dd><a href="#d4e402" title="http://example.com/ns/dec#Context">Context</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e232" title="http://example.com/ns/dec#is_context_of">is context of</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e95" class="entity">
+                <a id="http://example.com/ns/dec#has_criterion"></a>
+                <h3>has criterion<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#has_criterion</p>
+                <div class="description">
+                    <dl>
+                        <dt>has range</dt>
+                        <dd><span class="dotted" title="http://promsns.org/def/ro#Normative_value">normative value</span><sup title="class" class="type-c">c</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e106" class="entity">
+                <a id="http://example.com/ns/dec#has_result"></a>
+                <h3>has result<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#has_result</p>
+                <div class="description">
+                    <dl>
+                        <dt>is inverse of</dt>
+                        <dd><span class="dotted" title="http://example.com/ns/dec#is_result_of">is result of</span><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e116" class="entity">
+                <a id="http://example.com/ns/dec#has_solution"></a>
+                <h3>has solution<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#has_solution</p>
+                <div class="description">
+                    <dl>
+                        <dt>has domain</dt>
+                        <dd><a href="#d4e528" title="http://example.com/ns/dec#Problem">Problem</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e312" title="http://example.com/ns/dec#is_solution_for">is solution for</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e128" class="entity">
+                <a id="http://example.com/ns/dec#includes"></a>
+                <h3>includes<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#includes</p>
+                <div class="description">
+                    <dl>
+                        <dt>has super-properties</dt>
+                        <dd><span class="dotted" title="http://example.com/ns/dec#is_occurence_of">is occurence of</span><sup title="object property" class="type-op">op</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e240" title="http://example.com/ns/dec#is_included_in">is included in</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e141" class="entity">
+                <a id="http://example.com/ns/dec#indicates"></a>
+                <h3>indicates<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#indicates</p>
+                <div class="description">
+                    <dl>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e250" title="http://example.com/ns/dec#is_indicated_by">is indicated by</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e154" class="entity">
+                <a id="http://example.com/ns/dec#initiates"></a>
+                <h3>initiates<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#initiates</p>
+                <div class="description">
+                    <dl>
+                        <dt>has range</dt>
+                        <dd><a href="#d4e538" title="http://example.com/ns/dec#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e258" title="http://example.com/ns/dec#is_initiated_by">is initiated by</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e166" class="entity">
+                <a id="http://example.com/ns/dec#involves_choosing"></a>
+                <h3>involves choosing<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#involves_choosing</p>
+                <div class="description">
+                    <dl>
+                        <dt>has super-properties</dt>
+                        <dd><span class="dotted" title="http://example.com/ns/dec#is_occurence_of">is occurence of</span><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e177" class="entity">
+                <a id="http://example.com/ns/dec#is_adressed_to"></a>
+                <h3>is adressed to<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#is_adressed_to</p>
+            </div>
+            <div id="d4e185" class="entity">
+                <a id="http://example.com/ns/dec#is_answer_for"></a>
+                <h3>is answer for<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#is_answer_for</p>
+                <div class="description">
+                    <dl>
+                        <dt>has domain</dt>
+                        <dd><a href="#d4e356" title="http://example.com/ns/dec#Answer">Answer</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>has range</dt>
+                        <dd><a href="#d4e546" title="http://example.com/ns/dec#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e52" title="http://example.com/ns/dec#has_answer">has answer</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e197" class="entity">
+                <a id="http://example.com/ns/dec#is_consequence_of"></a>
+                <h3>is consequence of<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#is_consequence_of</p>
+                <div class="description">
+                    <dl>
+                        <dt>has domain</dt>
+                        <dd><a href="#d4e669" title="http://example.com/ns/dec#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>has range</dt>
+                        <dd><a href="#d4e669" title="http://example.com/ns/dec#Situation">Situation</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e67" title="http://example.com/ns/dec#has_consequence">has consequence</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e210" class="entity">
+                <a id="http://example.com/ns/dec#is_consideration_of"></a>
+                <h3>is consideration of<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#is_consideration_of</p>
+                <div class="description">
+                    <dl>
+                        <dt>has domain</dt>
+                        <dd><a href="#d4e538" title="http://example.com/ns/dec#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e222" title="http://example.com/ns/dec#is_considered_during">is considered during</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e222" class="entity">
+                <a id="http://example.com/ns/dec#is_considered_during"></a>
+                <h3>is considered during<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#is_considered_during</p>
+                <div class="description">
+                    <dl>
+                        <dt>has range</dt>
+                        <dd><a href="#d4e538" title="http://example.com/ns/dec#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e210" title="http://example.com/ns/dec#is_consideration_of">is consideration of</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e232" class="entity">
+                <a id="http://example.com/ns/dec#is_context_of"></a>
+                <h3>is context of<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#is_context_of</p>
+                <div class="description">
+                    <dl>
+                        <dt>has super-properties</dt>
+                        <dd><span class="dotted" title="http://example.com/ns/dec#is_occurence_of">is occurence of</span><sup title="object property" class="type-op">op</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e81" title="http://example.com/ns/dec#has_context">has context</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e240" class="entity">
+                <a id="http://example.com/ns/dec#is_included_in"></a>
+                <h3>is included in<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#is_included_in</p>
+                <div class="description">
+                    <dl>
+                        <dt>has super-properties</dt>
+                        <dd><span class="dotted" title="http://example.com/ns/dec#occurs_in">occurs in</span><sup title="object property" class="type-op">op</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e128" title="http://example.com/ns/dec#includes">includes</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e250" class="entity">
+                <a id="http://example.com/ns/dec#is_indicated_by"></a>
+                <h3>is indicated by<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#is_indicated_by</p>
+                <div class="description">
+                    <dl>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e141" title="http://example.com/ns/dec#indicates">indicates</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e258" class="entity">
+                <a id="http://example.com/ns/dec#is_initiated_by"></a>
+                <h3>is initiated by<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#is_initiated_by</p>
+                <div class="description">
+                    <dl>
+                        <dt>has domain</dt>
+                        <dd><a href="#d4e538" title="http://example.com/ns/dec#Process">Process</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e154" title="http://example.com/ns/dec#initiates">initiates</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e273" class="entity">
+                <a id="http://example.com/ns/dec#is_question_for"></a>
+                <h3>is question for<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#is_question_for</p>
+                <div class="description">
+                    <dl>
+                        <dt>has sub-properties</dt>
+                        <dd><a href="#d4e283" title="http://example.com/ns/dec#is_question_for_confirming">is question for confirming</a><sup title="object property" class="type-op">op</sup>, <a href="#d4e296" title="http://example.com/ns/dec#is_question_for_indicating">is question for indicating</a><sup title="object property" class="type-op">op</sup></dd>
+                        <dt>has domain</dt>
+                        <dd><a href="#d4e546" title="http://example.com/ns/dec#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e283" class="entity">
+                <a id="http://example.com/ns/dec#is_question_for_confirming"></a>
+                <h3>is question for confirming<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#is_question_for_confirming</p>
+                <div class="description">
+                    <dl>
+                        <dt>has super-properties</dt>
+                        <dd><a href="#d4e273" title="http://example.com/ns/dec#is_question_for">is question for</a><sup title="object property" class="type-op">op</sup></dd>
+                        <dt>has domain</dt>
+                        <dd><a href="#d4e546" title="http://example.com/ns/dec#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e296" class="entity">
+                <a id="http://example.com/ns/dec#is_question_for_indicating"></a>
+                <h3>is question for indicating<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#is_question_for_indicating</p>
+                <div class="description">
+                    <dl>
+                        <dt>has super-properties</dt>
+                        <dd><a href="#d4e273" title="http://example.com/ns/dec#is_question_for">is question for</a><sup title="object property" class="type-op">op</sup></dd>
+                        <dt>has domain</dt>
+                        <dd><a href="#d4e546" title="http://example.com/ns/dec#Question">Question</a><sup title="class" class="type-c">c</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e312" class="entity">
+                <a id="http://example.com/ns/dec#is_solution_for"></a>
+                <h3>is solution for<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#is_solution_for</p>
+                <div class="description">
+                    <dl>
+                        <dt>has range</dt>
+                        <dd><a href="#d4e528" title="http://example.com/ns/dec#Problem">Problem</a><sup title="class" class="type-c">c</sup></dd>
+                        <dt>is inverse of</dt>
+                        <dd><a href="#d4e116" title="http://example.com/ns/dec#has_solution">has solution</a><sup title="object property" class="type-op">op</sup></dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="d4e327" class="entity">
+                <a id="http://example.com/ns/dec#supposedly_same_as"></a>
+                <h3>supposedly same as<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://example.com/ns/dec#supposedly_same_as</p>
+                <div class="comment"><span class="markdown">Renamed from 'is supposed to be identical with'.</span></div>
+            </div>
+        </div>
+        <div id="namespacedeclarations">
+            <h2>Namespace Declarations <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+            <dl>
+                <dt><em>default namespace</em></dt>
+                <dd>http://example.com/ns/dec#</dd>
+                <dt>ns</dt>
+                <dd>http://example.com/ns/</dd>
+                <dt>owl</dt>
+                <dd>http://www.w3.org/2002/07/owl#</dd>
+                <dt>rdf</dt>
+                <dd>http://www.w3.org/1999/02/22-rdf-syntax-ns#</dd>
+                <dt>rdfs</dt>
+                <dd>http://www.w3.org/2000/01/rdf-schema#</dd>
+                <dt>ro</dt>
+                <dd>http://promsns.org/def/ro#</dd>
+                <dt>terms</dt>
+                <dd>http://purl.org/dc/terms/</dd>
+                <dt>xsd</dt>
+                <dd>http://www.w3.org/2001/XMLSchema#</dd>
+            </dl>
+        </div>
+        <p class="endnote">This HTML document was obtained by processing the OWL ontology source code through <a href="http://www.essepuntato.it/lode">LODE</a>, <em>Live OWL Documentation Environment</em>, developed by <a href="http://www.essepuntato.it">Silvio Peroni</a>.</p>
+    </body>
 </html>
