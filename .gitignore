@@ -4,3 +4,9 @@
 
 # PyCharm
 .idea/
+
+# Protege
+catalog-v001.xml
+
+# Mac
+.DS_Store
