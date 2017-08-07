@@ -368,7 +368,7 @@ _:genid14 a owl:Class .
 <http://example.com/ns/dec#Option> rdfs:subClassOf <http://example.com/ns/dec#Situation> ;
 	rdfs:comment """Option is a situation in which some entity appears as a possible choice in a decision-making process.
 
-Option has always related criteria which correspond to requirements, recommendations,obligations etc. Those criteria might be implied from some documents, agreements, formal regulations etc. but also from subjective preferences or feelings. For example choosing a car may have a criterion related to subjective color or brand preferneces.
+Option has always related criteria which correspond to requirements, recommendations,obligations etc. Those criteria might be implied from some documents, agreements, formal regulations etc. but also from subjective preferences or feelings. For example choosing a car may have a criterion related to subjective color or brand preferences.
 
 TODO: A set of entities for representing the criteria \"source\" may be a valuable addition to Decision-O, but it will require modeling a new set of concepts related to subjective phenomena like attitudes, preferences, emotions, intutions etc."""@en ;
 	rdfs:label "Opcja"@pl , "Option"@en ;
