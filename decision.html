@@ -10,7 +10,8 @@
         <link rel="shortcut icon" href="/static/LODE/favicon.ico" />
         <script src="/static/LODE/jquery.js"></script>
         <script src="/static/LODE/jquery.scrollTo.js"></script>
-        <script src="/static/LODE/marked.min.js"></script><script>
+        <script src="/static/LODE/marked.min.js"></script>
+        <script>
             $(document).ready(
                 function () {
                 	jQuery(".markdown").each(function(el){
@@ -42,25 +43,25 @@
             </dl>
             <dl>
                 <dt>Imported Ontologies:</dt>
-                <dd><a href="http://example.com/ns/req">http://example.com/ns/req</a> (<a href="http://www.essepuntato.it/lode/owlapi/http://example.com/ns/req">visualise it with LODE</a>)</dd>
+                <dd><a href="https://github.com/nicholascar/decision-o/blob/master/imports/requirement.ttl">Requirements ontology</a></dd>
             </dl>
             <dl>
                 <dt>Other visualisation:</dt>
                 <dd><a href="http://promsns.org/def/do.ttl">Ontology source</a></dd>
             </dl>
 			<dl>
-				<dt>Further documentation & examples:</dt>
+				<dt>Further documentation &amp; examples:</dt>
 				<dd><a href="http://github.com/nicholascar/decision-o">This ontology on GitHub</a></dd>
 			</dl>
         </div>
         <hr />
         <h2>Abstract</h2>
         <span class="markdown">
-1. Decision-making is initiated by some underlying problem that can be represented in form of a question.
-2. Decision-making is a process that can result in some decision and decision is a situation of indicating one of the considered options. Decision Ontology provides means for precise distinguishing and distinct treatment of these two aspects.
-3. Option is a considered situation of choosing some specific solution.
-4. Options can have associated criteria that is requirements, recommendation (or other normative entities) that should be applied to them.
-	</span>
+          1. Decision-making is initiated by some underlying problem that can be represented in form of a question.
+          2. Decision-making is a process that can result in some decision and decision is a situation of indicating one of the considered options. Decision Ontology provides means for precise distinguishing and distinct treatment of these two aspects.
+          3. Option is a considered situation of choosing some specific solution.
+          4. Options can have associated criteria that is requirements, recommendation (or other normative entities) that should be applied to them.
+	      </span>
         <div id="toc">
             <h2>Table of Content</h2>
             <ol>
@@ -68,6 +69,10 @@
                 <li><a href="#objectproperties">Object Properties</a></li>
                 <li><a href="#namespacedeclarations">Namespace Declarations</a></li>
             </ol>
+        </div>
+        <div id="img">
+            <img src="images/decision.png" alt="Image of all DO classes">
+            <p><em>All of the DO classes and their relationships</em></p>
         </div>
         <div id="classes">
             <h2>Classes</h2>
@@ -128,8 +133,8 @@
                 <a id="http://example.com/ns/dec#Decision_making"></a>
                 <h3>Decision making<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
                 <p><strong>IRI:</strong> http://example.com/ns/dec#Decision_making</p>
-                <div class="comment"><span class="markdown">2011-10-13  
-A complex process that starts with a question and may result in indication of a solution for the underlying problem. It is important to note that a decision-making is something substantially different than decision, which is an output of the process of deciding. Usually it can be represented by the following pattern:  
+                <div class="comment"><span class="markdown">2011-10-13
+A complex process that starts with a question and may result in indication of a solution for the underlying problem. It is important to note that a decision-making is something substantially different than decision, which is an output of the process of deciding. Usually it can be represented by the following pattern:
 1. Decision-making starts with a question which is an utterance of some problem
 2. The decider gathers and analyzes some information
 3. The decider evaluates possible options (under some criteria).
